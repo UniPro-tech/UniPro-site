@@ -39,8 +39,7 @@ export default function RootLayout({
         {children}
         <footer className="p-4 bg-gray-800 text-white text-center">
           <p>
-            &copy; UniProject 2024
-            Akatsuki
+            &copy;2024 UniProject All Rights Reserved.
           </p>
         </footer>
       </body>
