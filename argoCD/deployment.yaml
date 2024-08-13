@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unipro-site
+spec:
+  selector:
+    matchLabels:
+      app: unipro-site
+  template:
+    metadata:
+      labels:
+        app: unipro-site
+    spec:
+      containers:
+      - name: app
+        image: localhost:32000/unipro-site:1.5.2
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: unipro-site
+spec:
+  selector:
+    app: unipro-site
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: LoadBalancer

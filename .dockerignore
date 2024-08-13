@@ -1,0 +1,10 @@
+.vscode
+.githooks
+.github
+node_modules
+.next
+README.md
+colab_scripts.sh
+.prettierrc
+.gitignore
+.gitmessage
