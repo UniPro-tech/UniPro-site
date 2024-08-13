@@ -18,6 +18,7 @@ type AS = "button" | "Link";
 // Buttonコンポーネントが設定できるprops
 type Props<T extends AS> = T extends "button" ? ButtonProps : CustomLinkProps;
 
+// eslint-disable-next-line react/display-name
 export const Button = forwardRef<HTMLButtonElement, Props<AS>>((props, ref) => {
   // propsにhrefがあればLinkコンポーネントとしてレンダリング
   if ("href" in props) {
