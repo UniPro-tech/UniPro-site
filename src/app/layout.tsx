@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
 import Logo from "@/img/UniPro_Logo.webp";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
       <body className={inter.className}>
         <header className="bg-gray-800 text-white">
           <nav className="flex items-center justify-between p-2">
