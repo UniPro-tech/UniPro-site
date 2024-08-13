@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private/
+Disallow: /_next/
+Disallow: /assets/
+Sitemap: https://www.uniproject-tech.net/sitemap.xml
