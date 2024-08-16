@@ -6,6 +6,7 @@ spec:
   selector:
     matchLabels:
       app: unipro-site
+  replicas: 3
   template:
     metadata:
       labels:
@@ -23,15 +24,3 @@ spec:
           requests:
             memory: "128Mi"
             cpu: "250m"
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: unipro-site
-spec:
-  selector:
-    app: unipro-site
-  ports:
-  - port: 80
-    targetPort: 3000
-  type: LoadBalancer
