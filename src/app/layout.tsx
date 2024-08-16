@@ -1,9 +1,10 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
 import Logo from "@/img/UniPro_Logo.webp";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Head from "next/head";
+import Hamburger from "@/components/hamburger";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,18 +15,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
-      <body className={inter.className}>
-        <header className="bg-gray-800 text-white">
-          <nav className="flex items-center justify-between p-2">
+      <body className="w-full">
+        <header className="bg-gray-800 text-white w-full">
+          <nav className="hidden lg:flex items-center justify-between p-2">
             <a href="/">
-              <h1 className="text-2xl font-bold flex items-center">
+              <h1 className="lg:text-2xl font-bold space-x-4 flex items-center">
                 <Image
                   src={Logo}
                   alt="UniProject's Logo"
                   width={50}
                   height={50}
-                />UniProject公式サイト(仮)
+                />
+                <div>
+                  UniProject公式サイト(仮)
+                </div>
               </h1>
             </a>
             <ul className="flex right-4 text-right space-x-5">
@@ -37,9 +44,10 @@ export default function RootLayout({
               </li>
             </ul>
           </nav>
+          <Hamburger />
         </header>
         {children}
-        <footer className="p-4 bg-gray-800 text-white text-center">
+        <footer className="p-4 bg-gray-800 text-white text-center w-full">
           <p>
             &copy;2024 UniProject All Rights Reserved.
           </p>

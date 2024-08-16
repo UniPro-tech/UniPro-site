@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center bg-white text-black spac-y-0">
-      <section id="first" className="flex space-y-3 items-center min-w-full p-20 flex-col bg-gray-100">
+    <main className="flex min-h-screen w-full flex-col items-center bg-white text-black spac-y-0">
+      <section id="first" className="flex space-y-3 w-full items-center min-w-full p-20 flex-col bg-gray-100">
         <div className="mb-4">
           <a href="#first">
             <h3 className="text-2xl text-center">全国ネットのデジタルサークル</h3>
@@ -30,19 +30,19 @@ export default function Home() {
           もっと詳しく(準備中)
         </Button>
       </section>
-      <section id="announce" className="flex space-y-3 items-center min-w-full p-20 flex-col bg-gray-200">
+      <section id="announce" className="flex flex-col space-y-3 items-center justify-center w-full p-20 bg-gray-200">
         <h3 className="text-2xl">
           <a href="#announce">最新情報</a>
           <p>UniProjectの最新情報をお届けします。</p>
         </h3>
-        <div className="flex space-x-3">
-          <div className="flex flex-col w-1/2">
+        <div className="flex flex-col space-y-3 lg:flex-row lg:space-x-3">
+          <div className="flex flex-col w-87.5 divide-y border-black divide-black">
             <div>
               <h4>2024/08/09</h4>
               <p>UniProject公式サイト(工事中)をリリースしました。</p>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="w-87.5">
             <TwitterTimeline />
           </div>
         </div>
@@ -51,7 +51,7 @@ export default function Home() {
         <h3 className="text-2xl">
           <a href="#join">参加しよう！</a>
         </h3>
-        <div className="text-center flux flux-col space-y-3">
+        <div className="text-center flex flex-col space-y-3">
           <p>UniProjectに参加するには、以下のリンクから参加フォームにアクセスしてください。</p>
           <Button<'Link'> href="https://forms.gle/VsRQQ4LwnxvDUyH58" disabled={false}>
             参加フォーム

@@ -18,7 +18,7 @@ const TwitterTimeline = () => {
             className="twitter-timeline"
             href="https://twitter.com/UniPro_digital?ref_src=twsrc%5Etfw"
             target="_blank" rel="noopener noreferrer"
-            data-width="500" data-height="400" data-dnt="true" data-theme="light"
+            data-width="350" data-height="500" data-dnt="true" data-theme="light"
         >
             Tweets by UniPro_digital
         </a>
