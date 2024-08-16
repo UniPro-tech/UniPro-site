@@ -7,6 +7,12 @@ type PropsType = {
     setIsMenuOpen?: (arg0: boolean) => void;
 };
 
+/**
+ * Renders the navigation links component.
+ *
+ * @param propClass - The additional class name for styling.
+ * @param setIsMenuOpen - The function to set the state of the menu open status.
+ */
 const NavLinks = ({ propClass, setIsMenuOpen }: PropsType) => {
     const currentPath = usePathname();
 

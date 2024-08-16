@@ -5,6 +5,11 @@ import NavLinks from "@/components/NavLinks";
 import Image from "next/image";
 import Logo from "@/img/UniPro_Logo.webp";
 
+/**
+ * Hamburger component.
+ * 
+ * @returns The rendered Hamburger component.
+ */
 const Hamburger = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (

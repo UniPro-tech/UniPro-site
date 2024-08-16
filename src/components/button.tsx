@@ -7,19 +7,24 @@ const styles = {
   linkDisabled: "opacity-50 cursor-not-allowed leading-none",
 };
 
-// buttonタグのprops + ref
 type ButtonProps = ComponentPropsWithoutRef<'button'> & {
   href: string;
 };
-// next/link のprops + disabled
 type CustomLinkProps = ComponentPropsWithoutRef<typeof Link> & {
   disabled?: boolean;
 };
-// Buttonコンポーネントが受け取ることができる値
 type AS = 'button' | 'Link';
-// Buttonコンポーネントが設定できるprops
 type Props<T extends AS> = T extends 'button' ? ButtonProps : CustomLinkProps;
 
+
+/**
+ * Represents a button component.
+ *
+ * @template AS - The type of the button component.
+ * @param {Props<AS>} props - The props for the button component.
+ * @param {React.Ref<HTMLButtonElement>} ref - The ref for the button component.
+ * @returns {JSX.Element} - The rendered button component.
+ */
 // eslint-disable-next-line react/display-name
 export const Button = forwardRef<HTMLButtonElement, Props<AS>>((props, ref) => {
   const router = useRouter()
@@ -39,7 +44,6 @@ export const Button = forwardRef<HTMLButtonElement, Props<AS>>((props, ref) => {
     );
   }*/
 
-  // buttonタグとしてレンダリング
   const buttonAttributes = props as ButtonProps;
   const { disabled, ...linkAttributes } = props as unknown as CustomLinkProps;
   return (
