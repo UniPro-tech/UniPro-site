@@ -45,6 +45,10 @@ jobs:
           name: image
           path: .
 
+      - name: Extract tag name
+        run: |
+          tagname=${GITHUB_REF#refs/*/} && echo "TAG_NAME=${tagname#v}" >> $GITHUB_ENV
+
       - name: Enable Docker configuration
         run: |
           SW_JSON=""
