@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: localhost:32000/unipro-site:1.4.6
+        image: localhost:32000/unipro-site:1.4.7
         ports:
         - containerPort: 3000
         resources:
