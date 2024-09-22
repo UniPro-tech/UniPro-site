@@ -16,7 +16,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: argocd-server
+            name: unipro-site
             port:
               name: https
   tls:
