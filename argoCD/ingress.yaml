@@ -12,7 +12,7 @@ spec:
   - host: www.uniproject-tech.net
     http:
       paths:
-      - path: /(?!\.)
+      - path: /(?!\.well-known)
         pathType: Prefix
         backend:
           service:
