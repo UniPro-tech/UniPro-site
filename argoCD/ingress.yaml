@@ -19,7 +19,3 @@ spec:
             name: unipro-site
             port:
               number: 80
-  tls:
-  - hosts:
-    - www.uniproject-tech.net
-    secretName: unipro-site-tls
