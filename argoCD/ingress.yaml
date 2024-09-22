@@ -18,7 +18,7 @@ spec:
           service:
             name: unipro-site
             port:
-              number: 80
+              number: 3000
   tls:
   - hosts:
     - www.uniproject-tech.net
