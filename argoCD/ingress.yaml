@@ -22,4 +22,4 @@ spec:
   tls:
   - hosts:
     - www.uniproject-tech.net
-    secretName: unipro-site-tls
+    secretName: unipro-www-tls
