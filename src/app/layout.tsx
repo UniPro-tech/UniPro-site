@@ -5,6 +5,7 @@ import Logo from "@/img/UniPro_Logo.webp";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
 import Hamburger from "@/components/hamburger";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -49,7 +50,9 @@ export default function RootLayout({
         {children}
         <footer className="p-4 bg-gray-800 text-white text-center w-full">
           <p>
-            &copy;2024 UniProject All Rights Reserved.
+            <Link href={"https://github.com/UniPro-tech/UniPro-site/blob/master/LICENSE"} className="hover:text-blue">
+              Copyright&copy;2024 UniProject All Rights Reserved.See credits here.
+            </Link>
           </p>
         </footer>
       </body>
