@@ -28,8 +28,10 @@ export default function Slideshow({ images }: PropsType): JSX.Element {
         <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             breakpoints={slideSettings}
-            slidesPerView={"auto"}
+            slidesPerView={'auto'}
             centeredSlides={true}
+            mousewheel={true}
+            freeMode={true}
             loop={true}
             speed={1000}
             autoplay={{
@@ -40,14 +42,12 @@ export default function Slideshow({ images }: PropsType): JSX.Element {
             pagination={{
                 clickable: true,
             }}
-            className={styles.slideWrapper}
+            className={styles.slideWrapper + "w-full max-w-full"}
         >
             {images.map((src: string, index: number) => (
                 <SwiperSlide key={index}>
-                    <Image
+                    <img
                         src={src}
-                        width={1920}
-                        height={1038}
                         alt="Slider Image"
                         sizes="(min-width: 1024px) 100vw, 60vw"
                         className={styles.slideImage}

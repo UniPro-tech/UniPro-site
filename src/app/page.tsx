@@ -15,11 +15,12 @@ export default function Home() {
     "/img/callboy.png",
     "/img/fixer.png",
     "/img/UniPro-GitTool.png",
+    "/img/arane.png",
   ];
   return (
     <main className="flex min-h-screen w-full flex-col items-center bg-white text-black space-y-0">
       <section id="first" className="flex space-y-3 max-w-full w-full min-w-full items-center min-w-full p-20 flex-col bg-gray-100">
-        <Slideshow images={images} />
+        <Slideshow images={images}/>
         <div className='flex flex-col items-center space-y-1'>
           <div className="mb-4">
             <a href="#first">
