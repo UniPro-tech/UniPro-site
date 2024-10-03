@@ -12,10 +12,10 @@ import Slideshow from '@/components/slideshow';
 
 export default function Home() {
   const images = [
-    "/img/callboy.jpg",
-    "/img/fixer.jpg",
-    "/img/UniPro-GitTool.jpg",
-    "/img/arane.jpg",
+    "/img/callboy.webp",
+    "/img/fixer.webp",
+    "/img/UniPro-GitTool.webp",
+    "/img/arane.webp",
   ];
   return (
     <main className="flex min-h-screen w-full flex-col items-center bg-white text-black space-y-0">
