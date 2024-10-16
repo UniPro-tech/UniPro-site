@@ -4,7 +4,7 @@ metadata:
   name: unipro-site-ingress
   namespace: unipro-site
   annotations:
-    cert-manager.io/cluster-issuer: cluster-issuer
+  #  cert-manager.io/cluster-issuer: cluster-issuer
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   ingressClassName: nginx
@@ -19,7 +19,7 @@ spec:
             name: unipro-site
             port:
               number: 80
-  tls:
-  - hosts:
-    - www.uniproject-tech.net
-    secretName: unipro-www-tls
+  #tls:
+  #- hosts:
+  #  - www.uniproject-tech.net
+  #  secretName: unipro-www-tls
