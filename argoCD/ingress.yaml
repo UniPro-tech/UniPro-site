@@ -4,24 +4,25 @@ metadata:
   name: unipro-site-ingress
   namespace: unipro-site
   annotations:
-  #  cert-manager.io/cluster-issuer: cluster-issuer
+    cert-manager.io/cluster-issuer: cloudflare
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ngins.ingress.kubernetes.io/force-ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   ingressClassName: nginx
   rules:
   - host: www.uniproject-tech.net
     http:
       paths:
-      - path: /(?!\.well-known/.+)(.*)
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: unipro-site
             port:
               number: 80
-  #tls:
-  #- hosts:
-  #  - www.uniproject-tech.net
-  #  secretName: unipro-www-tls
+  tls:
+  - hosts:
+    - www.uniproject-tech.net
+    - uniproject-tech.net
+    secretName: unipro-www-tls
