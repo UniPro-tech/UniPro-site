@@ -4,7 +4,7 @@ metadata:
   name: unipro-site-ingress
   namespace: unipro-site
   annotations:
-    cert-manager.io/cluster-issuer: cloudflare
+    cert-manager.io/cluster-issuer: le-cf-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ngins.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
