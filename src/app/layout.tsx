@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className="w-full">
         <header className="bg-gray-800 text-white w-full">
           <nav className="hidden lg:flex items-center justify-between p-2">
-            <a href="/">
+            <Link href="/">
               <h1 className="lg:text-2xl font-bold space-x-4 flex items-center">
                 <Image
                   src={Logo}
@@ -35,7 +35,7 @@ export default function RootLayout({
                   UniProject公式サイト(仮)
                 </div>
               </h1>
-            </a>
+            </Link>
             <ul className="flex right-4 text-right space-x-5">
               <li>
                 <Link href="/about">About</Link>

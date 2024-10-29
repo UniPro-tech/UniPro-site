@@ -46,7 +46,7 @@ export default function Slideshow({ images }: PropsType): JSX.Element {
         >
             {images.map((src: string, index: number) => (
                 <SwiperSlide key={index}>
-                    <img
+                    <Image
                         src={src}
                         alt="Slider Image"
                         sizes="(min-width: 1024px) 100vw, 60vw"
