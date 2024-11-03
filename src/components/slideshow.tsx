@@ -49,6 +49,8 @@ export default function Slideshow({ images }: PropsType): JSX.Element {
                     <Image
                         src={src}
                         alt="Slider Image"
+                        width={1024}
+                        height={768}
                         sizes="(min-width: 1024px) 100vw, 60vw"
                         className={styles.slideImage}
                     />
