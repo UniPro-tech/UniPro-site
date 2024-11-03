@@ -110,7 +110,7 @@ const PC = ({ images }: PropsType) => {
             pagination={{
                 clickable: true,
             }}
-            className={styles.slideWrapper + "w-full max-w-full"}
+            className={styles.slideWrapper + "w-full h-1/5"}
         >
             {images.map((src: string, index: number) => (
                 <SwiperSlide key={index}>
