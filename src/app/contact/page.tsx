@@ -1,6 +1,26 @@
 import { NextPage } from "next";
 import { Button } from "@/components/button";
 import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'お問い合わせ - UniProject',
+  description:
+    'UniProjectのお問い合わせ先です。サークルへのご依頼やご質問は下記連絡先にて受け付けております。どうぞお気軽にご連絡・お問い合わせください。',
+  twitter: {
+    card: 'summary',
+    site: '@UniPro_digital',
+    title: 'お問い合わせ - UniProject',
+    description: "UniProjectのお問い合わせ先です。サークルへのご依頼やご質問は下記連絡先にて受け付けております。どうぞお気軽にご連絡・お問い合わせください。",
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.uniproject-tech.net',
+    title: 'お問い合わせ - UniProject',
+    description:
+      'UniProjectのお問い合わせ先です。サークルへのご依頼やご質問は下記連絡先にて受け付けております。どうぞお気軽にご連絡・お問い合わせください。',
+  },
+};
 
 const ContactsPage: NextPage = () => {
   return (

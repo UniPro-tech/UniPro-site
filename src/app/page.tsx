@@ -5,7 +5,19 @@ import TwitterTimeline from '@/components/twitter-timeline';
 export const metadata: Metadata = {
   title: '全国ネットのデジタルサークル - UniProject',
   description:
-    '全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。'
+    '全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
+  twitter: {
+    card: 'summary',
+    site: '@UniPro_digital',
+    title: '全国ネットのデジタルサークル - UniProject',
+    description: "全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。",
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.uniproject-tech.net',
+    title: '全国ネットのデジタルサークル - UniProject',
+    description: '全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
+  },
 };
 
 import Slideshow from '@/components/slideshow';
@@ -19,8 +31,8 @@ export default function Home() {
   ];
   return (
     <main className="flex min-h-screen w-full flex-col items-center bg-white text-black space-y-0">
-      <section id="first" className="flex space-y-3 max-w-full w-full min-w-full items-center min-w-full p-20 flex-col bg-gray-100">
-        <Slideshow images={images}/>
+      <Slideshow images={images} />
+      <section id="first" className="flex space-y-3 w-full items-center p-20 flex-col bg-gray-100">
         <div className='flex flex-col items-center space-y-1'>
           <div className="mb-4">
             <a href="#first">
