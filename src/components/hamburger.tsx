@@ -3,7 +3,6 @@ import { useState } from "react";
 import Link from "next/link";
 import NavLinks from "@/components/NavLinks";
 import Image from "next/image";
-import Logo from "@/img/UniPro_Logo.webp";
 
 /**
  * Hamburger component.
@@ -22,7 +21,7 @@ const Hamburger = () => {
                     >
                             <h1 className="font-bold flex space-x-4 items-center">
                                 <Image
-                                    src={Logo}
+                                    src={"/img/UniPro_Logo.webp"}
                                     alt="UniProject's Logo"
                                     width={50}
                                     height={50}
@@ -64,7 +63,7 @@ const Hamburger = () => {
                                     <div className="textShadow_wt text-white text-[2.2rem] font-bold text-nowrap max-[1000px]:text-[1.4rem] ">
                                         <h1 className="font-bold flex space-x-1 items-center">
                                             <Image
-                                                src={Logo}
+                                                src={"/img/UniPro_Logo.webp"}
                                                 alt="UniProject's Logo"
                                                 width={50}
                                                 height={50}

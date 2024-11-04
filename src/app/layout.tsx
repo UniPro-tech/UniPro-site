@@ -1,7 +1,6 @@
 import { Inter } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
-import Logo from "@/img/UniPro_Logo.webp";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
 import Hamburger from "@/components/hamburger";
@@ -26,7 +25,7 @@ export default function RootLayout({
             <Link href="/">
               <h1 className="lg:text-2xl font-bold space-x-4 flex items-center">
                 <Image
-                  src={Logo}
+                  src={"/img/UniPro_Logo.webp"}
                   alt="UniProject's Logo"
                   width={50}
                   height={50}
