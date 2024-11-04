@@ -5,7 +5,19 @@ import TwitterTimeline from '@/components/twitter-timeline';
 export const metadata: Metadata = {
   title: '全国ネットのデジタルサークル - UniProject',
   description:
-    '全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。'
+    '全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
+  twitter: {
+    card: 'summary',
+    site: '@UniPro_digital',
+    title: '全国ネットのデジタルサークル - UniProject',
+    description: "全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。",
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.uniproject-tech.net',
+    title: '全国ネットのデジタルサークル - UniProject',
+    description: '全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
+  },
 };
 
 import Slideshow from '@/components/slideshow';
