@@ -1,0 +1,16 @@
+name: Remove old artifacts
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  remove-old-artifacts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Remove old artifacts
+        uses: c-hive/gha-remove-artifacts@v1
+        with:
+          age: '2 weeks'
