@@ -29,17 +29,6 @@ const useIsPc = () => {
 
     return isPc;
 };
-/*
-const useIsPc = () => {
-    const [isPc, setIsPc] = useState(false);
-    useEffect(() => {
-        const mediaQueryList = window.matchMedia("(min-width: 1024px)");
-        const listener = () => setIsPc(mediaQueryList.matches);
-        mediaQueryList.addEventListener("change", listener);
-        return () => mediaQueryList.removeEventListener("change", listener);
-    }, []);
-    return isPc;
-};*/
 
 function Mobile({ images }: PropsType): JSX.Element {
     console.log("mobile");
