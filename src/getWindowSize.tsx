@@ -1,16 +1,30 @@
-import React, { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-export const useWindowSize = (): number[] => {
-    const [size, setSize] = useState([0, 0]);
-    useLayoutEffect(() => {
-        const updateSize = (): void => {
-            setSize([window.innerWidth, window.innerHeight]);
-        };
+export const useWindowSize = () => {
+    const [windowSize, setWindowSize] = useState({
+        width: 0,
+        height: 0,
+    });
+    console.log("called useWindowSize");
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            console.log("window is defined");
+            const handleResize = () => {
+                setWindowSize({
+                    width:
+                        window.innerWidth,
+                    height: window.innerHeight,
+                });
+            };
 
-        window.addEventListener('resize', updateSize);
-        updateSize();
-
-        return () => window.removeEventListener('resize', updateSize);
+            window.addEventListener("resize", handleResize);
+            handleResize();
+            return () => window.removeEventListener("resize", handleResize);
+        } else {
+            console.log("window is undefined");
+            
+            return;
+        }
     }, []);
-    return size;
+    return windowSize;
 };
