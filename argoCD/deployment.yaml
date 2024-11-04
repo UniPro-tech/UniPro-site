@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: registry.uniproject-tech.net/unipro-site:1.5.4
+        image: registry.uniproject-tech.net/unipro-site:1.5.5
         ports:
         - containerPort: 3000
         resources:
