@@ -30,6 +30,7 @@ jobs:
         with:
           name: image
           path: image.tar
+          retention-days: 1
 
   # Job 2: Push Docker image
   push:
