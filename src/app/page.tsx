@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     card: 'summary',
     site: '@UniPro_digital',
     title: '全国ネットのデジタル創作サークル - UniProject',
-    description: "全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。",
+    description: "全国ネットのデジタル創作サークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。",
     images: [
       {
         url: 'https://www.uniproject-tech.net/img/UniPro_Logo.webp',
