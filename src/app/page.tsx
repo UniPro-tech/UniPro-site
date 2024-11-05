@@ -3,13 +3,13 @@ import { Button } from '@/components/button';
 import TwitterTimeline from '@/components/twitter-timeline';
 
 export const metadata: Metadata = {
-  title: '全国ネットのデジタルサークル - UniProject',
+  title: '全国ネットのデジタル創作サークル - UniProject',
   description:
-    '全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
+    '全国ネットのデジタル創作サークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
   twitter: {
     card: 'summary',
     site: '@UniPro_digital',
-    title: '全国ネットのデジタルサークル - UniProject',
+    title: '全国ネットのデジタル創作サークル - UniProject',
     description: "全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。",
     images: [
       {
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://www.uniproject-tech.net',
-    title: '全国ネットのデジタルサークル - UniProject',
-    description: '全国ネットのデジタルサークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
+    title: '全国ネットのデジタル創作サークル - UniProject',
+    description: '全国ネットのデジタル創作サークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
     images: [
       {
         url: 'https://www.uniproject-tech.net/img/UniPro_Logo.webp',
@@ -52,7 +52,7 @@ export default function Home() {
         <div className='flex flex-col items-center space-y-1'>
           <div className="mb-4">
             <a href="#first">
-              <h3 className="text-2xl text-center">全国ネットのデジタルサークル</h3>
+              <h3 className="text-2xl text-center">全国ネットのデジタル創作サークル</h3>
               <h2 className="text-6xl text-center">UniProject</h2>
             </a>
           </div>
