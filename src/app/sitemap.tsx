@@ -5,6 +5,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: "https://www.uniproject-tech.net/",
       priority: 1,
+    },
+    {
+      url: "https://www.uniproject-tech.net/contact",
+      priority: 1,
     }
   ];
 }
