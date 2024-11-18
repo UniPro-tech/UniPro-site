@@ -5,7 +5,7 @@ on:
       - master
 
 jobs:
-  build:
+  BuildAndPush:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -14,41 +14,16 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: registry.uniproject-tech.net
+          username: robot$github-publisher
+          password: ${{ secrets.HARBOR_TOKEN }}
+
       - name: Build Docker image
-        run: docker build -t ${{ secrets.K8S_DOCKER_REGISTHOST }}/unipro-site:latest .
+        run: docker build -t registry.uniproject-tech.net/hp-infra/unipro-site:latest .
         id: build
 
-      - name: Save Docker image to file
-        run: docker save ${{ secrets.K8S_DOCKER_REGISTHOST }}/unipro-site:latest -o image.tar
-
-      - name: Upload Docker image as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: image
-          path: image.tar
-          retention-days: 1
-  push:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Download Docker image artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: image
-          path: .
-
-      - name: Check Docker status
-        run: |
-          export DOCKER_CLIENT_TIMEOUT=18000
-          export COMPOSE_HTTP_TIMEOUT=240
-          sudo systemctl status docker.service
-          sudo journalctl -xeu docker.service
-
-      - name: Load Docker image from file
-        run: docker load -i image.tar
-
       - name: Push Docker image
-        run: docker push ${{ secrets.K8S_DOCKER_REGISTHOST }}/unipro-site:latest
+        run: docker push registry.uniproject-tech.net/hp-infra/unipro-site:latest
