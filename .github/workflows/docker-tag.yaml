@@ -26,7 +26,7 @@ jobs:
           password: ${{ secrets.HARBOR_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t registry.uniproject-tech.net/unipro-site:${{ env.TAG_NAME }} .
+        run: docker build -t registry.uniproject-tech.net/hp-infra/unipro-site:${{ env.TAG_NAME }} .
 
       - name: Push Docker image
-        run: docker push registry.uniproject-tech.net/unipro-site:${{ env.TAG_NAME }}
+        run: docker push registry.uniproject-tech.net/hp-infra/unipro-site:${{ env.TAG_NAME }}
