@@ -1,0 +1,16 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: harbor-registry-secret
+  namespace: unipro-site
+spec:
+  encryptedData:
+    .dockerconfigjson: AgARAFCsf22amcgKe5jiY3VcFR1nAg14ziK8nuQkGQ3LfCiw5j0aWYJZuqfzsnQrhKkIDTYvwoFbec7eafHJFladeegPxhCxiX0M4R26VPrYYXjuglYkVCLPW2PFEftKBmHEIZ1QPMMnAFHlB6X+ghv3l4beGzHGq16Cn6ldmKwqROtfoIVV4by8L/sposVGV0E7rSKedlglKnXwIm6TE577zw8z7ZhuOl5V6FenUNb0mD/ffTV8bNw5RBX1Tir5H9s3J08qlvV17r8yXiOCoBFJvK48tVN3BWKKOnU6MEjFns6pGEOkR3o2p9CO7t7328B4GHF/Iee3mPQUAc1AV6lviXON1x7yZV4nWs3j5plWRh+sQanCK+9+QHbcDNydN0zKuGTLLiunbxm9801fbDOPTslcS1xWn4f/4M/gVHOs6LyCA/Tc8HO5/+Y1eqt1rmGhCzLm0qVdGSvhldb1rdNP59OXYCjiOZ4AZFAAqSpSA8LHHpI6f+xgatVUh6f5kmkX//nWICb39OSCXYHmZ+LTLs3O6Ix7RFcJ57pnrZ0LrehqbJHUEW0jN6AAOUh5iIux6uqR1daawO68/rzNnSnjYcXKjglrrcDI1kBeiYDILsdVCyjbcU57wHV+6hq89/CXPK/PN7Tj+9jBWpTSYV0UxXZy8hF1IgzR73XaEc+3hM/KOvufkK2rfEHkJhObjTZc0U8nvELGPsebv8hXbwMEcj6QVRQQ7vdOl8r7M8wsfIR9FjG3diO4ldSpAtW8CL9n3sl5CeDT0nVaQsrAeZ2G/cc3SHUTPj7F5sFSOajbe15mvgfkHmlwaC6YHFRBkCbn9ozSCtvL0/0zlcJh0OvNQMOSUHOyHuNsHPobZaJZPCRSZsmlawsdJM8M4oxVkUKAlT44hB5Rig4UELTc4vmrbkrrHK3krmVS4nuMj52hAk9fMqkjGg0MnWQYdOwg3QEs9qzpClHSKw==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: harbor-registry-secret
+      namespace: unipro-site
+    type: kubernetes.io/dockerconfigjson
