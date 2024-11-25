@@ -64,8 +64,8 @@ export default function Home() {
             Web開発/UTAU/デザイン/競技プログラミング/AI研究/映像制作/インフラ開発(サーバー構築など)/etc...
             <br />
           </p>
-          <Button<'button'> href="#" disabled={true}>
-            もっと詳しく(準備中)
+          <Button<'button'> href="#" disabled={false}>
+            もっと詳しく
           </Button>
         </div>
       </section>
@@ -91,10 +91,15 @@ export default function Home() {
           <a href="#join">参加しよう！</a>
         </h3>
         <div className="text-center flex flex-col space-y-3">
-          <p>UniProjectに参加するには、以下のリンクから参加フォームにアクセスしてください。</p>
-          <Button<'Link'> href="https://forms.gle/VsRQQ4LwnxvDUyH58" disabled={false}>
-            参加フォーム
-          </Button>
+          <p>UniProjectに参加するには、以下のリンクから参加フォームにアクセスしてください。<br/>また、Discordは登録しなくても普段の活動の様子を見たり、メンバーと話したりできます。</p>
+          <div className='flex lg:flex-row flex-col justify-center items-center space-x-5'>
+            <Button<'Link'> href="https://forms.gle/VsRQQ4LwnxvDUyH58" className="lg:w-2/5 w-full" disabled={false}>
+              参加フォーム
+            </Button>
+            <Button<'Link'> href="/discord" className="lg:w-2/5 w-full" disabled={false}>
+              Discord
+            </Button>
+          </div>
         </div>
       </section>
     </main>

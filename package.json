@@ -17,7 +17,14 @@
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "swiper": "^11.1.14"
+    "react-markdown": "^9.0.1",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-html": "^16.0.1",
+    "remark-slug": "^7.0.1",
+    "remark-toc": "^9.0.0",
+    "swiper": "^11.1.14",
+    "tocbot": "^4.32.2"
   },
   "devDependencies": {
     "@types/node": "^22",
