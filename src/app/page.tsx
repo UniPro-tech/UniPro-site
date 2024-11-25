@@ -64,7 +64,7 @@ export default function Home() {
             Web開発/UTAU/デザイン/競技プログラミング/AI研究/映像制作/インフラ開発(サーバー構築など)/etc...
             <br />
           </p>
-          <Button<'button'> href="#" disabled={false}>
+          <Button<'button'> href="/about" disabled={false}>
             もっと詳しく
           </Button>
         </div>
