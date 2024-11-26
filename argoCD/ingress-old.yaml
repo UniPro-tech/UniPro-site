@@ -8,8 +8,8 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ngins.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      rewrite ^/$ https://uniproject.jp permanent;
+    nginx.ingress.kubernetes.io/permanent-redirect: "https://www.uniproject.jp"
+    nginx.ingress.kubernetes.io/permanent-redirect-code: "308"
 spec:
   ingressClassName: nginx
   rules:
