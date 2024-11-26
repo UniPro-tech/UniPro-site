@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: "全国ネットのデジタル創作サークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。",
     images: [
       {
-        url: 'https://www.uniproject-tech.net/img/UniPro_Logo.webp',
+        url: 'https://www.uniproject.jp/img/UniPro_Logo.webp',
         width: 128,
         height: 134,
         alt: 'UniProjectのロゴ',
@@ -22,12 +22,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://www.uniproject-tech.net',
+    url: 'https://www.uniproject.jp',
     title: '全国ネットのデジタル創作サークル - UniProject',
     description: '全国ネットのデジタル創作サークル『UniProject』の公式サイトです！普段の活動や、その他お知らせなどをお届けします。',
     images: [
       {
-        url: 'https://www.uniproject-tech.net/img/UniPro_Logo.webp',
+        url: 'https://www.uniproject.jp/img/UniPro_Logo.webp',
         width: 128,
         height: 134,
         alt: 'UniProjectのロゴ',
@@ -91,7 +91,7 @@ export default function Home() {
           <a href="#join">参加しよう！</a>
         </h3>
         <div className="text-center flex flex-col space-y-3">
-          <p>UniProjectに参加するには、以下のリンクから参加フォームにアクセスしてください。<br/>また、Discordは登録しなくても普段の活動の様子を見たり、メンバーと話したりできます。</p>
+          <p>UniProjectに参加するには、以下のリンクから参加フォームにアクセスしてください。<br />また、Discordは登録しなくても普段の活動の様子を見たり、メンバーと話したりできます。</p>
           <div className='flex lg:flex-row flex-col justify-center items-center space-x-5'>
             <Button<'Link'> href="https://forms.gle/VsRQQ4LwnxvDUyH58" className="lg:w-2/5 w-full" disabled={false}>
               参加フォーム

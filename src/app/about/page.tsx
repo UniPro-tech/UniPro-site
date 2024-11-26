@@ -39,7 +39,7 @@ UniProjectでは、主にDiscordを使用しています。
 
 Discordはこちら！
 
-https://uniproject-tech.net/discord
+https://uniproject.jp/discord
 `;
 
 const Home = () => {

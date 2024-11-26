@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://www.uniproject-tech.net',
+    url: 'https://www.uniproject.jp',
     title: 'お問い合わせ - UniProject',
     description:
       'UniProjectのお問い合わせ先です。サークルへのご依頼やご質問は下記連絡先にて受け付けております。どうぞお気軽にご連絡・お問い合わせください。',
@@ -54,15 +54,15 @@ const ContactsPage: NextPage = () => {
           </h2>
           <div id="hp" className="flex flex-col items-center space-y-3">
             <h3 className="text-2xl">HPに関するお問い合わせ</h3>
-            webmaster[at]mail.uniproject-tech.net
-            <Button href="mailto:webmaster@mail.uniproject-tech.net">
+            webmaster[at]uniproject.jp
+            <Button href="mailto:webmaster@uniproject.jp">
               メールを送る
             </Button>
           </div>
           <div id="othermail" className="flex flex-col items-center">
             <h3 className="text-2xl">その他お問い合わせ</h3>
-            info[at]mail.uniproject-tech.net
-            <Button href="mailto:info@mail.uniproject-tech.net">
+            info[at]uniproject.jp
+            <Button href="mailto:info@uniproject.jp">
               メールを送る
             </Button>
           </div>
