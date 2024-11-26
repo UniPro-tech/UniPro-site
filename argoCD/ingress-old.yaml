@@ -14,6 +14,15 @@ spec:
   ingressClassName: nginx
   rules:
     - host: www.uniproject-tech.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: unipro-site
+                port:
+                  number: 80
   tls:
     - hosts:
         - www.uniproject-tech.net
