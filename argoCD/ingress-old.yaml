@@ -1,28 +1,21 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: unipro-site-ingress
+  name: unipro-site-old-ingress
   namespace: unipro-site
   annotations:
     cert-manager.io/cluster-issuer: le-cf-prod
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     ngins.ingress.kubernetes.io/force-ssl-redirect: "false"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      rewrite ^/$ https://uniproject.jp permanent;
 spec:
   ingressClassName: nginx
   rules:
-  - host: www.uniproject.jp
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: unipro-site
-            port:
-              number: 80
+    - host: www.uniproject-tech.net
   tls:
-  - hosts:
-    - www.uniproject.jp
-    - uniproject.jp
-    secretName: unipro-www-tls
+    - hosts:
+        - www.uniproject-tech.net
+        - uniproject-tech.net
+      secretName: unipro-www-old-tls
