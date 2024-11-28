@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     description:
       'UniProjectのお問い合わせ先です。サークルへのご依頼やご質問は下記連絡先にて受け付けております。どうぞお気軽にご連絡・お問い合わせください。',
   },
+  alternates: {
+    canonical: "https://www.uniproject.jp/contact",
+  },
 };
 
 const ContactsPage: NextPage = () => {

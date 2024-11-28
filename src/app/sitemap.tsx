@@ -8,7 +8,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: "https://www.uniproject.jp/contact",
-      priority: 1,
+      priority: 0.5,
+    },
+    {
+      url: "https://www.uniproject.jp/about",
+      priority: 0.8,
     }
   ];
 }

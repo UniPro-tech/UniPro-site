@@ -34,6 +34,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: "https://www.uniproject.jp/",
+  },
 };
 
 import Slideshow from '@/components/slideshow';

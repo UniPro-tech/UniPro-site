@@ -1,6 +1,27 @@
 import { Button } from '@/components/button';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'UniProjectとは - UniProject',
+  description: 'UniProjectは、デジタル創作活動を後半に行うオンラインサークルです。UniProjectとは何なのかを解説しています。',
+  twitter: {
+    card: 'summary',
+    site: '@UniPro_digital',
+    title: 'UniProjectとは - UniProject',
+    description: 'UniProjectは、デジタル創作活動を後半に行うオンラインサークルです。UniProjectとは何なのかを解説しています。',
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://www.uniproject.jp/about',
+    title: 'UniProjectとは - UniProject',
+    description: 'UniProjectは、デジタル創作活動を後半に行うオンラインサークルです。UniProjectとは何なのかを解説しています。',
+  },
+  alternates: {
+    canonical: "https://www.uniproject.jp/about",
+  },
+};
 
 const markdownString = `
 # UniProjectとは
