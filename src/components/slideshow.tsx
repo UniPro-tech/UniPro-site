@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { JSX, useEffect, useState } from 'react';
 import Image from "next/image";
 
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
