@@ -81,7 +81,7 @@ const Home = () => {
               Discord
             </Button>
           </div>
-        </div>Ï
+        </div>
       </section>
     </main>
   );
