@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import { Button } from '@/components/button';
 import TwitterTimeline from '@/components/twitter-timeline';
+import { getAllPosts } from '@/lib/posts';
+import PostList from '@/components/PostList';
 
 export const metadata: Metadata = {
   title: '全国ネットのデジタル創作サークル - UniProject',
@@ -48,6 +50,7 @@ export default function Home() {
     "/img/UniPro-GitTool.webp",
     "/img/arane.webp",
   ];
+  const posts = getAllPosts('announce');
   return (
     <main className="flex min-h-screen w-full flex-col items-center bg-white text-black space-y-0">
       <Slideshow images={images} />
@@ -79,10 +82,7 @@ export default function Home() {
         </h3>
         <div className="flex flex-col space-y-3 lg:flex-row lg:space-x-3">
           <div className="flex flex-col w-87.5 divide-y border-black divide-black">
-            <div>
-              <h4>2024/08/09</h4>
-              <p>UniProject公式サイト(工事中)をリリースしました。</p>
-            </div>
+            <PostList dirname='announce' posts={posts} className='h-[500px] w-full' btnClassName='w-full' />
           </div>
           <div className="w-87.5">
             <TwitterTimeline />
@@ -93,7 +93,7 @@ export default function Home() {
         <h3 className="text-2xl">
           <a href="#join">参加しよう！</a>
         </h3>
-        <div className="text-center flex flex-col space-y-3">
+        <div className="text-center flex flex-col space-y-4">
           <p>UniProjectに参加するには、以下のリンクから参加フォームにアクセスしてください。<br />また、Discordは登録しなくても普段の活動の様子を見たり、メンバーと話したりできます。</p>
           <div className='flex lg:flex-row flex-col justify-center items-center lg:space-x-5 lg:space-y-0 space-y-3'>
             <Button<'Link'> href="https://forms.gle/VsRQQ4LwnxvDUyH58" className="lg:w-2/5 w-full" disabled={false}>
