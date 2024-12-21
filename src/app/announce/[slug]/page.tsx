@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 }
 
 type PostPageProps = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
 export default async function PostPage({ params }: PostPageProps) {
