@@ -35,7 +35,7 @@ const ContactsPage: NextPage = () => {
             <p className="text-lg">
                 お知らせ一覧です。
             </p>
-            <PostList dirname="announce" posts={posts} className="lg:w-2/5 w-4/5 mx-auto mt-10"/>
+            <PostList dirname="announce" posts={posts} className="lg:w-2/5 w-4/5 mx-auto mt-10" btnDisabled={true} />
         </main>
     );
 };

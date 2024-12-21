@@ -29,26 +29,29 @@ type PostListProps = {
     className?: string;
     listClassName?: string;
     btnClassName?: string;
+    btnDisabled?: boolean;
 };
 
-const PostList = ({ dirname, posts, className, btnClassName, listClassName }: PostListProps) => {
+const PostList = ({ dirname, posts, className, btnClassName, listClassName, btnDisabled = false }: PostListProps) => {
     return (
         <div className={`${className} flex flex-col items-center space-y-3 lg:space-y-0`}>
             <div className={`flex flex-col items-center space-y-1 lg:flex-grow w-full divide-y divide-y-3 divide-gray-400 ${listClassName}`}>
                 {posts.map((post) => (
-                        <PostCard
-                            dirname={dirname}
-                            key={post.slug}
-                            slug={post.slug}
-                            title={post.title}
-                            date={post.date.toLocaleDateString()}
-                            description={post.description}
-                        />
+                    <PostCard
+                        dirname={dirname}
+                        key={post.slug}
+                        slug={post.slug}
+                        title={post.title}
+                        date={post.date.toLocaleDateString()}
+                        description={post.description}
+                    />
                 ))}
             </div>
-            <Button<'Link'> href="/announce" disabled={false} className={btnClassName}>
-                一覧を見る
-            </Button>
+            {btnClassName && (
+                <Button<'button'> href={`/${dirname}`} disabled={btnDisabled} className={btnClassName}>
+                    もっと見る
+                </Button>
+            )}
         </div>
     );
 };
