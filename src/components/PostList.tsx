@@ -13,7 +13,7 @@ type PostCardProps = {
 
 const PostCard = ({ dirname, slug, title, date, description }: PostCardProps) => {
     return (
-        <div className="post-card text-black w-full">
+        <div className="post-card text-black w-full" key={slug}>
             <div className='flex content-end flex-row justify-between mb-2'>
                 <h2 className='text-xl'>{title}</h2><small className='content-end'>{date}</small>
             </div>
@@ -36,7 +36,6 @@ const PostList = ({ dirname, posts, className, btnClassName, listClassName }: Po
         <div className={`${className} flex flex-col items-center space-y-3 lg:space-y-0`}>
             <div className={`flex flex-col items-center space-y-1 lg:flex-grow w-full divide-y divide-y-3 divide-gray-400 ${listClassName}`}>
                 {posts.map((post) => (
-                    <>
                         <PostCard
                             dirname={dirname}
                             key={post.slug}
@@ -45,8 +44,6 @@ const PostList = ({ dirname, posts, className, btnClassName, listClassName }: Po
                             date={post.date.toLocaleDateString()}
                             description={post.description}
                         />
-                    </>
-
                 ))}
             </div>
             <Button<'Link'> href="/announce" disabled={false} className={btnClassName}>
