@@ -31,7 +31,7 @@ export default function RootLayout({
                   height={50}
                 />
                 <div>
-                  UniProject公式サイト(仮)
+                  UniProject
                 </div>
               </h1>
             </Link>
@@ -47,12 +47,18 @@ export default function RootLayout({
           <Hamburger />
         </header>
         {children}
-        <footer className="p-4 bg-gray-800 text-white text-center w-full">
-          <p>
-            <Link href={"https://github.com/UniPro-tech/UniPro-site/blob/master/LICENSE"} className="hover:text-blue">
-              Copyright&copy;2024 UniProject All Rights Reserved.See credits here.
-            </Link>
-          </p>
+        <footer className="p-4 bg-gray-800 text-white w-full flex lg:flex-row flex-col items-center justify-center lg:justify-between relative">
+          <iframe
+            src="https://uniproject.instatus.com/embed-status/3559d5ef/light-md"
+            width="230"
+            height="61"
+            className="border-0"
+          />
+          <div className="mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+              <Link href={"https://github.com/UniPro-tech/UniPro-site/blob/master/LICENSE"} className="text-center hover:text-blue mx-auto">
+                Copyright&copy;2024 UniProject All Rights Reserved. See credits here.
+              </Link>
+          </div>
         </footer>
       </body>
     </html>
