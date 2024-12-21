@@ -31,7 +31,7 @@ export default function RootLayout({
                   height={50}
                 />
                 <div>
-                  UniProject公式サイト
+                  UniProject
                 </div>
               </h1>
             </Link>
