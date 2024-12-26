@@ -1,37 +1,40 @@
-# How to contribute
+# 貢献方法
 
-I'm really glad you're reading this, because we need volunteer developers to help this project come to fruition.
+このプロジェクトを実現するために、ボランティアの開発者を求めています！  
+この文章を読んでくださっているということは、興味を持っていただけたということでとても嬉しいです。
 
-Here are some important resources:
+以下に重要なリソースをまとめました：
 
-* [UniProject Official HP](https://uniproject.jp) - You can know who we are.And running this repo.
+- [UniProject公式サイト](https://uniproject.jp) - 私たちがどんな団体か、そしてこのリポジトリの運営者について知ることができます。
 
-## Testing
+## テストについて
 
-The most of using is Next.js. Please check that point:
+主にNext.jsを使用しています。以下の点を確認してください：
 
-* Can run `npm run build` and `npm run start`
-* The components are running?
+- `npm run build`と`npm run start`が問題なく実行できるか
+- コンポーネントが正常に動作しているか
 
-## Submitting changes
+## 変更内容の提出方法
 
-Please send a [GitHub Pull Request to opengovernment](https://github.com/opengovernment/opengovernment/pull/new/master) with a clear list of what you've done (read more about [pull requests](http://help.github.com/pull-requests/)).
-We can always use more test coverage. Please follow our coding conventions (below) and make sure all of your commits are atomic (one feature per commit).
+このリポジトリにPullRequestを送信してください。
+その際に、行った変更内容のリストを明確に記載してください。Pull Requestについてはこちらを参照してください。（[GitHub Help - Pull Request](http://help.github.com/pull-requests/)）。  
+テストのカバレッジ向上も大歓迎です！以下のコーディング規約を遵守し、すべてのコミットを1つの機能単位（アトミック）で行うようにしてください。
 
-Always write a clear log message for your commits. One-line messages are fine for small changes, but bigger changes should look like this:
+コミットには必ず明確なログメッセージを記載してください。小さな変更であれば1行のメッセージで問題ありませんが、大きな変更の場合は以下のように記載してください：
 
     $ git commit -m "A brief summary of the commit
     > 
     > A paragraph describing what changed and its impact." 
 
-## Coding conventions
+## コーディング規約
 
-Start reading our code and you'll get the hang of it. We optimize for readability:
+コードを読み進めるうちに、規約がわかるようになります。私たちは**読みやすさ**を重視しています：
 
-  * We indent using four spaces (soft tabs)
-  * We ALWAYS put spaces after list items and method parameters (`[1, 2, 3]`, not `[1,2,3]`), around operators (`x += 1`, not `x+=1`), and around hash arrows.
-  * This is open source software. Consider the people who will read your code, and make it look nice for them. It's sort of like driving a car: Perhaps you love doing donuts when you're alone, but with passengers the goal is to make the ride as smooth as possible.
+- インデントは4スペース（ソフトタブ）を使用
+- リスト項目やメソッドの引数の後、演算子の前後、ハッシュの矢印（`=>`）の周りには必ずスペースを入れます  
+  （例：`[1, 2, 3]`、`x += 1`、`x => x * 2`。`[1,2,3]`や`x+=1`はNG）
+- このプロジェクトはオープンソースです。あなたのコードを読む人のことを考え、読みやすいコードを心がけてください。  
+  例えるなら、車の運転と同じです。1人のときは自由にスピンターンを楽しむかもしれませんが、乗客がいるときは快適な運転を目指しましょう。
 
-
-Thanks,
-Yuito Akatsuki, UniProject
+よろしくお願いします！  
+**Yuito Akatsuki, UniProject**
