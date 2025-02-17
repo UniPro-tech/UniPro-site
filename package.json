@@ -14,7 +14,7 @@
     "@types/react-dom": "19.0.2"
   },
   "dependencies": {
-    "@next/third-parties": "15.1.2",
+    "@next/third-parties": "15.1.7",
     "gray-matter": "^4.0.3",
     "next": "15.1.2",
     "prettier": "^3.3.3",
