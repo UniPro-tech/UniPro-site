@@ -16,19 +16,22 @@ export default function RootLayout({
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
       <body className="w-full bg-white relative">
         <header className="text-white w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between p-1">
-          <nav className="hidden lg:flex items-center justify-between p-2">
-            <Link href="/">
-              <h1 className="lg:text-2xl font-bold space-x-4 flex items-center font-sansen">
-                <Image
-                  src={"/img/UniPro_Logo.webp"}
-                  alt="UniProject's Logo"
-                  width={50}
-                  height={50}
-                />
-                <div>UniProject</div>
+          <Link href="/" className="flex items-center px-5 flex-row space-x-2">
+            <Image
+              src={"/img/UniPro_Logo.webp"}
+              alt="UniProject's Logo"
+              width={50}
+              height={50}
+            />
+            <div className="lg:absoulte flex flex-col items-start justify-center">
+              <h2 className="invisible lg:visible text-xs font-bold font-sans lg:relative lg:top-1 h-0 lg:h-auto">
+                All-Japan Digital Creative Club
+              </h2>
+              <h1 className="lg:text-4xl text-3xl font-bold font-sansen">
+                UniProject
               </h1>
-            </Link>
-          </nav>
+            </div>
+          </Link>
           <Hamburger />
         </header>
         {children}
