@@ -13,9 +13,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansEn.variable} ${notoSansJa.variable}`}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
       <body className="w-full">
         <header className="bg-gray-800 text-white w-full">
