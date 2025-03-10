@@ -12,25 +12,7 @@ import Image from "next/image";
 const Hamburger = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <nav className="relative z-10 pr-8 pl-2 py-2 flex justify-between items-center text-slate-950 min-[900px]:hidden ">
-      <Link href="/">
-        <div className="text-3xl font-bold leading-none">
-          <div
-            className="textShadow_wt mt-4 text-white font-bold text-nowrap max-[1000px]:text-[2.4rem] 
-          max-[768px]:text-[1rem] max-[768px]:mt-2 max-[480px]:text-[1rem] max-[480px]:mt-1 "
-          >
-            <h1 className="font-bold flex space-x-4 items-center">
-              <Image
-                src={"/img/UniPro_Logo.webp"}
-                alt="UniProject's Logo"
-                width={50}
-                height={50}
-              />
-              <div>UniProject公式サイト(仮)</div>
-            </h1>
-          </div>
-        </div>
-      </Link>
+    <>
       <button
         className="navbar-burger flex items-center text-white p-3 flex-row-reverse flex-grow"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -53,23 +35,19 @@ const Hamburger = () => {
             className="navbar-backdrop fixed inset-0 bg-neutral-800 opacity-75"
             onClick={() => setIsMenuOpen(false)}
           ></div>
-          <div className="fixed top-0 left-0 bottom-0 flex flex-col w-4/6 max-w-sm py-6 px-6 bg-neutral-950/90 overflow-y-auto">
+          <div className="fixed top-0 right-0 bottom-0 flex flex-col w-4/6 max-w-sm py-6 px-6 bg-neutral-950/90 overflow-y-auto">
             {/* Logo & Close button */}
             <div className="flex items-center mb-8">
               <Link href="/">
-                <div className="mr-auto text-3xl font-bold leading-none">
-                  <div className="textShadow_wt text-white text-[2.2rem] font-bold text-nowrap max-[1000px]:text-[1.4rem] ">
-                    <h1 className="font-bold flex space-x-1 items-center">
-                      <Image
-                        src={"/img/UniPro_Logo.webp"}
-                        alt="UniProject's Logo"
-                        width={50}
-                        height={50}
-                      />
-                      <div>UniProject</div>
-                    </h1>
-                  </div>
-                </div>
+                <h1 className="lg:text-2xl font-bold space-x-4 flex items-center font-sansen">
+                  <Image
+                    src={"/img/UniPro_Logo.webp"}
+                    alt="UniProject's Logo"
+                    width={50}
+                    height={50}
+                  />
+                  <div>UniProject</div>
+                </h1>
               </Link>
               <button
                 className="navbar-close ml-14"
@@ -92,7 +70,7 @@ const Hamburger = () => {
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 };
 
