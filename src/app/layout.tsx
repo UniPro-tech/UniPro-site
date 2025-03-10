@@ -2,7 +2,6 @@ import { notoSansEn, notoSansJa } from "@/lib/fonts";
 import Image from "next/image";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Head from "next/head";
 import Hamburger from "@/components/hamburger";
 import Link from "next/link";
 
