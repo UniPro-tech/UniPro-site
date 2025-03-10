@@ -14,11 +14,11 @@ export default function RootLayout({
   return (
     <html lang="ja" className={`${notoSansEn.variable} ${notoSansJa.variable}`}>
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
-      <body className="w-full">
-        <header className="bg-gray-800 text-white w-full">
+      <body className="w-full bg-white relative">
+        <header className="text-white w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between p-1">
           <nav className="hidden lg:flex items-center justify-between p-2">
             <Link href="/">
-              <h1 className="lg:text-2xl font-bold space-x-4 flex items-center">
+              <h1 className="lg:text-2xl font-bold space-x-4 flex items-center font-sansen">
                 <Image
                   src={"/img/UniPro_Logo.webp"}
                   alt="UniProject's Logo"
@@ -28,14 +28,6 @@ export default function RootLayout({
                 <div>UniProject</div>
               </h1>
             </Link>
-            <ul className="flex right-4 text-right space-x-5">
-              <li>
-                <Link href="/about">About</Link>
-              </li>
-              <li>
-                <Link href="/contact">Contact</Link>
-              </li>
-            </ul>
           </nav>
           <Hamburger />
         </header>
