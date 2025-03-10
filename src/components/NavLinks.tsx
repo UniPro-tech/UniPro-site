@@ -23,7 +23,7 @@ const NavLinks = ({ propClass, setIsMenuOpen }: PropsType) => {
 
   return (
     <div
-      className={`flex gap-3 mx-3 max-[899px]:flex-col max-[899px]:text-white 
+      className={`flex gap-3 mx-3 flex-col max-[899px]:text-white 
       max-[899px]:gap-9 max-[767px]:w-[fit-content] max-[767px]:last:w-[70%] ${propClass}`}
     >
       {links.map(link => (
