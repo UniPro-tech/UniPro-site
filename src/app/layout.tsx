@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { notoSansEn, notoSansJa } from "@/lib/fonts";
 import Image from "next/image";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -6,15 +6,13 @@ import Head from "next/head";
 import Hamburger from "@/components/hamburger";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" className={`${notoSansEn.variable} ${notoSansJa.variable}`}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -30,9 +28,7 @@ export default function RootLayout({
                   width={50}
                   height={50}
                 />
-                <div>
-                  UniProject
-                </div>
+                <div>UniProject</div>
               </h1>
             </Link>
             <ul className="flex right-4 text-right space-x-5">
@@ -55,9 +51,15 @@ export default function RootLayout({
             className="border-0"
           />
           <div className="mx-auto lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
-              <Link href={"https://github.com/UniPro-tech/UniPro-site/blob/master/LICENSE"} className="text-center hover:text-blue mx-auto">
-                Copyright&copy;2024 UniProject All Rights Reserved. See credits here.
-              </Link>
+            <Link
+              href={
+                "https://github.com/UniPro-tech/UniPro-site/blob/master/LICENSE"
+              }
+              className="text-center hover:text-blue mx-auto"
+            >
+              Copyright&copy;2024 UniProject All Rights Reserved. See credits
+              here.
+            </Link>
           </div>
         </footer>
       </body>
