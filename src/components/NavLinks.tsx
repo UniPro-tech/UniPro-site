@@ -31,7 +31,7 @@ const NavLinks = ({ propClass, setIsMenuOpen }: PropsType) => {
           //? Close hamburger menu
           onClick={() => setIsMenuOpen && setIsMenuOpen(false)}
           href={link.href}
-          className={`w-[fit-content] hover:bg-slate-700 hover:text-primary/60 px-3 py-1 rounded-md text-sm font-medium cursor-pointer text-[1.1rem]
+          className={`w-[fit-content] font-sansen hover:bg-slate-700 hover:text-primary/60 px-3 py-1 rounded-md text-sm font-medium cursor-pointer text-[1.1rem]
             ${
               currentPath == link.href
                 ? "bg-slate-700 cursor-default shadow-1 text-primary/70 hover:text-primary/60 "
