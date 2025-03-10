@@ -3,6 +3,7 @@ import { Button } from "@/components/button";
 import TwitterTimeline from "@/components/twitter-timeline";
 import { getRecentPosts } from "@/lib/posts";
 import PostList from "@/components/PostList";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "全国ネットのデジタル創作サークル - UniProject",
@@ -43,8 +44,6 @@ export const metadata: Metadata = {
   }
 };
 
-import Slideshow from "@/components/slideshow";
-
 export default function Home() {
   const images = [
     {
@@ -67,7 +66,12 @@ export default function Home() {
   const posts = getRecentPosts("announce", 4);
   return (
     <main className="flex min-h-screen w-full flex-col items-center bg-white text-black space-y-0">
-      <Slideshow images={images} />
+      <Image
+        src="/img/top.webp"
+        alt="UniProjectのロゴ"
+        width={1920}
+        height={0}
+      />
       <section
         id="first"
         className="flex space-y-3 w-full items-center lg:p-20 p-10 flex-col bg-gray-100"
