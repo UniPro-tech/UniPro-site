@@ -14,7 +14,7 @@ export default function RootLayout({
     <html lang="ja" className={`${notoSansEn.variable} ${notoSansJa.variable}`}>
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
       <body className="w-full bg-white relative">
-        <header className="text-white w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between p-1">
+        <header className="text-gray-400 w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between p-1">
           <Link href="/" className="flex items-center px-5 flex-row space-x-2">
             <Image
               src={"/img/UniPro_Logo.webp"}
