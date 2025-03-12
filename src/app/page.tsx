@@ -76,11 +76,13 @@ export default function Home() {
           <Image
             src="/img/top.webp"
             alt="背景画像"
-            layout="fill"
+            loading="eager"
+            priority={true}
+            fill
             objectFit="cover"
-            className="absolute top-0 left-0 z-0"
           />
-          <div className="relative z-10 text-white bg-opacity-75 md:ml-20 ml-5 flex flex-col items-start space-y-5 w-1/2">
+          <div className="lg:invisible visible absolute top-0 left-0 w-full h-full bg-black opacity-20" />
+          <div className="relative z-10 text-white bg-opacity-75 md:ml-20 ml-5 flex flex-col items-start space-y-5 lg:w-1/2">
             <a href="#first">
               <h3 className="text-xl lg:text-2xl text-left font-semibold font-sansjp">
                 デジタル創作サークル
@@ -118,12 +120,12 @@ export default function Home() {
         </section>
         <section
           id="recent"
-          className="flex flex-col space-y-20 items-center justify-center w-full p-20 bg-gray-200"
+          className="flex flex-col space-y-10 lg:space-y-20 items-center justify-center w-full lg:p-20 bg-gray-200 p-10"
         >
           <h3 className="text-4xl font-bold font-sansen">
             <a href="#recent">最近の出来事</a>
           </h3>
-          <div className="flex flex-col space-y-3 lg:flex-row lg:space-x-3 w-3/5">
+          <div className="flex flex-col space-y-3 lg:flex-row lg:space-x-3 lg:w-3/5">
             <PostList
               dirname="announce"
               posts={posts}
