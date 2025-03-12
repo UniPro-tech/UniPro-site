@@ -52,7 +52,7 @@ ${post.content}
   const posts = await getRecentPosts("announce", 8);
 
   return (
-    <div className="bg-white min-h-screen w-full text-black pt-20 lg:pt-40 space-y-10">
+    <div className="bg-white min-h-screen w-full text-black pt-20 lg:pt-40 space-y-10 pb-20">
       <article className="min-h-96 p-4 w-full">
         <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown mx-auto">
           {markdownContent}
