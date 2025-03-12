@@ -12,7 +12,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSansEn.variable} ${notoSansJa.variable}`}>
+    <html
+      lang="ja"
+      className={`${notoSansEn.variable} ${notoSansJa.variable} scroll-smooth`}
+    >
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
       <body className="w-full bg-white relative">
         <header className="text-gray-400 w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between p-1">
