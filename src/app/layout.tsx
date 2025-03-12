@@ -142,6 +142,12 @@ export default function RootLayout({
               >
                 &gt; ライセンス
               </Link>
+              <Link
+                href={"/contacts"}
+                className="text-center hover:text-blue-200 font-sansjp"
+              >
+                &gt; 問い合わせ
+              </Link>
             </div>
           </div>
         </footer>
