@@ -38,8 +38,8 @@ export default function RootLayout({
           <Hamburger />
         </header>
         {children}
-        <footer className="pt-10 px-10 pb-5 bg-gray-600 text-white w-full relative">
-          <div className="w-full flex flex-col lg:flex-row lg:space-x-12 lg:space-y-0 space-y-5">
+        <footer className="pt-10 px-2 lg:px-10 pb-5 bg-gray-600 text-white w-full relative flex flex-col items-center justify-center space-y-5">
+          <div className="w-full flex flex-col lg:flex-row lg:space-x-12 lg:space-y-0 space-y-5 justify-center items-center">
             <div className="flex h-full flex-col items-start justify-center space-y-3">
               <Link
                 href="/"
@@ -95,7 +95,7 @@ export default function RootLayout({
             </div>
             <div className="h-full flex flex-col items-start justify-center space-y-3">
               <h3 className="text-2xl font-bold font-sansjp">SNS</h3>
-              <div className="flex flex-col lg:flex-row p-1 items-start justify-center space-y-3 lg:space-x-3 lg:space-y-0">
+              <div className="flex flex-row p-1 items-start justify-center space-x-3 space-y-0">
                 <Link
                   href={"https://twitter.com/UniPro_digital"}
                   className="text-center hover:text-blue mx-auto"
@@ -117,28 +117,32 @@ export default function RootLayout({
               />
             </div>
           </div>
-          <div className="mt-3 ml-20 flex flex-col text-sm items-center justify-center space-y-3 lg:space-x-3 lg:flex-row lg:justify-between lg:items-center lg:space-y-0">
-            <span className="flex-grow font-sansen">
+          <div className="mt-3 lg:mx-20 flex flex-col text-sm items-center justify-center lg:space-x-3 lg:flex-row lg:justify-between lg:items-center lg:space-y-0">
+            <span className="flex-grow font-sansen order-2 lg:order-1 mt-5 lg:mt-0">
               Copyright&copy;2024 UniProject All Rights Reserved.
             </span>
-            <Link
-              href={"https://wiki.uniproject.jp/share/6777ac6f4158e2abe61f39f3"}
-              className="text-center hover:text-blue-200 font-sansjp"
-            >
-              &gt; サークル規約
-            </Link>
-            <Link
-              href={"/cookie"}
-              className="text-center hover:text-blue-200 font-sansjp"
-            >
-              &gt; Cookieについて
-            </Link>
-            <Link
-              href={"/lisence"}
-              className="text-center hover:text-blue-200 font-sansjp"
-            >
-              &gt; ライセンス
-            </Link>
+            <div className="flex flex-row items-center justify-center space-x-3 order-1 lg:order-2">
+              <Link
+                href={
+                  "https://wiki.uniproject.jp/share/6777ac6f4158e2abe61f39f3"
+                }
+                className="text-center hover:text-blue-200 font-sansjp"
+              >
+                &gt; サークル規約
+              </Link>
+              <Link
+                href={"/cookie"}
+                className="text-center hover:text-blue-200 font-sansjp"
+              >
+                &gt; Cookieについて
+              </Link>
+              <Link
+                href={"/lisence"}
+                className="text-center hover:text-blue-200 font-sansjp"
+              >
+                &gt; ライセンス
+              </Link>
+            </div>
           </div>
         </footer>
       </body>
