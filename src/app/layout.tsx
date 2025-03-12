@@ -143,7 +143,7 @@ export default function RootLayout({
                 &gt; ライセンス
               </Link>
               <Link
-                href={"/contacts"}
+                href={"/contact"}
                 className="text-center hover:text-blue-200 font-sansjp"
               >
                 &gt; 問い合わせ
