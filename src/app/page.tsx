@@ -46,24 +46,6 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const images = [
-    {
-      src: "/img/callboy.webp",
-      url: "https://www.nicovideo.jp/watch/sm43837772"
-    },
-    {
-      src: "/img/fixer.webp",
-      url: "https://www.nicovideo.jp/watch/sm43126973"
-    },
-    {
-      src: "/img/UniPro-GitTool.webp",
-      url: "https://github.com/UniPro-tech/UniPro-Git-Tool"
-    },
-    {
-      src: "/img/arane.webp",
-      url: "https://arane.uniproject.jp/"
-    }
-  ];
   const posts = getRecentPosts("announce", 4);
   return (
     <>
