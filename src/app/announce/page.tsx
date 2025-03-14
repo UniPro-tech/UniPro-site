@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 const ContactsPage: NextPage = () => {
-  const posts = getAllPosts("announce");
+  const posts = getAllPosts();
   return (
     <main className="flex min-h-screen flex-col items-center bg-white text-black space-y-10 p-5 pt-20 lg:pt-40 pb-20">
       <h1 className="text-4xl font-bold mt-10">お知らせ一覧</h1>
