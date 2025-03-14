@@ -10,8 +10,8 @@ export type Post = {
   content: string;
 };
 
-export function getAllPosts(dirpath: string): Post[] {
-  const postsDirectory = path.join(process.cwd(), "posts", dirpath);
+export function getAllPosts(): Post[] {
+  const postsDirectory = path.join(process.cwd(), "posts");
   const filenames = fs.readdirSync(postsDirectory);
 
   return filenames.map(filename => {
@@ -29,8 +29,8 @@ export function getAllPosts(dirpath: string): Post[] {
   });
 }
 
-export function getRecentPosts(dirpath: string, limit: number = 5): Post[] {
-  const postsDirectory = path.join(process.cwd(), "posts", dirpath);
+export function getRecentPosts(limit: number = 5): Post[] {
+  const postsDirectory = path.join(process.cwd(), "posts");
   const filenames = fs.readdirSync(postsDirectory);
 
   const posts = filenames.map(filename => {
@@ -53,8 +53,8 @@ export function getRecentPosts(dirpath: string, limit: number = 5): Post[] {
   return res;
 }
 
-export function getPostBySlug(dirpath: string, slug: string): Post {
-  const postsDirectory = path.join(process.cwd(), "posts", dirpath);
+export function getPostBySlug(slug: string): Post {
+  const postsDirectory = path.join(process.cwd(), "posts");
   const filePath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
