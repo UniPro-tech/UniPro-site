@@ -30,6 +30,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Set up Bun
+        run: |
+          npm install -g @microsoft/bun
+
       - name: Install ESLint
         run: |
           bun install eslint
