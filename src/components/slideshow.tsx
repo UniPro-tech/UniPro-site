@@ -10,12 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "./index.module.css";
 
-type PropsType = {
-  images: {
-    src: string;
-    url: string;
-  }[];
-};
+type PropsType = { images: { src: string; url: string }[] };
 const useIsPc = () => {
   // 初期状態をサーバー側で false とする
   const [isPc, setIsPc] = useState(false);
@@ -37,14 +32,8 @@ const useIsPc = () => {
 function Mobile({ images }: PropsType): JSX.Element {
   console.log("mobile");
   const slideSettings = {
-    0: {
-      slidesPerView: 0,
-      spaceBetween: 1
-    },
-    1024: {
-      slidesPerView: 0,
-      spaceBetween: 1
-    }
+    0: { slidesPerView: 0, spaceBetween: 1 },
+    1024: { slidesPerView: 0, spaceBetween: 1 }
   };
   const imageStyle = "";
   return (
@@ -57,14 +46,9 @@ function Mobile({ images }: PropsType): JSX.Element {
       freeMode={true}
       loop={true}
       speed={1000}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false
-      }}
+      autoplay={{ delay: 2500, disableOnInteraction: false }}
       navigation
-      pagination={{
-        clickable: true
-      }}
+      pagination={{ clickable: true }}
       className={styles.slideWrapper + "w-full max-w-full"}
     >
       {images.map((image, index) => (
@@ -88,14 +72,8 @@ function Mobile({ images }: PropsType): JSX.Element {
 const PC = ({ images }: PropsType) => {
   console.log("pc");
   const slideSettings = {
-    0: {
-      slidesPerView: 1.4,
-      spaceBetween: 10
-    },
-    1024: {
-      slidesPerView: 2,
-      spaceBetween: 10
-    }
+    0: { slidesPerView: 1.4, spaceBetween: 10 },
+    1024: { slidesPerView: 2, spaceBetween: 10 }
   };
   const imageStyle = styles.slideImage;
   return (
@@ -108,14 +86,9 @@ const PC = ({ images }: PropsType) => {
       freeMode={true}
       loop={true}
       speed={1000}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false
-      }}
+      autoplay={{ delay: 2500, disableOnInteraction: false }}
       navigation
-      pagination={{
-        clickable: true
-      }}
+      pagination={{ clickable: true }}
       className={styles.slideWrapper + "w-full max-w-full"}
     >
       {images.map((image, index) => (

@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
 export type Post = {
   slug: string;
@@ -10,40 +10,40 @@ export type Post = {
   content: string;
 };
 
-export function getAllPosts(dirpath: string): Post[] {
-  const postsDirectory = path.join(process.cwd(), 'posts', dirpath);
+export function getAllPosts(): Post[] {
+  const postsDirectory = path.join(process.cwd(), "posts");
   const filenames = fs.readdirSync(postsDirectory);
 
-  return filenames.map((filename) => {
+  return filenames.map(filename => {
     const filePath = path.join(postsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
 
     return {
-      slug: filename.replace('.md', ''),
+      slug: filename.replace(".md", ""),
       title: data.title,
       date: data.date,
       description: data.description,
-      content,
+      content
     };
   });
 }
 
-export function getRecentPosts(dirpath: string, limit: number = 5): Post[] {
-  const postsDirectory = path.join(process.cwd(), 'posts', dirpath);
+export function getRecentPosts(limit: number = 5): Post[] {
+  const postsDirectory = path.join(process.cwd(), "posts");
   const filenames = fs.readdirSync(postsDirectory);
 
-  const posts = filenames.map((filename) => {
+  const posts = filenames.map(filename => {
     const filePath = path.join(postsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
+    const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
 
     return {
-      slug: filename.replace('.md', ''),
+      slug: filename.replace(".md", ""),
       title: data.title,
       date: data.date,
       description: data.description,
-      content,
+      content
     };
   });
 
@@ -53,10 +53,10 @@ export function getRecentPosts(dirpath: string, limit: number = 5): Post[] {
   return res;
 }
 
-export function getPostBySlug(dirpath: string, slug: string): Post {
-  const postsDirectory = path.join(process.cwd(), 'posts', dirpath);
+export function getPostBySlug(slug: string): Post {
+  const postsDirectory = path.join(process.cwd(), "posts");
   const filePath = path.join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const fileContents = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(fileContents);
 
   return {
@@ -64,6 +64,6 @@ export function getPostBySlug(dirpath: string, slug: string): Post {
     title: data.title,
     date: new Date(data.date),
     description: data.description,
-    content,
+    content
   };
 }

@@ -40,13 +40,11 @@ export const metadata: Metadata = {
       }
     ]
   },
-  alternates: {
-    canonical: "https://www.uniproject.jp/"
-  }
+  alternates: { canonical: "https://www.uniproject.jp/" }
 };
 
 export default function Home() {
-  const posts = getRecentPosts("announce", 4);
+  const posts = getRecentPosts(4);
   return (
     <>
       <header className="text-white w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between p-1">
