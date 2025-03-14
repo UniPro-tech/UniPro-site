@@ -32,7 +32,7 @@ jobs:
 
       - name: Set up Bun
         run: |
-          npm install -g @microsoft/bun
+          npm install -g bun
 
       - name: Install ESLint
         run: |
