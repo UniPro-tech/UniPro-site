@@ -1,23 +1,15 @@
-# Use the official Node.js 14 image as the base image
-FROM node:20-alpine
+FROM oven/bun:latest AS base
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+COPY package.json .
 
-# Install project dependencies
-RUN npm install
+COPY bun.lockb .
 
-# Copy the rest of the project files to the working directory
+RUN bun install
+
 COPY . .
 
-# Build the Next.js app
-RUN npm run build
-
-# Expose the port that the Next.js app will run on
 EXPOSE 3000
 
-# Start the Next.js app
-CMD ["npm","run","start"]
+CMD ["bun", "--bun", "run", "dev"]
