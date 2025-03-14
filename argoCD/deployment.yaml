@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: registry.uniproject.jp/hp-infra/unipro-site:2.0.1
+          image: registry.uniproject.jp/hp-infra/unipro-site:2.0.2
           ports:
             - containerPort: 3000
           resources:
