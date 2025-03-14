@@ -28,7 +28,8 @@
     "remark-slug": "^7.0.1",
     "remark-toc": "^9.0.0",
     "swiper": "^11.2.5",
-    "tocbot": "^4.35.1"
+    "tocbot": "^4.35.1",
+    "escape-html": "^1.0.3"
   },
   "devDependencies": {
     "@types/node": "^22.13.10",
