@@ -57,10 +57,11 @@ export default function Home() {
           />
           <div className="lg:absoulte flex flex-col items-start justify-center">
             <h2 className="invisible lg:visible text-xs font-bold font-sans lg:relative lg:top-1 h-0 lg:h-auto">
-              All-Japan Digital Creative Club
+              All-Japan Digital{" "}
+              <span className="font-bold italic">Destroy</span> Club
             </h2>
             <h1 className="lg:text-4xl text-3xl font-bold font-sansen">
-              UniProject
+              <span className="font-bold italic">Some</span>Project
             </h1>
           </div>
         </Link>
@@ -83,10 +84,10 @@ export default function Home() {
           <div className="relative z-10 text-white bg-opacity-75 md:ml-20 ml-5 flex flex-col items-start space-y-5 lg:w-1/2">
             <a href="#first">
               <h3 className="text-xl lg:text-2xl text-left font-semibold font-sansjp">
-                デジタル創作サークル
+                デジタル<span className="italic">破壊</span>サークル
               </h3>
               <h2 className="text-6xl text-center font-sansen font-bold">
-                UniProject
+                <span className="italic">Some</span>Project
               </h2>
             </a>
             <p className="text-left font-bold font-sansjp text-2xl">
