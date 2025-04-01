@@ -73,7 +73,7 @@ body {
 }
 
 .markdown h4 {
-  @apply leading-none text-base font-semibold mb-4 mt-6;
+  @apply leading-none text-base font-semibold mb-4 mt-6 flex items-center border-l-[5px] pl-2 py-1;
 }
 
 .markdown h5 {
