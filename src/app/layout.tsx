@@ -18,20 +18,22 @@ export default function RootLayout({
     >
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
       <body className="w-full bg-white relative">
-        <header className="text-white w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between h-28 px-8">
-          <Link href="/" className="hover-lift h-20 flex items-center">
-            <Image
-              src={"/img/logotype_white.png"}
-              alt="UniProject's Logotype"
-              width={400}
-              height={92}
-              className="w-auto h-full"
-              quality={100}
-              priority
-            />
-          </Link>
-          <div className="flex items-center h-full">
-            <Hamburger />
+        <header className="text-white w-full absolute top-0 left-0 z-50">
+          <div className="flex flex-row items-center justify-between h-28 px-8">
+            <Link href="/" className="hover-lift h-20 flex items-center">
+              <Image
+                src={"/img/logotype_white.png"}
+                alt="UniProject's Logotype"
+                width={400}
+                height={92}
+                className="w-auto h-full"
+                quality={100}
+                priority
+              />
+            </Link>
+            <div className="flex items-center h-full">
+              <Hamburger />
+            </div>
           </div>
         </header>
         {children}
