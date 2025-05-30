@@ -29,12 +29,6 @@ export const metadata: Metadata = {
   }
 };
 
-const markdownString = `
-# UniProjectとは
-
-デジタル創作活動を通じて、新しい可能性を探求し、つながりを育むオンラインサークルです。
-`;
-
 const activities = [
   {
     title: "プログラミング",
