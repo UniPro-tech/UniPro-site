@@ -112,21 +112,40 @@ export default function Home() {
       </section>
       <section
         id="recent"
-        className="flex flex-col space-y-10 lg:space-y-20 items-center justify-center w-full lg:p-20 bg-gradient-to-br from-slate-100 via-white to-slate-50 p-10 min-h-screen"
+        className="flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-50"
       >
-        <h3 className="text-5xl font-bold font-sansen animate-slideUp tracking-wide relative group cursor-default">
-          <span className="absolute -inset-1 rounded-lg bg-slate-100 blur-xl transition-all duration-500 group-hover:bg-slate-200" />
-          <span className="relative bg-gradient-to-br from-slate-800 to-slate-600 bg-clip-text text-transparent">
-            最近の出来事
-          </span>
-        </h3>
-        <div className="flex flex-col space-y-3 lg:flex-row lg:space-x-3 lg:w-3/5 animate-fadeIn relative">
-          <PostList
-            dirname="announce"
-            posts={posts}
-            className="h-[500px] w-full bg-white shadow-[0_0_50px_-12px_rgba(0,0,0,0.25)] hover:shadow-[0_0_50px_-6px_rgba(0,0,0,0.25)] transition-all duration-500 rounded-3xl overflow-hidden border border-slate-100/50"
-            btnClassName="w-2/3 hover-lift bg-gradient-to-br from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 text-white tracking-[0.2em] font-medium rounded-xl shadow-lg"
-          />
+        <div className="w-full max-w-7xl px-6 py-24 lg:px-8">
+          <div className="flex flex-col items-center space-y-12">
+            {/* タイトル部分 */}
+            <div className="w-full text-center space-y-4">
+              <h3 className="text-4xl lg:text-5xl font-bold font-sansen tracking-wide animate-slideUp bg-gradient-to-br from-slate-900 to-slate-700 bg-clip-text text-transparent">
+                最近の出来事
+              </h3>
+              <p className="text-slate-600 font-sansjp tracking-wider">
+                UniProjectの活動やお知らせをお届けします
+              </p>
+            </div>
+
+            {/* 投稿一覧とボタン */}
+            <div className="w-full max-w-4xl flex flex-col items-center">
+              <div className="w-full animate-fadeIn pb-8">
+                <PostList
+                  dirname="announce"
+                  posts={posts}
+                  className="w-full bg-white backdrop-blur-sm rounded-2xl overflow-hidden"
+                />
+              </div>
+              <Link
+                href="/announce"
+                className="group inline-flex items-center space-x-2 text-slate-600 hover:text-slate-900 transition-colors"
+              >
+                <span className="font-sansjp tracking-wider">もっと見る</span>
+                <span className="transform transition-transform group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </main>
