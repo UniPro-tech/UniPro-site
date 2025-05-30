@@ -1,7 +1,7 @@
 import { getPostBySlug, getRecentPosts } from "@/lib/posts";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
-import PostList from "@/components/PostList";
+import PostList from "@/components/RecentPostList";
 
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
