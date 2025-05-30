@@ -255,7 +255,7 @@ const Home = () => {
           <Button<"button">
             href="/discord"
             disabled={false}
-            className="flex flex-row items-center px-8 py-4 text-white rounded-xl hover:bg-[#404EED] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
+            className="flex flex-row items-center px-8 py-4 bg-[#5865F2] text-white rounded-xl hover:bg-[#404EED] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
           >
             <svg
               className="w-5 h-5 ml-2 group-hover:translate-x-0.5 transition-transform"
