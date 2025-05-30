@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Button } from "@/components/button";
 import { getRecentPosts } from "@/lib/posts";
-import PostList from "@/components/PostList";
+import PostList from "@/components/RecentPostList";
 import Image from "next/image";
 import Hamburger from "@/components/hamburger";
 import Link from "next/link";
