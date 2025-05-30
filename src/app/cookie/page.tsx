@@ -94,10 +94,85 @@ Google Analyticsに関する情報は、以下のサイトからも入手でき�
 
 const Home = () => {
   return (
-    <main className="flex min-h-screen w-full flex-col items-center bg-white text-black space-y-0 pt-20 pb-10">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown">
-        {markdownString}
-      </ReactMarkdown>
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      {/* ヘッダーセクション */}
+      <section className="w-full pt-28 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center space-y-4">
+            <h1 className="text-4xl lg:text-5xl font-bold font-sansen tracking-wide text-white animate-slideUp">
+              Cookieポリシー
+            </h1>
+            <p className="text-lg text-white/80 font-sansjp tracking-wider animate-fadeInUp animation-delay-300">
+              当サイトのCookieの使用について説明します
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* コンテンツセクション */}
+      <section className="max-w-4xl mx-auto px-6 py-12">
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm p-8 md:p-12 animate-fadeIn">
+          <div className="prose prose-slate max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h1: ({ node, ...props }) => (
+                  <h1
+                    {...props}
+                    className="text-3xl font-bold text-gray-900 mb-8 pb-2 border-b-2 border-gray-200"
+                  />
+                ),
+                // リンクをカスタマイズ
+                a: ({ node, ...props }) => (
+                  <a
+                    {...props}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700 transition-colors duration-200 underline decoration-blue-400/30 hover:decoration-blue-400"
+                  />
+                ),
+                // セクションの見出しをカスタマイズ
+                h2: ({ node, ...props }) => (
+                  <h2
+                    {...props}
+                    className="text-2xl font-bold text-gray-900 mb-6 mt-10 pb-2 border-b border-gray-200"
+                  />
+                ),
+                // サブセクションの見出しをカスタマイズ
+                h3: ({ node, ...props }) => (
+                  <h3
+                    {...props}
+                    className="text-xl font-semibold text-gray-800 mb-4 mt-8"
+                  />
+                ),
+                // h4のスタイリングを追加
+                h4: ({ node, ...props }) => (
+                  <h4
+                    {...props}
+                    className="text-lg font-semibold text-gray-700 mb-3 mt-6"
+                  />
+                ),
+                // リストをカスタマイズ
+                ul: ({ node, ...props }) => (
+                  <ul
+                    {...props}
+                    className="list-disc pl-6 space-y-2 my-4 text-gray-700"
+                  />
+                ),
+                // 段落をカスタマイズ
+                p: ({ node, ...props }) => (
+                  <p
+                    {...props}
+                    className="text-gray-700 leading-relaxed mb-4"
+                  />
+                )
+              }}
+            >
+              {markdownString}
+            </ReactMarkdown>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
