@@ -3,32 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --primary-color: 59, 130, 246;
+  --accent-color: 251, 146, 60;
+  --background-light: 255, 255, 255;
+  --text-light: 255, 255, 255;
+  --text-dark: 31, 41, 55;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--text-dark));
+  background: rgb(var(--background-light));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .fade-in {
+    @apply opacity-0 animate-fadeIn;
   }
 }
 

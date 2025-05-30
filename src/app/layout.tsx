@@ -18,56 +18,40 @@ export default function RootLayout({
     >
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
       <body className="w-full bg-white relative">
-        <header className="text-gray-400 w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between p-1">
-          <Link href="/" className="flex items-center px-5 flex-row space-x-2">
+        <header className="text-white w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between px-4 py-3">
+          <Link href="/" className="hover-lift">
             <Image
-              src={"/img/UniPro_Logo.webp"}
-              alt="UniProject's Logo"
-              width={50}
-              height={50}
+              src={"/img/logotype_white.png"}
+              alt="UniProject's Logotype"
+              width={280}
+              height={64}
+              className="animate-float"
+              quality={100}
             />
-            <div className="lg:absoulte flex flex-col items-start justify-center">
-              <h2 className="invisible lg:visible text-xs font-bold font-sans lg:relative lg:top-1 h-0 lg:h-auto">
-                All-Japan Digital Creative Club
-              </h2>
-              <h1 className="lg:text-4xl text-3xl font-bold font-sansen">
-                UniProject
-              </h1>
-            </div>
           </Link>
           <Hamburger />
         </header>
         {children}
         <footer className="pt-10 px-2 lg:px-10 pb-5 bg-gray-600 text-white w-full relative flex flex-col items-center justify-center space-y-5">
           <div className="w-full flex flex-col lg:flex-row lg:space-x-12 lg:space-y-0 space-y-5 justify-center items-center">
-            <div className="flex h-full flex-col items-start justify-center space-y-3">
-              <Link
-                href="/"
-                className="flex items-center px-5 flex-row space-x-2"
-              >
+            <div className="flex h-full flex-col items-start justify-center space-y-5">
+              <Link href="/" className="hover-lift">
                 <Image
-                  src={"/img/UniPro_Logo.webp"}
-                  alt="UniProject's Logo"
-                  width={50}
-                  height={50}
+                  src={"/img/logotype_white.png"}
+                  alt="UniProject's Logotype"
+                  width={280}
+                  height={64}
+                  quality={100}
                 />
-                <div className="lg:absoulte flex flex-col items-start justify-center">
-                  <h2 className="invisible lg:visible text-xs font-bold font-sans lg:relative lg:top-1 h-0 lg:h-auto">
-                    All-Japan Digital Creative Club
-                  </h2>
-                  <h1 className="lg:text-4xl text-3xl font-bold font-sansen">
-                    UniProject
-                  </h1>
-                </div>
               </Link>
-              <div className="pl-20 font-sansjp">
+              <div className="font-sansjp">
                 デジタル創作サークル UniProject
                 <br />
                 所在地: 日本
                 <br />
                 (私たちは住所を持たず、オンラインで活動しています)
               </div>
-              <div className="pl-20 font-sansen">
+              <div className="font-sansen">
                 Digital Creative Club UniProject
                 <br />
                 Location: Japan
