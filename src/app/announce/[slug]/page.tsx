@@ -2,10 +2,12 @@ import { getPostBySlug, getRecentPosts } from "@/lib/posts";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import PostList from "@/components/RecentPostList";
+import { getLastModifiedDate } from "@/lib/git";
 
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/button";
+import Head from "next/head";
 
 export async function generateMetadata({
   params
@@ -40,6 +42,10 @@ export default async function PostPage({ params }: PostPageProps) {
   if (!post) {
     notFound();
   }
+
+  // 最終更新日を取得
+  const lastModified = getLastModifiedDate(`posts/${slug}.md`);
+  // 最近の投稿を取得
   const posts = await getRecentPosts(8);
 
   return (
@@ -51,9 +57,40 @@ export default async function PostPage({ params }: PostPageProps) {
             <h1 className="text-3xl lg:text-4xl font-bold font-sansen tracking-wide text-white animate-slideUp">
               {post.title}
             </h1>
-            <p className="text-white/80 font-sansjp tracking-wider animate-fadeInUp animation-delay-300">
-              {new Date(post.date).toLocaleDateString()}
-            </p>
+            <div className="flex flex-col items-center gap-2 text-white/80 font-sansjp tracking-wider animate-fadeInUp animation-delay-300">
+              <p className="flex items-center gap-2">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                投稿日: {new Date(post.date).toLocaleDateString()}
+              </p>
+              <p className="flex items-center gap-2">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                最終更新: {lastModified.toLocaleDateString()}
+              </p>
+            </div>
           </div>
         </div>
       </section>
