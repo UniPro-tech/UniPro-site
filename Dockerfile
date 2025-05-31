@@ -1,4 +1,4 @@
-FROM node:stable
+FROM node:alpine
 
 RUN apt-get update && apt-get install -y \
     zip \
