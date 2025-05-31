@@ -8,11 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "overrides": {
-    "eslint": "^8",
-    "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2"
-  },
   "dependencies": {
     "@next/third-parties": "15.2.2",
     "@types/escape-html": "^1.0.4",
@@ -33,6 +28,7 @@
     "tocbot": "^4.36.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.3.3",
     "@types/node": "^22.15.29",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",

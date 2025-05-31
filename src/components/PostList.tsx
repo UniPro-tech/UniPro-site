@@ -2,7 +2,8 @@ import Link from "next/link";
 import escape from "escape-html";
 
 import { Post } from "@/lib/posts";
-import { Button } from "./button";
+
+export const dynamic = "force-static";
 
 type PostCardProps = {
   dirname: string;

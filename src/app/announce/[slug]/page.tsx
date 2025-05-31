@@ -4,6 +4,8 @@ import ReactMarkdown from "react-markdown";
 import PostList from "@/components/RecentPostList";
 import { getLastModifiedDate } from "@/lib/git";
 
+export const dynamic = "force-static";
+
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/button";
