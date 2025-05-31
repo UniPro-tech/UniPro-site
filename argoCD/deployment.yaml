@@ -27,7 +27,7 @@ spec:
               memory: "1Gi"
               cpu: "1000m"
           readinessProbe:
-            initialDelaySeconds: 300
+            initialDelaySeconds: 100
             periodSeconds: 20
             httpGet:
               path: /
