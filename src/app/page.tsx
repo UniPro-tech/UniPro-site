@@ -90,7 +90,7 @@ export default function Home() {
               <Button<"button">
                 href="/join"
                 disabled={false}
-                className="hover-lift px-6 sm:px-10 py-3 sm:py-4 backdrop-blur-md bg-transparent border-2 border-white/30 hover:bg-white/10 font-medium tracking-[0.2em] rounded-xl shadow-xl text-sm sm:text-base"
+                className="hover-lift px-6 sm:px-10 py-3 sm:py-4 backdrop-blur-md bg-white/20 border-2 border-white/30 hover:bg-white/10 font-medium tracking-[0.2em] rounded-xl shadow-xl text-sm sm:text-base text-white"
               >
                 参加する
               </Button>
