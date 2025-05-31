@@ -80,7 +80,7 @@ const PostList = ({
             key={post.slug}
             slug={post.slug}
             title={post.title}
-            date={post.date.toLocaleDateString()}
+            date={post.date.toLocaleDateString("ja-JP")}
             description={post.description}
           />
         ))}
