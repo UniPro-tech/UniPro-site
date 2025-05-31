@@ -34,13 +34,13 @@ const AnnouncementsPage: NextPage = () => {
   return (
     <main className="flex min-h-screen flex-col items-center bg-gradient-to-br from-slate-50 via-white to-slate-50">
       {/* ヘッダーセクション */}
-      <section className="w-full pt-28 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center space-y-4">
-            <h1 className="text-4xl lg:text-5xl font-bold font-sansen tracking-wide text-white animate-slideUp">
+      <section className="w-full pt-24 sm:pt-28 pb-12 sm:pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center space-y-3 sm:space-y-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sansen tracking-wide text-white animate-slideUp">
               お知らせ一覧
             </h1>
-            <p className="text-lg text-white/80 font-sansjp tracking-wider animate-fadeInUp animation-delay-300">
+            <p className="text-base sm:text-lg text-white/80 font-sansjp tracking-wider animate-fadeInUp animation-delay-300">
               UniProjectの活動やイベント情報をお届けします
             </p>
           </div>
@@ -48,12 +48,13 @@ const AnnouncementsPage: NextPage = () => {
       </section>
 
       {/* コンテンツセクション */}
-      <section className="w-full py-16">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="w-full py-12 sm:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <PostList
             dirname="announce"
             posts={posts}
-            className="w-full bg-white backdrop-blur-sm rounded-2xl overflow-hidden"
+            className="w-full bg-white backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+            listClassName="!grid-cols-1 md:!grid-cols-2"
           />
         </div>
       </section>

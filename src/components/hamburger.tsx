@@ -17,7 +17,7 @@ const Hamburger = () => {
         className="h-full flex items-start gap-4 px-3 group pt-8"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        <span className="text-white/80 font-sansen text-lg group-hover:text-white transition-colors">
+        <span className="text-white/80 font-sansen text-lg group-hover:text-white transition-colors invisible md:visible">
           Menu
         </span>
         <div className="flex items-center justify-center w-6">
