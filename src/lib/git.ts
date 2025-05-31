@@ -1,4 +1,4 @@
-import { execSync } from "child_process";
+import { execFileSync } from "child_process";
 import path from "path";
 
 /**
@@ -12,8 +12,9 @@ export function getLastModifiedDate(filePath: string): Date {
     const absolutePath = path.join(process.cwd(), filePath);
 
     // git logから最終コミット日時を取得
-    const timestamp = execSync(
-      `git log -1 --format=%cd --date=iso ${absolutePath}`,
+    const timestamp = execFileSync(
+      "git",
+      ["log", "-1", "--format=%cd", "--date=iso", absolutePath],
       { encoding: "utf-8" }
     ).trim();
 
