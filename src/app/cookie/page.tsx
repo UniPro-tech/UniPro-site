@@ -1,4 +1,3 @@
-import { Button } from "@/components/button";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Metadata } from "next";

@@ -7,7 +7,6 @@ import { getLastModifiedDate } from "@/lib/git";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/button";
-import Head from "next/head";
 
 export async function generateMetadata({
   params

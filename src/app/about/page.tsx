@@ -1,10 +1,5 @@
 import { Button } from "@/components/button";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import { Metadata } from "next";
-import Image from "next/image";
-// @ts-ignore
-import svg from "react-svg";
 
 export const metadata: Metadata = {
   title: "UniProjectとは - UniProject",
