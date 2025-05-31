@@ -41,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
   const postPages = posts.map(post => ({
     url: `https://www.uniproject.jp/announce/${post.slug}`,
-    lastModified: getLastModifiedDate(`posts/${post.slug}.md`) || post.date,
+    lastModified: getLastModifiedDate(`posts/${post.slug}.md`),
     priority: 0.6 // 記事ページの優先度
   }));
 
