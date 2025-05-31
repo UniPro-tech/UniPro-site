@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getLastModifiedDate } from "@/lib/git";
 import { getAllPosts } from "@/lib/posts";
-import { create } from "domain";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
