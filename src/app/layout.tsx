@@ -139,7 +139,7 @@ export default function RootLayout({
                     Cookieについて
                   </Link>
                   <Link
-                    href="/lisence"
+                    href="/license"
                     className="hover:text-white transition-colors"
                   >
                     ライセンス
