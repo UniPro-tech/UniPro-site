@@ -93,14 +93,14 @@ export default function RootLayout({
                 </h3>
                 <Link
                   href="https://arane.uniproject.jp"
-                  className="inline-block hover:opacity-80 transition-opacity"
+                  className="inline-block hover:opacity-80 transition-opacity duration-300"
                 >
                   <Image
                     src="/img/aranenoyoru.png"
                     alt="aranenoyoru"
-                    width={180}
-                    height={180}
-                    className="rounded-lg w-auto h-auto sm:scale-110"
+                    width={300}
+                    height={300}
+                    className="rounded-lg w-[220px] sm:w-[260px] md:w-[300px] h-auto shadow-md hover:shadow-lg transition-shadow duration-300"
                   />
                 </Link>
               </div>
