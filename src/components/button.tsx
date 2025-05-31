@@ -47,7 +47,7 @@ export const Button = forwardRef<HTMLButtonElement, Props<AS>>((props, ref) => {
     <>
       <button
         onClick={e => handleClick(e, buttonAttributes.href)}
-        className={`${disabled && styles.linkDisabled} ${props.className} group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md px-6 font-medium`}
+        className={`bg-white text-black ${disabled && styles.linkDisabled} ${props.className} group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md px-6 font-medium`}
       >
         <span className="inline-flex items-center space-x-2">
           {buttonAttributes.children}
