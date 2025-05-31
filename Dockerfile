@@ -23,4 +23,4 @@ RUN npm run build
 
 EXPOSE 3000
 
-CMD ["bun", "server.js"]
+CMD ["bun", "run", "start"]
