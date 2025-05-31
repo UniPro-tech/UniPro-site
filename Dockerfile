@@ -12,6 +12,6 @@ COPY . .
 
 EXPOSE 3000
 
-RUN chmod +x start.sh
+RUN bun --bun run build
 
-CMD ["/app/start.sh"]
+CMD ["bun", "run", "start"]
