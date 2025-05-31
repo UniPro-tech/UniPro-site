@@ -1,4 +1,4 @@
-FROM oven/bun:latest AS base
+FROM oven/bun:latest AS builder
 
 WORKDIR /app
 
@@ -10,8 +10,19 @@ RUN bun install
 
 COPY . .
 
-EXPOSE 3000
-
 RUN bun run build
 
-CMD ["bun", "run", "start"]
+ENV NODE_ENV=production
+
+FROM oven/bun:slim AS runner
+
+WORKDIR /app
+
+EXPOSE 3000
+
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/static ./.next/static
+
+COPY --from=builder /app/.next/standalone ./
+
+CMD ["bun", "server.js"]
