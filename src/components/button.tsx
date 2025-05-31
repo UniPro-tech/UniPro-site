@@ -47,9 +47,11 @@ export const Button = forwardRef<HTMLButtonElement, Props<AS>>((props, ref) => {
     <>
       <button
         onClick={e => handleClick(e, buttonAttributes.href)}
-        className={`${disabled && styles.linkDisabled} ${props.className} group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-neutral-950 px-6 font-medium text-neutral-200`}
+        className={`bg-white text-black ${disabled && styles.linkDisabled} ${props.className} group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md px-6 font-medium`}
       >
-        <span>{buttonAttributes.children}</span>
+        <span className="inline-flex items-center space-x-2">
+          {buttonAttributes.children}
+        </span>
         <div className="ml-1 transition group-hover:translate-x-1">
           <svg
             width="15"

@@ -14,20 +14,23 @@ const Hamburger = () => {
   return (
     <>
       <button
-        className="navbar-burger flex items-center text-white p-3 flex-row-reverse flex-grow"
+        className="h-full flex items-start gap-4 px-3 group pt-8"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
-        <svg
-          className="block h-10 w-10 fill-current"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Menu</title>
-          <path
-            d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"
-            fill="black"
-          ></path>
-        </svg>
+        <span className="text-white/80 font-sansen text-lg group-hover:text-white transition-colors invisible md:visible">
+          Menu
+        </span>
+        <div className="flex items-center justify-center w-6">
+          <svg
+            className="w-6 h-6 fill-white/80 group-hover:fill-white transition-colors"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect y="5" width="24" height="2" rx="1" />
+            <rect y="11" width="24" height="2" rx="1" />
+            <rect y="17" width="24" height="2" rx="1" />
+          </svg>
+        </div>
       </button>
       <div
         className={`${isMenuOpen ? "flex" : "hidden"} absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:items-center lg:w-auto lg:space-x-6`}

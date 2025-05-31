@@ -18,136 +18,140 @@ export default function RootLayout({
     >
       <GoogleAnalytics gaId={"G-TZR9JVPWMG"} />
       <body className="w-full bg-white relative">
-        <header className="text-gray-400 w-full absolute top-0 left-0 z-50 flex flex-row items-center justify-between p-1">
-          <Link href="/" className="flex items-center px-5 flex-row space-x-2">
-            <Image
-              src={"/img/UniPro_Logo.webp"}
-              alt="UniProject's Logo"
-              width={50}
-              height={50}
-            />
-            <div className="lg:absoulte flex flex-col items-start justify-center">
-              <h2 className="invisible lg:visible text-xs font-bold font-sans lg:relative lg:top-1 h-0 lg:h-auto">
-                All-Japan Digital Creative Club
-              </h2>
-              <h1 className="lg:text-4xl text-3xl font-bold font-sansen">
-                UniProject
-              </h1>
+        <header className="text-white w-full absolute top-0 left-0 z-50">
+          <div className="flex flex-row items-center justify-between h-28 px-4 sm:px-6 lg:px-8">
+            <Link href="/" className="hover-lift h-20 flex items-center">
+              <Image
+                src={"/img/logotype_white.png"}
+                alt="UniProject's Logotype"
+                width={400}
+                height={92}
+                className="w-auto h-full"
+                quality={100}
+                priority
+              />
+            </Link>
+            <div className="flex items-center h-full">
+              <Hamburger />
             </div>
-          </Link>
-          <Hamburger />
+          </div>
         </header>
         {children}
-        <footer className="pt-10 px-2 lg:px-10 pb-5 bg-gray-600 text-white w-full relative flex flex-col items-center justify-center space-y-5">
-          <div className="w-full flex flex-col lg:flex-row lg:space-x-12 lg:space-y-0 space-y-5 justify-center items-center">
-            <div className="flex h-full flex-col items-start justify-center space-y-3">
-              <Link
-                href="/"
-                className="flex items-center px-5 flex-row space-x-2"
-              >
-                <Image
-                  src={"/img/UniPro_Logo.webp"}
-                  alt="UniProject's Logo"
-                  width={50}
-                  height={50}
-                />
-                <div className="lg:absoulte flex flex-col items-start justify-center">
-                  <h2 className="invisible lg:visible text-xs font-bold font-sans lg:relative lg:top-1 h-0 lg:h-auto">
-                    All-Japan Digital Creative Club
-                  </h2>
-                  <h1 className="lg:text-4xl text-3xl font-bold font-sansen">
-                    UniProject
-                  </h1>
+        <footer className="pt-12 sm:pt-16 pb-6 sm:pb-8 px-4 sm:px-6 lg:px-20 bg-slate-900 text-white w-full relative">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+              {/* メイン情報 */}
+              <div className="md:col-span-1 lg:col-span-5 space-y-1">
+                <Link href="/" className="hover-lift inline-block">
+                  <Image
+                    src={"/img/logotype_white.png"}
+                    alt="UniProject's Logotype"
+                    width={200}
+                    height={46}
+                    className="w-auto h-auto sm:scale-110 md:scale-120"
+                    quality={100}
+                  />
+                </Link>
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="space-y-2 text-slate-300">
+                    <p className="font-sansjp text-sm sm:text-base">
+                      デジタル創作サークル UniProject
+                      <br />
+                      所在地: 日本
+                      <br />
+                      (私たちは住所を持たず、オンラインで活動しています)
+                    </p>
+                    <p className="font-sansen text-xs sm:text-sm text-slate-400">
+                      Digital Creative Club UniProject
+                      <br />
+                      Location: Japan
+                      <br />
+                      (We do not have a physical address and operate online)
+                    </p>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <Link
+                      href="https://twitter.com/UniPro_digital"
+                      className="text-slate-400 hover:text-white transition-colors"
+                    >
+                      <FaTwitter size={18} className="sm:w-5 sm:h-5" />
+                    </Link>
+                    <Link
+                      href="https://github.com/UniPro-tech"
+                      className="text-slate-400 hover:text-white transition-colors"
+                    >
+                      <FaGithub size={18} className="sm:w-5 sm:h-5" />
+                    </Link>
+                  </div>
                 </div>
-              </Link>
-              <div className="pl-20 font-sansjp">
-                デジタル創作サークル UniProject
-                <br />
-                所在地: 日本
-                <br />
-                (私たちは住所を持たず、オンラインで活動しています)
               </div>
-              <div className="pl-20 font-sansen">
-                Digital Creative Club UniProject
-                <br />
-                Location: Japan
-                <br />
-                (We do not have a physical address and operate online)
-              </div>
-            </div>
-            <div className="flex flex-col items-start w-[240px] justify-start space-y-3 h-full">
-              <h3 className="text-2xl font-bold font-sansjp mb-5">
-                関連サイト
-              </h3>
-              <div className="flex flex-col items-start justify-center space-y-3">
+
+              {/* 関連サイト */}
+              <div className="md:col-span-1 lg:col-span-4">
+                <h3 className="text-base sm:text-lg font-bold font-sansjp mb-4 sm:mb-6">
+                  関連サイト
+                </h3>
                 <Link
-                  href={"https://arane.uniproject.jp"}
-                  className="text-center hover:text-blue mx-auto"
+                  href="https://arane.uniproject.jp"
+                  className="inline-block hover:opacity-80 transition-opacity duration-300"
                 >
                   <Image
-                    src={"/img/aranenoyoru.png"}
+                    src="/img/aranenoyoru.png"
                     alt="aranenoyoru"
-                    width={200}
-                    height={200}
+                    width={300}
+                    height={300}
+                    className="rounded-lg w-[220px] sm:w-[260px] md:w-[300px] h-auto shadow-md hover:shadow-lg transition-shadow duration-300"
                   />
                 </Link>
               </div>
-            </div>
-            <div className="h-full flex flex-col items-start justify-center space-y-3">
-              <h3 className="text-2xl font-bold font-sansjp">SNS</h3>
-              <div className="flex flex-row p-1 items-start justify-center space-x-3 space-y-0">
-                <Link
-                  href={"https://twitter.com/UniPro_digital"}
-                  className="text-center hover:text-blue mx-auto"
-                >
-                  <FaTwitter size={25} />
-                </Link>
-                <Link
-                  href={"https://github.com/UniPro-tech"}
-                  className="text-center hover:text-blue mx-auto"
-                >
-                  <FaGithub size={25} />
-                </Link>
+
+              {/* ステータス */}
+              <div className="md:col-span-2 lg:col-span-3">
+                <h3 className="text-base sm:text-lg font-bold font-sansjp mb-4 sm:mb-6">
+                  サービス稼働状況
+                </h3>
+                <iframe
+                  src="https://uniproject.instatus.com/embed-status/3559d5ef/light-md"
+                  width="230"
+                  height="61"
+                  className="border-0 scale-90 sm:scale-100 origin-left"
+                />
               </div>
-              <iframe
-                src="https://uniproject.instatus.com/embed-status/3559d5ef/light-md"
-                width="230"
-                height="61"
-                className="border-0"
-              />
             </div>
-          </div>
-          <div className="mt-3 lg:mx-20 flex flex-col text-sm items-center justify-center lg:space-x-3 lg:flex-row lg:justify-between lg:items-center lg:space-y-0">
-            <span className="flex-grow font-sansen order-2 lg:order-1 mt-5 lg:mt-0">
-              Copyright&copy;2024 UniProject All Rights Reserved.
-            </span>
-            <div className="flex flex-row items-center justify-center space-x-3 order-1 lg:order-2">
-              <Link
-                href={
-                  "https://wiki.uniproject.jp/share/6777ac6f4158e2abe61f39f3"
-                }
-                className="text-center hover:text-blue-200 font-sansjp"
-              >
-                &gt; サークル規約
-              </Link>
-              <Link
-                href={"/cookie"}
-                className="text-center hover:text-blue-200 font-sansjp"
-              >
-                &gt; Cookieについて
-              </Link>
-              <Link
-                href={"/lisence"}
-                className="text-center hover:text-blue-200 font-sansjp"
-              >
-                &gt; ライセンス
-              </Link>
-              <Link
-                href={"/contact"}
-                className="text-center hover:text-blue-200 font-sansjp"
-              >
-                &gt; 問い合わせ
-              </Link>
+
+            {/* 下部リンク */}
+            <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-800">
+              <div className="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6">
+                <p className="text-slate-400 text-xs sm:text-sm font-sansen">
+                  Copyright © 2024 UniProject All Rights Reserved.
+                </p>
+                <div className="flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-slate-300">
+                  <Link
+                    href="https://wiki.uniproject.jp/share/6777ac6f4158e2abe61f39f3"
+                    className="hover:text-white transition-colors"
+                  >
+                    サークル規約
+                  </Link>
+                  <Link
+                    href="/cookie"
+                    className="hover:text-white transition-colors"
+                  >
+                    Cookieについて
+                  </Link>
+                  <Link
+                    href="/license"
+                    className="hover:text-white transition-colors"
+                  >
+                    ライセンス
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="hover:text-white transition-colors"
+                  >
+                    問い合わせ
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </footer>
