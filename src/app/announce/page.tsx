@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   }
 };
 
-const ContactsPage: NextPage = () => {
+const AnnouncementsPage: NextPage = () => {
   const posts = getAllPosts().sort(
     (a, b) => b.date.getTime() - a.date.getTime()
   );
@@ -61,4 +61,4 @@ const ContactsPage: NextPage = () => {
   );
 };
 
-export default ContactsPage;
+export default AnnouncementsPage;
