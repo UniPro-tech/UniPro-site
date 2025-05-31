@@ -52,10 +52,10 @@ export default function Home() {
         className="relative w-[100vw] h-[100vh] flex flex-col items-start justify-center overflow-hidden"
       >
         {/* ベースの背景グラデーション */}
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-900/20 via-fuchsia-900/10 to-amber-900/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-violet-100/20 via-fuchsia-100/10 to-amber-100/20" />
 
         {/* 上部の暗いグラデーション */}
-        <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black/50 via-black/25 to-transparent z-[5]" />
+        <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black/40 via-black/20 to-transparent z-[5]" />
 
         <Image
           src="/img/top.webp"
