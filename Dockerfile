@@ -12,6 +12,6 @@ COPY . .
 
 EXPOSE 3000
 
-RUN bun --bun run build
+RUN bun run build
 
 CMD ["bun", "run", "start"]
