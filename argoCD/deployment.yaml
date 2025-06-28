@@ -39,4 +39,4 @@ spec:
             - name: TZ
               value: Asia/Tokyo
       imagePullSecrets:
-        - name: harbor-registry-secret
+        - name: internal-harbor
