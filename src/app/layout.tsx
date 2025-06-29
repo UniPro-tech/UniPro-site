@@ -5,6 +5,11 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import Hamburger from "@/components/hamburger";
 import Link from "next/link";
 import { FaTwitter, FaGithub } from "react-icons/fa";
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#3699d5"
+};
 
 export default function RootLayout({
   children
