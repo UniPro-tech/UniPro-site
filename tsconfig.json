@@ -21,7 +21,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/lib/posts.ts"
+    "src/lib/posts.ts",
+    "eslint.config.ts"
   ],
   "exclude": ["node_modules"]
 }

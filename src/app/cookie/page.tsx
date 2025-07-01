@@ -115,14 +115,14 @@ const Home = () => {
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               components={{
-                h1: ({ node, ...props }) => (
+                h1: props => (
                   <h1
                     {...props}
                     className="text-3xl font-bold text-gray-900 mb-8 pb-2 border-b-2 border-gray-200"
                   />
                 ),
                 // リンクをカスタマイズ
-                a: ({ node, ...props }) => (
+                a: props => (
                   <a
                     {...props}
                     target="_blank"
@@ -131,35 +131,35 @@ const Home = () => {
                   />
                 ),
                 // セクションの見出しをカスタマイズ
-                h2: ({ node, ...props }) => (
+                h2: props => (
                   <h2
                     {...props}
                     className="text-2xl font-bold text-gray-900 mb-6 mt-10 pb-2 border-b border-gray-200"
                   />
                 ),
                 // サブセクションの見出しをカスタマイズ
-                h3: ({ node, ...props }) => (
+                h3: props => (
                   <h3
                     {...props}
                     className="text-xl font-semibold text-gray-800 mb-4 mt-8"
                   />
                 ),
                 // h4のスタイリングを追加
-                h4: ({ node, ...props }) => (
+                h4: props => (
                   <h4
                     {...props}
                     className="text-lg font-semibold text-gray-700 mb-3 mt-6"
                   />
                 ),
                 // リストをカスタマイズ
-                ul: ({ node, ...props }) => (
+                ul: props => (
                   <ul
                     {...props}
                     className="list-disc pl-6 space-y-2 my-4 text-gray-700"
                   />
                 ),
                 // 段落をカスタマイズ
-                p: ({ node, ...props }) => (
+                p: props => (
                   <p
                     {...props}
                     className="text-gray-700 leading-relaxed mb-4"

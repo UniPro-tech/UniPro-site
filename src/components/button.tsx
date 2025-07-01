@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ComponentPropsWithoutRef, JSX, Ref, forwardRef } from "react";
+import { ComponentPropsWithoutRef, JSX, forwardRef } from "react";
 const styles = {
   commonDesign: "border-b text-black px-4 py-2 leading-none m-2",
   linkDisabled: "opacity-50 cursor-not-allowed leading-none"
@@ -23,9 +23,12 @@ type Props<T extends AS> = T extends "button" ? ButtonProps : CustomLinkProps;
  * @returns {JSX.Element} - The rendered button component.
  */
 // eslint-disable-next-line react/display-name
-export const Button = forwardRef<HTMLButtonElement, Props<AS>>((props, ref) => {
+export const Button = forwardRef<HTMLButtonElement, Props<AS>>(props => {
   const router = useRouter();
-  const handleClick = (e: any, href: string) => {
+  const handleClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    href: string
+  ) => {
     e.preventDefault();
     router.push(href);
   };
@@ -42,7 +45,7 @@ export const Button = forwardRef<HTMLButtonElement, Props<AS>>((props, ref) => {
   }*/
 
   const buttonAttributes = props as ButtonProps;
-  const { disabled, ...linkAttributes } = props as unknown as CustomLinkProps;
+  const { disabled } = props as unknown as CustomLinkProps;
   return (
     <>
       <button
