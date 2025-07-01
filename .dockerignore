@@ -8,3 +8,9 @@ colab_scripts.sh
 .prettierrc
 .gitignore
 .gitmessage
+eslint.config.ts
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+.prettierrc
+SECURITY.md
+argoCD
