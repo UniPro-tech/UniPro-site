@@ -27,7 +27,8 @@ export async function generateMetadata({
     title: `${post.title} | デジタル創作サークルUniProject`,
     description: post.description || "詳細はこの記事をご覧ください。",
     openGraph: {
-      title: post.title,
+      title: `${post.title}`,
+      siteName: "デジタル創作サークルUniProject",
       description: post.description || "詳細はこの記事をご覧ください。",
       type: "article",
       url: `https://uniproject.jp/announce/${slug}`
