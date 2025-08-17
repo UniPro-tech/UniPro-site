@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    siteName: "デジタル創作サークルUniProject",
     url: "https://www.uniproject.jp/cookie",
     title: "Cookieについて - UniProject公式HP",
     description:
