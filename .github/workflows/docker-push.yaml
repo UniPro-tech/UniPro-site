@@ -4,6 +4,10 @@ on:
     branches:
       - master
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
   BuildAndPush:
     runs-on: ubuntu-latest
