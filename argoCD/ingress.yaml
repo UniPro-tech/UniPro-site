@@ -5,11 +5,10 @@ metadata:
   namespace: unipro-site
   annotations:
     cert-manager.io/cluster-issuer: le-cf-prod
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    ngins.ingress.kubernetes.io/force-ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   rules:
     - host: www.uniproject.jp
       http:
