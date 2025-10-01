@@ -1,3 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-to-www
+  namespace: unipro-site
+spec:
+  redirectRegex:
+    # httpでもhttpsでもuniproject.jpに来たら
+    regex: ^https?://uniproject\.jp/(.*)
+    # www付きに飛ばす
+    replacement: https://www.uniproject.jp/${1}
+    permanent: true
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -7,6 +20,8 @@ metadata:
     cert-manager.io/cluster-issuer: le-cf-prod
     traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
     traefik.ingress.kubernetes.io/router.tls: "true"
+    # ミドルウェアを紐づける
+    traefik.ingress.kubernetes.io/router.middlewares: unipro-site-redirect-to-www@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
@@ -17,6 +32,18 @@ spec:
             pathType: Prefix
             backend:
               service:
+                name: unipro-site
+                port:
+                  number: 80
+    # apexも拾ってリダイレクトさせる
+    - host: uniproject.jp
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                # ダミーでもいい、どうせミドルウェアでredirectされる
                 name: unipro-site
                 port:
                   number: 80
