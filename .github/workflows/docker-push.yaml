@@ -5,11 +5,10 @@ on:
       - master
 
 concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: true
+  group: docker-build-push
 
 jobs:
-  BuildAndPush:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,15 +18,28 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
+        uses: docker/login-action@v3
         with:
           registry: registry.uniproject.jp
           username: robot$github-publisher
           password: ${{ secrets.HARBOR_TOKEN }}
 
-      - name: Build Docker image
-        run: docker build -t registry.uniproject.jp/hp-infra/unipro-site:latest .
-        id: build
+      - name: Add metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: registry.uniproject.jp/hp-infra/unipro-site
+          tags: |
+            type=raw,value=latest
+            type=sha,prefix=,suffix=,format=short
 
       - name: Push Docker image
-        run: docker push registry.uniproject.jp/hp-infra/unipro-site:latest
+        uses: docker/build-push-action@v5
+        with:
+          file: ./Dockerfile
+          push: true
+          context: .
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=registry,ref=registry.uniproject.jp/hp-infra/unipro-site:buildcache
+          cache-to: type=registry,ref=registry.uniproject.jp/hp-infra/unipro-site:buildcache,mode=max
