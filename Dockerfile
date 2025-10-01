@@ -15,9 +15,9 @@ COPY bun.lock .
 
 RUN bun install
 
-RUN bun run build
-
 COPY . .
+
+RUN bun run build
 
 EXPOSE 3000
 
