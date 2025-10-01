@@ -19,7 +19,8 @@ const NavLinks = ({ propClass, setIsMenuOpen }: PropsType) => {
   const links = [
     { label: "ABOUT", href: "/about" },
     { label: "ANNOUNCE", href: "/announce" },
-    { label: "CONTACT", href: "/contact" }
+    { label: "CONTACT", href: "/contact" },
+    { label: "SPONSORS", href: "/sponsors" }
   ];
 
   return (

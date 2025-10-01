@@ -22,3 +22,6 @@ yarn-error.log*
 
 # DS_Store files
 .DS_Store
+
+# Secret files
+.env
