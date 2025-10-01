@@ -77,7 +77,7 @@ export default async function SponsorPage() {
   const members = data?.members ?? [];
 
   return (
-    <main>
+    <main className="min-h-screen bg-white dark:bg-gray-900min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <section className="w-full pt-28 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center space-y-4">
