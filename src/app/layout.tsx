@@ -92,7 +92,7 @@ export default function RootLayout({
               </div>
 
               {/* 関連サイト */}
-              <div className="md:col-span-1 lg:col-span-4">
+              <div className="md:col-span-1 lg:col-span-4 flex flex-col gap-3">
                 <h3 className="text-base sm:text-lg font-bold font-sansjp mb-4 sm:mb-6">
                   関連サイト
                 </h3>
@@ -106,6 +106,18 @@ export default function RootLayout({
                     width={300}
                     height={300}
                     className="rounded-lg w-[220px] sm:w-[260px] md:w-[300px] h-auto shadow-md hover:shadow-lg transition-shadow duration-300"
+                  />
+                </Link>
+                <Link
+                  href="https://group.ysmserv.com/"
+                  className="inline-block hover:opacity-80 transition-opacity duration-300"
+                >
+                  <Image
+                    src="/img/ysm.png"
+                    alt="ysmserv"
+                    width={300}
+                    height={300}
+                    className="rounded-lg w-[90px] max-h-[75px] sm:w-[260px] md:w-[90px] shadow-md hover:shadow-lg transition-shadow duration-300"
                   />
                 </Link>
               </div>
