@@ -77,7 +77,7 @@ export default async function SponsorPage() {
   const members = data?.members ?? [];
 
   return (
-    <main className="min-h-screen bg-white dark:bg-gray-900min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <main className="min-h-screen bg-white bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <section className="w-full pt-28 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center space-y-4">
@@ -105,7 +105,7 @@ export default async function SponsorPage() {
           <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {members.map(m => (
               <li key={m.id} className="group">
-                <div className="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
+                <div className="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md">
                   <Image
                     src={buildAvatarUrl(m)}
                     alt={displayName(m)}
@@ -114,9 +114,7 @@ export default async function SponsorPage() {
                     className="h-24 w-24 rounded-full object-cover ring-2 ring-transparent group-hover:ring-indigo-400"
                   />
                   <div className="mt-3 text-center">
-                    <div className="text-sm font-semibold">
-                      {displayName(m)}
-                    </div>
+                    <div className="text-sm">{displayName(m)}</div>
                   </div>
                 </div>
               </li>

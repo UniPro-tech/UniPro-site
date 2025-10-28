@@ -257,7 +257,7 @@ const Home = () => {
             className="flex flex-row items-center px-6 sm:px-8 py-3 sm:py-4 bg-[#5865F2] text-white rounded-xl hover:bg-[#404EED] transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 group"
           >
             <svg
-              className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-0.5 transition-transform"
+              className="w-4 h-4 sm:w-5 sm:h-5 ml-2"
               fill="currentColor"
               viewBox="0 0 24 24"
             >

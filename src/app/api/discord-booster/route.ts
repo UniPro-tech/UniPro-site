@@ -42,7 +42,7 @@ async function discordFetch<T>(path: string, init?: RequestInit): Promise<T> {
 
   if (res.status === 429) {
     // Rate limited by Discord. Surface useful info to caller.
-    const body = await res.json().catch(() => ({}) as any);
+    const body = await res.json().catch(() => ({}));
     const retryAfter =
       (body && (body.retry_after ?? body.retryAfter)) ||
       res.headers.get("retry-after");
@@ -132,10 +132,10 @@ export async function GET(req: Request) {
       "public, s-maxage=300, stale-while-revalidate=60"
     );
     return res;
-  } catch (err: any) {
+  } catch (err: Error | unknown) {
     // Do not leak secrets; return safe error
     return NextResponse.json(
-      { error: err?.message || "Internal Server Error" },
+      { error: (err as Error)?.message || "Internal Server Error" },
       { status: 500 }
     );
   }
