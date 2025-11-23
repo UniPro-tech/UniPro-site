@@ -1,0 +1,9 @@
+* @UniPro-tech/Web
+*.md @UniPro-tech/Boardmember
+*.tsx @UniPro-tech/Boardmember @UniPro-tech/Web
+.github/ @UniPro-tech/github
+argoCD/ @UniPro-tech/Kubernetes
+.dockerignore @UniPro-tech/Kubernetes
+Docker @UniPro-tech/Kubernetes
+LICENSE @UniPro-tech/Boardmember
+pulic/ @UniPro-tech/Boardmember
