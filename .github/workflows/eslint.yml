@@ -1,40 +1,44 @@
-name: ESLint
-
+name: CI/eslint
 on:
   push:
-    branches: ["master"]
+    paths-ignore:
+      - "*.md"
+      - ".vscode/**"
   pull_request:
-    branches: ["master"]
-  schedule:
-    - cron: "31 21 * * 5"
-
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+    paths-ignore:
+      - "*.md"
+      - ".vscode/**"
 jobs:
-  eslint:
-    name: Run eslint scanning
-    runs-on: ubuntu-latest
+  lint:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
     permissions:
       contents: read
-      security-events: write
-      actions: read
+      pull-requests: write
+    strategy:
+      matrix:
+        env: [src]
+    if: github.event.pull_request.draft == false
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - name: Set up Bun
-        run: npm install -g bun
-
-      - name: Install ESLint
-        run: |
-          bun add eslint
-          bun add @microsoft/eslint-formatter-sarif
-
-      - name: Run ESLint
-        run: |
-          npx eslint . --ext .js,.jsx,.ts,.tsx --format @microsoft/eslint-formatter-sarif --output-file eslint-results.sarif
-        continue-on-error: true
-
-      - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3
+        uses: oven-sh/setup-bun@v2
         with:
-          sarif_file: eslint-results.sarif
-          wait-for-processing: true
+          bun-version: latest
+      - name: Install dependencies
+        run: bun install
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+      - name: Run reviewdog with eslint
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          filter_mode: diff_context
+          fail_level: error
+          workdir: ${{ matrix.env }}
