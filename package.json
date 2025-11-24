@@ -29,7 +29,7 @@
     "tocbot": "^4.36.4"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.5.6",
+    "@next/bundle-analyzer": "^16.0.3",
     "@next/eslint-plugin-next": "^15.5.6",
     "@types/node": "^22.19.1",
     "@types/react": "^19.2.6",
