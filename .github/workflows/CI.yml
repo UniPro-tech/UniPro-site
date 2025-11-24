@@ -1,4 +1,4 @@
-name: CI/eslint
+name: CI
 on:
   push:
     paths-ignore:
@@ -14,7 +14,7 @@ on:
       - "*.md"
       - ".vscode/**"
 jobs:
-  lint:
+  eslint:
     runs-on: ubuntu-24.04
     timeout-minutes: 3
     permissions:
