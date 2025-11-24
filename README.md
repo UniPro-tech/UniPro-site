@@ -1,7 +1,6 @@
 # UniPro-site
 
 [![CodeQL](https://github.com/UniPro-tech/UniPro-site/actions/workflows/github-code-scanning/codeql/badge.svg?branch=master)](https://github.com/UniPro-tech/UniPro-site/actions/workflows/github-code-scanning/codeql)
-[![Docker Build and Push](https://github.com/UniPro-tech/UniPro-site/actions/workflows/docker-push.yaml/badge.svg)](https://github.com/UniPro-tech/UniPro-site/actions/workflows/docker-push.yaml)
 [![Docker Build and Push](https://github.com/UniPro-tech/UniPro-site/actions/workflows/docker-tag.yaml/badge.svg)](https://github.com/UniPro-tech/UniPro-site/actions/workflows/docker-tag.yaml)
 [![ESLint](https://github.com/UniPro-tech/UniPro-site/actions/workflows/eslint.yml/badge.svg?branch=master)](https://github.com/UniPro-tech/UniPro-site/actions/workflows/eslint.yml)
 [![MIT LICENCE](http://img.shields.io/badge/license-MIT-blue.svg?logo=github&style=flat)](./LICENCE.md)
