@@ -6,6 +6,7 @@ resources:
   - ingress.yaml
   - registry.yaml
   - env.yaml
+  - imageUpdater.yaml
 labels:
   - includeSelectors: true
     pairs:

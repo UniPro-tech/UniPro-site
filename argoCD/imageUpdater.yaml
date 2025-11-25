@@ -1,0 +1,14 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: unipro-site
+  namespace: argocd
+spec:
+  namespace: argocd
+  applicationRefs:
+    - namePattern: "unipro-site"
+      images:
+        - alias: "unipro-site"
+          imageName: "registry.uniproject.jp/hp-infra/unipro-site"
+          commonUpdateSettings:
+            updateStrategy: "semver"
