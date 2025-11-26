@@ -11,60 +11,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup bun
-        uses: oven-sh/setup-bun@v2
-
-      - name: Run the script
-        run: scripts/allbuild.sh
-
-      - name: Copy src
-        run: cp -r src/* output
-
-      - name: Copy vercel.json
-        run: cp vercel.json output
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: output
-          path: ./output
-
-  prod:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup node
+      - name: Setup npm
         uses: actions/setup-node@v3
         with:
           node-version: 18
           check-latest: true
 
-      - name: Download artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: output
-          path: ./output
-
-      - name: Test
-        run: tree output
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Install Dependencies
+        run: npm install
 
       - name: Install Vercel CLI
-        run: npm install -g vercel
+        run: npm install --global vercel@latest
 
-      - name: Link Vercel Project
+      - name: Pull Vercel Environment Information
         run: |
-          cd output
           vercel link --token=${{secrets.VERCEL_TOKEN}} --project ${{secrets.PROJECT_ID}} --yes
+          vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy with Vercel
+      - name: Build Project Artifacts
         run: |
-          cd output
-          vercel deploy --prod -f --token=${{secrets.VERCEL_TOKEN}} >deployment-url.txt 2>error.txt
+          npm run build
+          vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} --project ${{secrets.PROJECT_ID}} --yes
+
+      - name: Upload artifact
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} --project ${{secrets.PROJECT_ID}} --yes
 
       - name: Set release url
         id: get_release_url
