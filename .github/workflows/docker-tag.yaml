@@ -36,7 +36,7 @@ jobs:
           tags: |
             type=raw,value=latest
             type=semver,pattern={{version}}
-            type=sha,prefix=,suffix=,format=short
+            type=sha,prefix=sha-,suffix=,format=short
       - name: Push Docker image
         uses: docker/build-push-action@v5
         with:
