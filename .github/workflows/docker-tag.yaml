@@ -45,5 +45,5 @@ jobs:
           context: .
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=registry.uniproject.jp/hp-infra/unipro-site:buildcache
-          cache-to: type=registry,ref=registry.uniproject.jp/hp-infra/unipro-site:buildcache,mode=max
+          cache-from: type=registry,ref=registry.uniproject.jp/infra/unipro-site:buildcache
+          cache-to: type=registry,ref=registry.uniproject.jp/infra/unipro-site:buildcache,mode=max
