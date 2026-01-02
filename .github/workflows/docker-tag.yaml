@@ -32,7 +32,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: registry.uniproject.jp/hp-infra/unipro-site
+          images: registry.uniproject.jp/infra/unipro-site
           tags: |
             type=raw,value=latest
             type=semver,pattern={{version}}
