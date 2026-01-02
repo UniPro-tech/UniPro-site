@@ -9,6 +9,6 @@ spec:
     - namePattern: "unipro-site"
       images:
         - alias: "unipro-site"
-          imageName: "registry.uniproject.jp/hp-infra/unipro-site"
+          imageName: "registry.uniproject.jp/official/unipro-site"
           commonUpdateSettings:
             updateStrategy: "semver"
