@@ -12,15 +12,17 @@ import styles from "./index.module.css";
 
 type PropsType = { images: { src: string; url: string }[] };
 const useIsPc = () => {
-  // 初期状態をサーバー側で false とする
-  const [isPc, setIsPc] = useState(false);
+  // 初期状態をサーバー側で false とする。クライアントでは現在のマッチ結果で初期化。
+  const [isPc, setIsPc] = useState<boolean>(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(min-width: 1024px)").matches
+      : false
+  );
 
   useEffect(() => {
     const mediaQueryList = window.matchMedia("(min-width: 1024px)");
-    const listener = () => setIsPc(mediaQueryList.matches);
+    const listener = (e: MediaQueryListEvent) => setIsPc(e.matches);
 
-    // 初回に現在の状態を設定
-    setIsPc(mediaQueryList.matches);
     mediaQueryList.addEventListener("change", listener);
 
     return () => mediaQueryList.removeEventListener("change", listener);
