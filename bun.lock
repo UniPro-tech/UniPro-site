@@ -7,7 +7,6 @@
       "dependencies": {
         "@next/third-parties": "^16.1.1",
         "@types/escape-html": "^1.0.4",
-        "@typescript-eslint/eslint-plugin": "^8.51.0",
         "escape-html": "^1.0.3",
         "gray-matter": "^4.0.3",
         "next": "^16.1.1",
