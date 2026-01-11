@@ -51,9 +51,9 @@ export default async function PostPage({ params }: PostPageProps) {
   const posts = await getRecentPosts(8);
 
   return (
-    <main className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <main className="min-h-screen w-full bg-linear-to-br from-slate-50 via-white to-slate-50">
       {/* ヘッダーセクション */}
-      <section className="w-full pt-28 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="w-full pt-28 pb-16 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center space-y-4">
             <h1 className="text-3xl lg:text-4xl font-bold font-sansen tracking-wide text-white animate-slideUp">
@@ -99,7 +99,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
       {/* 記事本文 */}
       <article className="max-w-4xl mx-auto px-6 py-12">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8 animate-fadeIn">
+        <div className="bg-white/80 backdrop-blur-xs rounded-2xl shadow-lg p-8 animate-fadeIn">
           <div className="prose-lg prose-slate w-full">
             <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown">
               {post.content}
@@ -109,7 +109,7 @@ export default async function PostPage({ params }: PostPageProps) {
       </article>
 
       {/* 最近のアナウンス */}
-      <section className="w-full py-16 bg-gradient-to-br from-slate-50/50 via-white to-slate-50/50">
+      <section className="w-full py-16 bg-linear-to-br from-slate-50/50 via-white to-slate-50/50">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-2xl font-bold font-sansen mb-8 text-center animate-fadeInUp">
             最近のアナウンス
@@ -117,7 +117,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <PostList
             posts={posts}
             dirname="announce"
-            className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden animate-fadeInUp animation-delay-300"
+            className="bg-white/80 backdrop-blur-xs rounded-2xl shadow-lg overflow-hidden animate-fadeInUp animation-delay-300"
           />
           <div className="text-center mt-8 animate-fadeInUp animation-delay-500">
             <Button

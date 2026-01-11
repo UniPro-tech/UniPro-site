@@ -29,9 +29,9 @@ export const metadata: Metadata = {
 
 const ContactsPage: NextPage = () => {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <main className="min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-50">
       {/* ヘッダーセクション */}
-      <section className="w-full pt-24 sm:pt-28 pb-12 sm:pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="w-full pt-24 sm:pt-28 pb-12 sm:pb-16 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="text-center space-y-3 sm:space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sansen tracking-wide text-white animate-slideUp">
@@ -48,7 +48,7 @@ const ContactsPage: NextPage = () => {
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {/* SNSセクション */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fadeInUp">
+          <div className="bg-white/80 backdrop-blur-xs rounded-2xl p-6 sm:p-8 shadow-xs hover:shadow-md transition-shadow duration-300 animate-fadeInUp">
             <div className="space-y-4 sm:space-y-6">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-3">
                 <svg
@@ -85,7 +85,7 @@ const ContactsPage: NextPage = () => {
           </div>
 
           {/* メールセクション */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300 animate-fadeInUp animation-delay-300">
+          <div className="bg-white/80 backdrop-blur-xs rounded-2xl p-6 sm:p-8 shadow-xs hover:shadow-md transition-shadow duration-300 animate-fadeInUp animation-delay-300">
             <div className="space-y-4 sm:space-y-6">
               <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-3">
                 <svg

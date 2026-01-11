@@ -33,9 +33,9 @@ const AnnouncementsPage: NextPage = () => {
     (a, b) => b.date.getTime() - a.date.getTime()
   );
   return (
-    <main className="flex min-h-screen flex-col items-center bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <main className="flex min-h-screen flex-col items-center bg-linear-to-br from-slate-50 via-white to-slate-50">
       {/* ヘッダーセクション */}
-      <section className="w-full pt-24 sm:pt-28 pb-12 sm:pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="w-full pt-24 sm:pt-28 pb-12 sm:pb-16 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center space-y-3 sm:space-y-4">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sansen tracking-wide text-white animate-slideUp">
@@ -54,8 +54,8 @@ const AnnouncementsPage: NextPage = () => {
           <PostList
             dirname="announce"
             posts={posts}
-            className="w-full bg-white backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-            listClassName="!grid-cols-1 md:!grid-cols-2"
+            className="w-full bg-white backdrop-blur-xs rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow"
+            listClassName="grid-cols-1! md:grid-cols-2!"
           />
         </div>
       </section>

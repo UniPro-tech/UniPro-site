@@ -48,13 +48,13 @@ export default function Home() {
     <main className="flex min-h-screen w-full flex-col items-center text-gray-800 space-y-0">
       <section
         id="first"
-        className="relative w-[100vw] h-[100vh] flex flex-col items-start justify-center overflow-hidden"
+        className="relative w-screen h-screen flex flex-col items-start justify-center overflow-hidden"
       >
         {/* ベースの背景グラデーション */}
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-100/20 via-fuchsia-100/10 to-amber-100/20" />
+        <div className="absolute inset-0 bg-linear-to-br from-violet-100/20 via-fuchsia-100/10 to-amber-100/20" />
 
         {/* 上部の暗いグラデーション */}
-        <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black/40 via-black/20 to-transparent z-[5]" />
+        <div className="absolute top-0 left-0 right-0 h-48 bg-linear-to-b from-black/40 via-black/20 to-transparent z-5" />
 
         <Image
           src="/img/top.webp"
@@ -65,7 +65,7 @@ export default function Home() {
           className="object-cover scale-105 transition-all duration-[2s] hover:scale-100 brightness-[0.85] hover:brightness-90 -z-10"
         />
         <div className="relative z-10 text-white md:ml-20 mx-4 flex flex-col items-start space-y-8 lg:w-1/2">
-          <div className="animate-fadeIn backdrop-blur-sm bg-white/5 p-6 sm:p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl">
+          <div className="animate-fadeIn backdrop-blur-xs bg-white/5 p-6 sm:p-8 md:p-12 rounded-3xl border border-white/10 shadow-2xl">
             <a href="#first" className="group">
               <h3 className="text-lg sm:text-xl lg:text-2xl text-left font-medium tracking-[0.2em] font-sansjp text-white/90 group-hover:text-white transition-all">
                 デジタル創作サークル
@@ -118,13 +118,13 @@ export default function Home() {
       </section>
       <section
         id="recent"
-        className="flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-slate-50 via-white to-slate-50"
+        className="flex min-h-screen w-full items-center justify-center bg-linear-to-br from-slate-50 via-white to-slate-50"
       >
         <div className="w-full px-4 sm:px-6 py-16 sm:py-24 lg:px-8">
           <div className="max-w-5xl mx-auto flex flex-col items-center space-y-8 sm:space-y-12">
             {/* タイトル部分 */}
             <div className="w-full text-center space-y-3 sm:space-y-4">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sansen tracking-wide animate-slideUp bg-gradient-to-br from-slate-900 to-slate-700 bg-clip-text text-transparent">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-sansen tracking-wide animate-slideUp bg-linear-to-br from-slate-900 to-slate-700 bg-clip-text text-transparent">
                 最近の出来事
               </h3>
               <p className="text-sm sm:text-base text-slate-600 font-sansjp tracking-wider">
@@ -138,8 +138,8 @@ export default function Home() {
                 <PostList
                   dirname="announce"
                   posts={posts}
-                  className="bg-white backdrop-blur-sm rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
-                  listClassName="!grid-cols-1 md:!grid-cols-2"
+                  className="bg-white backdrop-blur-xs rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow"
+                  listClassName="grid-cols-1! md:grid-cols-2!"
                 />
               </div>
               <Link

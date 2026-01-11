@@ -1,40 +1,106 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --primary-color: 59, 130, 246;
-  --accent-color: 251, 146, 60;
-  --background-light: 255, 255, 255;
-  --text-light: 255, 255, 255;
-  --text-dark: 31, 41, 55;
+@theme {
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-gradient-conic: conic-gradient(
+    from 180deg at 50% 50%,
+    var(--tw-gradient-stops)
+  );
+
+  --font-sansen: var(--font-noto-sans);
+  --font-sansjp: var(--font-noto-sans-jp);
+
+  --animate-fadeIn: fadeIn 0.5s ease-in forwards;
+  --animate-slideUp: slideUp 0.5s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes slideUp {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
 
-body {
-  color: rgb(var(--text-dark));
-  background: rgb(var(--background-light));
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+@utility fade-in {
+  @apply opacity-0 animate-fadeIn;
+}
+
+@utility animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+@utility animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+@utility animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out forwards;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  :root {
+    --primary-color: 59, 130, 246;
+    --accent-color: 251, 146, 60;
+    --background-light: 255, 255, 255;
+    --text-light: 255, 255, 255;
+    --text-dark: 31, 41, 55;
   }
 
-  .hover-lift {
-    @apply transition-transform duration-300 hover:-translate-y-1;
+  body {
+    color: rgb(var(--text-dark));
+    background: rgb(var(--background-light));
   }
+}
 
-  .fade-in {
-    @apply opacity-0 animate-fadeIn;
-  }
-
-  .animation-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animation-delay-500 {
-    animation-delay: 500ms;
-  }
+@layer utilities {
 
   @keyframes fadeInUp {
     from {
@@ -46,15 +112,11 @@ body {
       transform: translateY(0);
     }
   }
-
-  .animate-fadeInUp {
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
 }
 
 /* Markdown Styles */
 .markdown {
-  @apply text-gray-900 leading-relaxed break-words w-full;
+  @apply text-gray-900 leading-relaxed wrap-break-word w-full;
 }
 
 .markdown > * + * {
@@ -110,7 +172,7 @@ body {
 }
 
 .markdown code {
-  @apply font-mono text-sm px-1.5 py-0.5 bg-gray-100 text-gray-900 rounded;
+  @apply font-mono text-sm px-1.5 py-0.5 bg-gray-100 text-gray-900 rounded-sm;
 }
 
 .markdown pre {
@@ -130,7 +192,7 @@ body {
 }
 
 .markdown kbd {
-  @apply px-2 py-1 text-xs font-mono bg-gray-100 border border-gray-300 rounded shadow-sm;
+  @apply px-2 py-1 text-xs font-mono bg-gray-100 border border-gray-300 rounded-sm shadow-xs;
 }
 
 .markdown table {
@@ -151,7 +213,7 @@ body {
 
 /* シンタックスハイライトの背景色を上書き */
 .markdown .highlight pre {
-  @apply bg-gray-900 !important;
+  @apply bg-gray-900!;
 }
 
 /* スムーズなアンカースクロール */

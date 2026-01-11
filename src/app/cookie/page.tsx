@@ -94,9 +94,9 @@ Google Analyticsに関する情報は、以下のサイトからも入手でき�
 
 const Home = () => {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    <main className="min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-50">
       {/* ヘッダーセクション */}
-      <section className="w-full pt-28 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <section className="w-full pt-28 pb-16 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center space-y-4">
             <h1 className="text-4xl lg:text-5xl font-bold font-sansen tracking-wide text-white animate-slideUp">
@@ -111,7 +111,7 @@ const Home = () => {
 
       {/* コンテンツセクション */}
       <section className="max-w-4xl mx-auto px-6 py-12">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-sm p-8 md:p-12 animate-fadeIn">
+        <div className="bg-white/80 backdrop-blur-xs rounded-2xl shadow-xs p-8 md:p-12 animate-fadeIn">
           <div className="prose prose-slate max-w-none">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
