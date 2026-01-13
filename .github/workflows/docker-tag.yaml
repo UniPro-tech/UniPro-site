@@ -58,7 +58,7 @@ jobs:
         uses: sigstore/cosign-installer@v3
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Sign Docker images with GitHub OIDC (cosign keyless)
         env:
