@@ -25,18 +25,18 @@ jobs:
         env: [src]
     if: github.event.pull_request.draft == false
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
       - name: Set up Bun
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@b7a1c7ccf290d58743029c4f6903da283811b979 # v2
         with:
           bun-version: latest
       - name: Install dependencies
         run: bun install
-      - uses: reviewdog/action-setup@v1
+      - uses: reviewdog/action-setup@d8a7baabd7f3e8544ee4dbde3ee41d0011c3a93f # v1
         with:
           reviewdog_version: latest
       - name: Run reviewdog with eslint
-        uses: reviewdog/action-eslint@v1
+        uses: reviewdog/action-eslint@556a3fdaf8b4201d4d74d406013386aa4f7dab96 # v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           filter_mode: diff_context
