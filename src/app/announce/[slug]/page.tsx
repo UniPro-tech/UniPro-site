@@ -101,9 +101,11 @@ export default async function PostPage({ params }: PostPageProps) {
       <article className="max-w-4xl mx-auto px-6 py-12">
         <div className="bg-white/80 backdrop-blur-xs rounded-2xl shadow-lg p-8 animate-fadeIn">
           <div className="prose-lg prose-slate w-full">
-            <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown">
-              {post.content}
-            </ReactMarkdown>
+            <div className="markdown">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {post.content}
+              </ReactMarkdown>
+            </div>
           </div>
         </div>
       </article>
