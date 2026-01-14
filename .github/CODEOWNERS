@@ -1,6 +1,5 @@
 * @UniPro-tech/Web
 *.md @UniPro-tech/BoardMember
-*.tsx @UniPro-tech/BoardMember @UniPro-tech/Web
 .github/ @UniPro-tech/github
 argoCD/ @UniPro-tech/Kubernetes
 .dockerignore @UniPro-tech/Kubernetes
