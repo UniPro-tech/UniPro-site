@@ -19,7 +19,7 @@ spec:
   entryPoints:
     - websecure
     - web
-  Middlewares:
+  middlewares:
     - name: redirect-to-www
       namespace: unipro-site
   routes:
