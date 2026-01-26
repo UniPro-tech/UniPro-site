@@ -6,6 +6,6 @@ spec:
   selector:
     app: unipro-site
   ports:
-  - port: 80
-    targetPort: 3000
-  type: LoadBalancer
+    - port: 80
+      targetPort: 3000
+  type: ClusterIP
