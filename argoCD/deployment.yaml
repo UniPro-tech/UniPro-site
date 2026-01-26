@@ -15,7 +15,7 @@ spec:
       containers:
         - name: app
           image: registry.uniproject.jp/official/unipro-site:4.1.8
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
               name: default-port
