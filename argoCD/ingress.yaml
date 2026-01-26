@@ -19,9 +19,6 @@ spec:
   entryPoints:
     - websecure
     - web
-  middlewares:
-    - name: redirect-to-www
-      namespace: unipro-site
   routes:
     - kind: Rule
       match: Host(`www.uniproject.jp`) && PathPrefix(`/`)
@@ -30,6 +27,9 @@ spec:
         metrics: true
         tracing: true
       priority: 1
+      middlewares:
+        - name: redirect-to-www
+          namespace: unipro-site
       services:
         - kind: Service
           name: unipro-site
@@ -52,6 +52,9 @@ spec:
         metrics: true
         tracing: true
       priority: 1
+      middlewares:
+        - name: redirect-to-www
+          namespace: unipro-site
       services:
         - kind: Service
           name: unipro-site
