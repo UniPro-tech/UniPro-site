@@ -103,7 +103,7 @@ const Home = () => {
               </div>
               <div className="p-4 sm:p-6 bg-white rounded-2xl shadow-xs border border-blue-100">
                 <p className="text-base sm:text-lg leading-relaxed text-slate-700">
-                  やりたいことをできる場所、一緒にできる人を見つける環境をつくり続ける
+                  すべての人にツクル楽しさを。
                 </p>
               </div>
             </div>
@@ -138,7 +138,8 @@ const Home = () => {
               </div>
               <div className="p-4 sm:p-6 bg-white rounded-2xl shadow-xs border border-blue-100">
                 <p className="text-base sm:text-lg leading-relaxed text-slate-700">
-                  人がここにいたいと思える組織体制を構築する
+                  やりたいことをできる場所、一緒にできる人を見つけられる環境をつくり続ける。
+                  このサークルにいたい、ここで活動したいと思ってもらえるコミュニティを目指す。
                 </p>
               </div>
             </div>
