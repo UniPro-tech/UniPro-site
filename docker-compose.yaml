@@ -1,0 +1,16 @@
+name: unipro-site
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DISCORD_BOT_TOKEN: "YourToken"
+      DISCORD_GUILD_ID: "YourGuildID"
+      DISCORD_TARGET_ROLE_ID: "YourTargetRoleID"
+    networks:
+      - unipro-site-network
+
+networks:
+  unipro-site-network:
+    driver: bridge

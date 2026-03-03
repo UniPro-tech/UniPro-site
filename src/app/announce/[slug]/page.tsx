@@ -1,10 +1,11 @@
-import { getPostBySlug, getRecentPosts } from "@/lib/posts";
+import { getAllPosts, getPostBySlug, getRecentPosts } from "@/lib/posts";
 import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
 import PostList from "@/components/RecentPostList";
 import { getLastModifiedDate } from "@/lib/git";
 
 export const dynamic = "force-static";
+export const dynamicParams = false;
 
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -34,6 +35,13 @@ export async function generateMetadata({
       url: `https://uniproject.jp/announce/${slug}`
     }
   };
+}
+
+export async function generateStaticParams() {
+  const posts = getAllPosts();
+  return posts.map(post => ({
+    slug: post.slug
+  }));
 }
 
 type PostPageProps = { params: Promise<{ slug: string }> };

@@ -1,8 +1,9 @@
 import { NextPage } from "next";
-import React from "react";
 import { Metadata } from "next";
 import PostList from "@/components/PostList";
 import { getAllPosts } from "@/lib/posts";
+
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "お知らせ一覧 - UniProject",
