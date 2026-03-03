@@ -34,10 +34,10 @@ async function discordFetch<T>(path: string, init?: RequestInit): Promise<T> {
     headers: {
       Authorization: `Bot ${token}`,
       "Content-Type": "application/json",
-      ...(init?.headers || {})
+      ...(init?.headers || {}),
     },
     // Avoid caching Discord responses at the fetch layer
-    cache: "no-store"
+    cache: "no-store",
   });
 
   if (res.status === 429) {
@@ -47,7 +47,7 @@ async function discordFetch<T>(path: string, init?: RequestInit): Promise<T> {
       (body && (body.retry_after ?? body.retryAfter)) ||
       res.headers.get("retry-after");
     throw new Error(
-      `Discord rate limited (429). retry_after=${retryAfter ?? "unknown"}s`
+      `Discord rate limited (429). retry_after=${retryAfter ?? "unknown"}s`,
     );
   }
   if (!res.ok) {
@@ -59,19 +59,19 @@ async function discordFetch<T>(path: string, init?: RequestInit): Promise<T> {
 
 async function fetchAllGuildMembers(
   guildId: string,
-  max: number
+  max: number,
 ): Promise<DiscordMember[]> {
-  let after: string | undefined = undefined;
+  let after: string | undefined;
   const members: DiscordMember[] = [];
 
   while (true) {
     const params = new URLSearchParams({
-      limit: String(Math.min(PAGE_SIZE, max - members.length))
+      limit: String(Math.min(PAGE_SIZE, max - members.length)),
     });
     if (after) params.set("after", after);
 
     const batch = await discordFetch<DiscordMember[]>(
-      `/guilds/${guildId}/members?${params.toString()}`
+      `/guilds/${guildId}/members?${params.toString()}`,
     );
     if (!Array.isArray(batch) || batch.length === 0) break;
     members.push(...batch);
@@ -103,12 +103,12 @@ export async function GET(req: Request) {
     // Fetch members in pages and filter by role
     const allMembers = await fetchAllGuildMembers(guildId, max);
     const matched = allMembers.filter(
-      m => Array.isArray(m.roles) && m.roles.includes(roleId)
+      (m) => Array.isArray(m.roles) && m.roles.includes(roleId),
     );
 
     // Shape minimal public fields
     const members = matched
-      .map(m => ({
+      .map((m) => ({
         id: m.user?.id,
         username: m.user?.username,
         global_name: m.user?.global_name ?? null,
@@ -116,27 +116,27 @@ export async function GET(req: Request) {
         avatar: m.user?.avatar ?? null,
         nick: m.nick ?? null,
         joined_at: m.joined_at,
-        roles: m.roles
+        roles: m.roles,
       }))
-      .filter(m => m.id);
+      .filter((m) => m.id);
 
     // Cache at the CDN edge for a short period to ease rate limits
     const res = NextResponse.json({
       guildId,
       roleId,
       count: members.length,
-      members
+      members,
     });
     res.headers.set(
       "Cache-Control",
-      "public, s-maxage=300, stale-while-revalidate=60"
+      "public, s-maxage=300, stale-while-revalidate=60",
     );
     return res;
-  } catch (err: Error | unknown) {
+  } catch (err: unknown) {
     // Do not leak secrets; return safe error
     return NextResponse.json(
       { error: (err as Error)?.message || "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

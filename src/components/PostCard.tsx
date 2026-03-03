@@ -1,5 +1,5 @@
+import escapeHTML from "escape-html";
 import Link from "next/link";
-import escape from "escape-html";
 
 type PostCardProps = {
   dirname: string;
@@ -14,7 +14,7 @@ const PostCard = ({
   slug,
   title,
   date,
-  description
+  description,
 }: PostCardProps) => {
   return (
     <div
@@ -35,11 +35,12 @@ const PostCard = ({
         </p>
       </div>
       <Link
-        href={`/${escape(dirname)}/${escape(slug)}`}
+        href={`/${escapeHTML(dirname)}/${escapeHTML(slug)}`}
         className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
       >
         続きを読む
         <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+          <title>続きを読む</title>
           <path
             fillRule="evenodd"
             d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"

@@ -1,20 +1,20 @@
-import fs from "fs";
+import fs from "node:fs";
 import eventStream from "event-stream";
 import {
-  bold,
   blue,
+  bold,
   cyan,
   green,
   magenta,
   red,
-  yellow
+  yellow,
 } from "next/dist/lib/picocolors.js";
 
 const file = fs.createReadStream(process.argv[2]);
 
 const sum = (...args) => args.reduce((a, b) => a + b, 0);
 
-const aggregate = event => {
+const aggregate = (event) => {
   const isBuildModule = event.name.startsWith("build-module-");
   event.range = event.timestamp + (event.duration || 0);
   event.total = isBuildModule ? event.duration : 0;
@@ -47,16 +47,16 @@ const aggregate = event => {
     event.children.sort((a, b) => a.timestamp - b.timestamp);
     event.range = Math.max(
       event.range,
-      ...event.children.map(c => c.range || event.timestamp)
+      ...event.children.map((c) => c.range || event.timestamp),
     );
     event.total += isBuildModule
-      ? sum(...event.children.map(c => c.total || 0))
+      ? sum(...event.children.map((c) => c.total || 0))
       : 0;
   }
 };
 
 const formatDuration = (duration, isBold) => {
-  const color = isBold ? bold : x => x;
+  const color = isBold ? bold : (x) => x;
   if (duration < 1000) {
     return color(`${duration} µs`);
   } else if (duration < 10000) {
@@ -72,11 +72,11 @@ const formatDuration = (duration, isBold) => {
   } else if (duration < 100_000_000) {
     return color(red(`${Math.round(duration / 1000000)} s`));
   } else {
-    return color("🔥" + red(`${Math.round(duration / 1000000)} s`));
+    return color(`🔥${red(`${Math.round(duration / 1000000)} s`)}`);
   }
 };
 
-const formatTimes = event => {
+const formatTimes = (event) => {
   const range = event.range - event.timestamp;
   const additionalInfo = [];
   if (event.total && event.total !== range)
@@ -88,30 +88,30 @@ const formatTimes = event => {
   }`;
 };
 
-const formatFilename = filename => {
+const formatFilename = (filename) => {
   return cleanFilename(filename).replace(/.+[\\/]node_modules[\\/]/, "");
 };
 
-const cleanFilename = filename => {
+const cleanFilename = (filename) => {
   if (filename.includes("&absolutePagePath=")) {
     filename =
       "page " +
       decodeURIComponent(
-        filename.replace(/.+&absolutePagePath=/, "").slice(0, -1)
+        filename.replace(/.+&absolutePagePath=/, "").slice(0, -1),
       );
   }
   filename = filename.replace(/.+!(?!$)/, "");
   return filename;
 };
 
-const getPackageName = filename => {
+const getPackageName = (filename) => {
   const match = /.+[\\/]node_modules[\\/]((?:@[^\\/]+[\\/])?[^\\/]+)/.exec(
-    cleanFilename(filename)
+    cleanFilename(filename),
   );
-  return match && match[1];
+  return match?.[1];
 };
 
-const formatEvent = event => {
+const formatEvent = (event) => {
   let head;
   switch (event.name) {
     case "webpack-compilation":
@@ -146,7 +146,7 @@ const formatEvent = event => {
         } ${formatTimes(event)}`;
         if (childrenTimings && Object.keys(childrenTimings).length) {
           head += ` [${Object.keys(childrenTimings)
-            .map(key => `${key} ${formatDuration(childrenTimings[key])}`)
+            .map((key) => `${key} ${formatDuration(childrenTimings[key])}`)
             .join(", ")}]`;
         }
       } else {
@@ -154,22 +154,22 @@ const formatEvent = event => {
       }
       break;
   }
-  if (event.children && event.children.length) {
-    return head + "\n" + treeChildren(event.children.map(formatEvent));
+  if (event.children?.length) {
+    return `${head}\n${treeChildren(event.children.map(formatEvent))}`;
   } else {
     return head;
   }
 };
 
 const indentWith = (str, firstLinePrefix, otherLinesPrefix) => {
-  return firstLinePrefix + str.replace(/\n/g, "\n" + otherLinesPrefix);
+  return firstLinePrefix + str.replace(/\n/g, `\n${otherLinesPrefix}`);
 };
 
-const treeChildren = items => {
+const treeChildren = (items) => {
   let str = "";
   for (let i = 0; i < items.length; i++) {
     if (i !== items.length - 1) {
-      str += indentWith(items[i], "├─ ", "│  ") + "\n";
+      str += `${indentWith(items[i], "├─ ", "│  ")}\n`;
     } else {
       str += indentWith(items[i], "└─ ", "   ");
     }
@@ -182,13 +182,13 @@ const tracesById = new Map();
 file
   .pipe(eventStream.split())
   .pipe(
-    eventStream.mapSync(data => {
+    eventStream.mapSync((data) => {
       if (!data) return;
       const json = JSON.parse(data);
-      json.forEach(event => {
+      json.forEach((event) => {
         tracesById.set(event.id, event);
       });
-    })
+    }),
   )
   .on("end", () => {
     const rootEvents = [];
@@ -213,7 +213,7 @@ ${formatEvent({
   timestamp: 0,
   range: 24000000,
   total: 33000000,
-  childrenTimings: { "read-resource": 873, "next-babel-turbo-loader": 135000 }
+  childrenTimings: { "read-resource": 873, "next-babel-turbo-loader": 135000 },
 })}
        ════════╤═══════════════════════════════════ ═╤═        ═╤═       ═╤════   ═══════════╤════════════════════════════════════════
                └─ name of the processed module       │          │         │                  └─ timings of nested steps
@@ -224,14 +224,14 @@ ${formatEvent({
 ${formatEvent({
   name: "build-module-js",
   tags: {
-    name: "/Users/next-user/src/magic-ui/node_modules/lodash/camelCase.js"
+    name: "/Users/next-user/src/magic-ui/node_modules/lodash/camelCase.js",
   },
   packageName: "lodash",
   duration: 958000,
   timestamp: 0,
   range: 295000,
   childrenTimings: { "read-resource": 936000 },
-  mergedChildren: 281
+  mergedChildren: 281,
 })}
        ═╤════  ══════╤════════════   ═╤═
         │            │                └─ number of modules that are merged into that line

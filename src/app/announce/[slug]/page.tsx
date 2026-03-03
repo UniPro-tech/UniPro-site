@@ -1,18 +1,18 @@
-import { getAllPosts, getPostBySlug, getRecentPosts } from "@/lib/posts";
-import remarkGfm from "remark-gfm";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import PostList from "@/components/RecentPostList";
 import { getLastModifiedDate } from "@/lib/git";
+import { getAllPosts, getPostBySlug, getRecentPosts } from "@/lib/posts";
 
 export const dynamic = "force-static";
 export const dynamicParams = false;
 
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/button";
 
 export async function generateMetadata({
-  params
+  params,
 }: PostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
@@ -20,7 +20,7 @@ export async function generateMetadata({
   if (!post) {
     return {
       title: "記事が見つかりません  | デジタル創作サークルUniProject",
-      description: "指定された記事は見つかりませんでした。"
+      description: "指定された記事は見つかりませんでした。",
     };
   }
 
@@ -32,15 +32,15 @@ export async function generateMetadata({
       siteName: "デジタル創作サークルUniProject",
       description: post.description || "詳細はこの記事をご覧ください。",
       type: "article",
-      url: `https://uniproject.jp/announce/${slug}`
-    }
+      url: `https://uniproject.jp/announce/${slug}`,
+    },
   };
 }
 
 export async function generateStaticParams() {
   const posts = getAllPosts();
-  return posts.map(post => ({
-    slug: post.slug
+  return posts.map((post) => ({
+    slug: post.slug,
   }));
 }
 
@@ -75,6 +75,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
+                  <title>投稿日</title>
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -91,6 +92,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
+                  <title>最終更新日</title>
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

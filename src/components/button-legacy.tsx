@@ -1,8 +1,14 @@
-import Link from "next/link";
-import { ComponentPropsWithoutRef, JSX, Ref, forwardRef } from "react";
+import type Link from "next/link";
+import {
+  type ComponentPropsWithoutRef,
+  forwardRef,
+  type JSX,
+  type Ref,
+} from "react";
+
 const styles = {
   commonDesign: "border-b text-white px-4 py-2 leading-none m-2",
-  linkDisabled: "opacity-50 cursor-not-allowed leading-none"
+  linkDisabled: "opacity-50 cursor-not-allowed leading-none",
 };
 
 // buttonタグのprops + ref

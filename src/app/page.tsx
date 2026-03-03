@@ -1,9 +1,9 @@
-import { Metadata } from "next";
-import { Button } from "@/components/button";
-import { getRecentPosts } from "@/lib/posts";
-import PostList from "@/components/RecentPostList";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/button";
+import PostList from "@/components/RecentPostList";
+import { getRecentPosts } from "@/lib/posts";
 
 export const dynamic = "force-static";
 
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
         url: "https://www.uniproject.jp/img/UniPro_Logo.webp",
         width: 128,
         height: 134,
-        alt: "UniProjectのロゴ"
-      }
-    ]
+        alt: "UniProjectのロゴ",
+      },
+    ],
   },
   openGraph: {
     type: "website",
@@ -37,11 +37,11 @@ export const metadata: Metadata = {
         url: "https://www.uniproject.jp/img/UniPro_Logo.webp",
         width: 128,
         height: 134,
-        alt: "UniProjectのロゴ"
-      }
-    ]
+        alt: "UniProjectのロゴ",
+      },
+    ],
   },
-  alternates: { canonical: "https://www.uniproject.jp/" }
+  alternates: { canonical: "https://www.uniproject.jp/" },
 };
 
 export default function Home() {

@@ -1,5 +1,5 @@
-import { execFileSync } from "child_process";
-import path from "path";
+import { execFileSync } from "node:child_process";
+import path from "node:path";
 
 /**
  * 指定したファイルの最終更新日時をGitのログから取得します
@@ -15,7 +15,7 @@ export function getLastModifiedDate(filePath: string): Date {
     const timestamp = execFileSync(
       "git",
       ["log", "-1", "--format=%cd", "--date=iso", absolutePath],
-      { encoding: "utf-8" }
+      { encoding: "utf-8" },
     ).trim();
 
     return new Date(timestamp);

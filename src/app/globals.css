@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
@@ -101,7 +101,6 @@
 }
 
 @layer utilities {
-
   @keyframes fadeInUp {
     from {
       opacity: 0;

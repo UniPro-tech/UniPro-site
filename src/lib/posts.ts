@@ -1,5 +1,5 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 import matter from "gray-matter";
 
 export type Post = {
@@ -14,7 +14,7 @@ export function getAllPosts(): Post[] {
   const postsDirectory = path.join(process.cwd(), "posts");
   const filenames = fs.readdirSync(postsDirectory);
 
-  return filenames.map(filename => {
+  return filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
@@ -24,7 +24,7 @@ export function getAllPosts(): Post[] {
       title: data.title,
       date: data.date,
       description: data.description,
-      content
+      content,
     };
   });
 }
@@ -33,7 +33,7 @@ export function getRecentPosts(limit: number = 5): Post[] {
   const postsDirectory = path.join(process.cwd(), "posts");
   const filenames = fs.readdirSync(postsDirectory);
 
-  const posts = filenames.map(filename => {
+  const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
@@ -43,7 +43,7 @@ export function getRecentPosts(limit: number = 5): Post[] {
       title: data.title,
       date: data.date,
       description: data.description,
-      content
+      content,
     };
   });
 
@@ -64,6 +64,6 @@ export function getPostBySlug(slug: string): Post {
     title: data.title,
     date: new Date(data.date),
     description: data.description,
-    content
+    content,
   };
 }

@@ -1,18 +1,18 @@
-import { notoSansEn, notoSansJa } from "@/lib/fonts";
 import Image from "next/image";
+import { notoSansEn, notoSansJa } from "@/lib/fonts";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Hamburger from "@/components/hamburger";
-import Link from "next/link";
-import { FaTwitter, FaGithub } from "react-icons/fa";
 import type { Viewport } from "next";
+import Link from "next/link";
+import { FaGithub, FaTwitter } from "react-icons/fa";
+import Hamburger from "@/components/hamburger";
 
 export const viewport: Viewport = {
-  themeColor: "#3699d5"
+  themeColor: "#3699d5",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
@@ -105,7 +105,7 @@ export default function RootLayout({
                     alt="aranenoyoru"
                     width={300}
                     height={300}
-                    className="rounded-lg w-[220px] sm:w-[260px] md:w-[300px] h-auto shadow-md hover:shadow-lg transition-shadow duration-300"
+                    className="rounded-lg w-55 sm:w-65 md:w-75 h-auto shadow-md hover:shadow-lg transition-shadow duration-300"
                   />
                 </Link>
                 <Link
@@ -117,7 +117,7 @@ export default function RootLayout({
                     alt="ysmserv"
                     width={300}
                     height={300}
-                    className="rounded-lg w-[90px] max-h-[75px] sm:w-[260px] md:w-[90px] shadow-md hover:shadow-lg transition-shadow duration-300"
+                    className="rounded-lg w-22.5 max-h-18.75 sm:w-65 md:w-22.5 shadow-md hover:shadow-lg transition-shadow duration-300"
                   />
                 </Link>
               </div>
@@ -128,11 +128,14 @@ export default function RootLayout({
                   サービス稼働状況
                 </h3>
                 <iframe
-                  src="https://uniproject.instatus.com/embed-status/3559d5ef/light-md"
-                  width="230"
-                  height="61"
-                  className="border-0 scale-90 sm:scale-100 origin-left"
-                />
+                  title="BetterStack"
+                  src="https://betterstack.uniproject.jp/badge?theme=light"
+                  width="250"
+                  height="30"
+                  frameBorder="0"
+                  scrolling="no"
+                  style={{ colorScheme: "normal" }}
+                ></iframe>
               </div>
             </div>
 

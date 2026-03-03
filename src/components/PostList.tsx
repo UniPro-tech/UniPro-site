@@ -1,4 +1,4 @@
-import { Post } from "@/lib/posts";
+import type { Post } from "@/lib/posts";
 import PostCard from "./PostCard";
 
 export const dynamic = "force-static";
@@ -14,7 +14,7 @@ const PostList = ({
   dirname,
   posts,
   className,
-  listClassName
+  listClassName,
 }: PostListProps) => {
   return (
     <div className={`${className} flex flex-col items-center p-6`}>
@@ -22,7 +22,7 @@ const PostList = ({
         className={`grid gap-6 w-full ${listClassName}`}
         style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}
       >
-        {posts.map(post => (
+        {posts.map((post) => (
           <PostCard
             dirname={dirname}
             key={post.slug}

@@ -51,17 +51,17 @@ const ALLOW_BOTS = [
   "SlackBot",
   "Steeler",
   "Datadog/Synthetics",
-  "notebot"
+  "notebot",
 ];
 
-const ALLOW_RULES = ALLOW_BOTS.map(bot => ({
+const ALLOW_RULES = ALLOW_BOTS.map((bot) => ({
   userAgent: bot,
-  allow: "/"
+  allow: "/",
 }));
 
 export default function robots() {
   return {
     rules: [...ALLOW_RULES],
-    sitemap: `https://www.yuito-it.jp/sitemap.xml`
+    sitemap: `https://www.yuito-it.jp/sitemap.xml`,
   };
 }

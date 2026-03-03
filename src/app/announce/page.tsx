@@ -1,5 +1,4 @@
-import { NextPage } from "next";
-import { Metadata } from "next";
+import type { Metadata, NextPage } from "next";
 import PostList from "@/components/PostList";
 import { getAllPosts } from "@/lib/posts";
 
@@ -14,7 +13,7 @@ export const metadata: Metadata = {
     site: "@UniPro_digital",
     title: "お知らせ一覧 - UniProject",
     description:
-      "UniProjectのお知らせ一覧です。運営情報や各種イベントなどの情報も掲載しています。"
+      "UniProjectのお知らせ一覧です。運営情報や各種イベントなどの情報も掲載しています。",
   },
   openGraph: {
     type: "website",
@@ -22,16 +21,16 @@ export const metadata: Metadata = {
     url: "https://www.uniproject.jp",
     title: "お知らせ一覧 - UniProject",
     description:
-      "UniProjectのお知らせ一覧です。運営情報や各種イベントなどの情報も掲載しています。"
+      "UniProjectのお知らせ一覧です。運営情報や各種イベントなどの情報も掲載しています。",
   },
   alternates: {
-    canonical: "https://www.uniproject.jp/announce"
-  }
+    canonical: "https://www.uniproject.jp/announce",
+  },
 };
 
 const AnnouncementsPage: NextPage = () => {
   const posts = getAllPosts().sort(
-    (a, b) => b.date.getTime() - a.date.getTime()
+    (a, b) => b.date.getTime() - a.date.getTime(),
   );
   return (
     <main className="flex min-h-screen flex-col items-center bg-linear-to-br from-slate-50 via-white to-slate-50">

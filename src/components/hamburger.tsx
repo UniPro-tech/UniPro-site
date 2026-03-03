@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
-import Link from "next/link";
-import NavLinks from "@/components/NavLinks";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import NavLinks from "@/components/NavLinks";
 
 /**
  * Hamburger component.
@@ -16,6 +16,7 @@ const Hamburger = () => {
       <button
         className="h-full flex items-start gap-4 px-3 group pt-8"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
+        type={"button"}
       >
         <span className="text-white/80 font-sansen text-lg group-hover:text-white transition-colors invisible md:visible">
           Menu
@@ -26,6 +27,7 @@ const Hamburger = () => {
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
+            <title>メニューを開く</title>
             <rect y="5" width="24" height="2" rx="1" />
             <rect y="11" width="24" height="2" rx="1" />
             <rect y="17" width="24" height="2" rx="1" />
@@ -37,10 +39,11 @@ const Hamburger = () => {
       ></div>
       {isMenuOpen && (
         <div className="navbar-menu relative z-50">
-          <div
+          <button
             className="navbar-backdrop fixed inset-0 bg-neutral-800 opacity-75"
             onClick={() => setIsMenuOpen(false)}
-          ></div>
+            type={"button"}
+          ></button>
           <div className="fixed top-0 right-0 bottom-0 flex flex-col w-4/6 max-w-sm py-6 px-6 bg-neutral-950/90 overflow-y-auto">
             {/* Logo & Close button */}
             <div className="flex items-center mb-8">
@@ -58,6 +61,7 @@ const Hamburger = () => {
               <button
                 className="navbar-close ml-14"
                 onClick={() => setIsMenuOpen(false)}
+                type={"button"}
               >
                 <svg
                   className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
@@ -66,6 +70,7 @@ const Hamburger = () => {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
+                  <title>メニューを閉じる</title>
                   <path d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
