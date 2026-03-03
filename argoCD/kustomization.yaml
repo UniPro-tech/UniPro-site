@@ -7,6 +7,7 @@ resources:
   - registry.yaml
   - env.yaml
   - imageUpdater.yaml
+  - hpa.yaml
 labels:
   - includeSelectors: true
     pairs:
