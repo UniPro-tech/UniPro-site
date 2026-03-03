@@ -129,12 +129,13 @@ export default function RootLayout({
                 </h3>
                 <iframe
                   title="BetterStack"
-                  src="https://betterstack.uniproject.jp/badge?theme=light"
+                  src="https://betterstack.uniproject.jp/badge?theme=dark"
                   width="250"
                   height="30"
-                  frameBorder="0"
-                  scrolling="no"
-                  style={{ colorScheme: "normal" }}
+                  className="dark:block block scheme-only-dark forced-color-adjust-none"
+                  style={{
+                    colorScheme: "none",
+                  }}
                 ></iframe>
               </div>
             </div>
