@@ -20,12 +20,12 @@ spec:
             - containerPort: 3000
               name: default-port
           resources:
-            limits:
-              memory: "3Gi"
-              cpu: "2000m"
             requests:
-              memory: "1Gi"
-              cpu: "1000m"
+              cpu: 500m # 必要最低限の0.5CPUを確保
+              memory: 1Gi # 必要最低限の1GiBを確保
+            limits:
+              cpu: 1000m # 最大1CPUまで使用可能
+              memory: 2Gi # 最大2GiBまで使用可能
           readinessProbe:
             initialDelaySeconds: 30
             periodSeconds: 20
