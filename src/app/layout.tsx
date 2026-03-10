@@ -2,13 +2,22 @@ import Image from "next/image";
 import { notoSansEn, notoSansJa } from "@/lib/fonts";
 import "./globals.css";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import Hamburger from "@/components/hamburger";
 
 export const viewport: Viewport = {
   themeColor: "#3699d5",
+};
+
+export const metadata: Metadata = {
+  title: "UniProject - デジタル創作サークル",
+  description:
+    "UniProjectは、デジタル創作を愛する人々が集まるオンラインサークルです。私たちは、イラスト、音楽、ゲーム開発など、さまざまなデジタルコンテンツの制作に取り組んでいます。創作活動を通じて、メンバー同士が刺激し合い、成長できる環境を提供しています。",
+  other: {
+    "wot-verification": "be7bef1f9fc4a488a8df",
+  },
 };
 
 export default function RootLayout({
