@@ -33,6 +33,16 @@ export async function generateMetadata({
       description: post.description || "詳細はこの記事をご覧ください。",
       type: "article",
       url: `https://uniproject.jp/announce/${slug}`,
+      ...(post.ogImage
+        ? {
+            images: [
+              {
+                url: `https://uniproject.jp${post.ogImage}`,
+                alt: post.title,
+              },
+            ],
+          }
+        : {}),
     },
   };
 }

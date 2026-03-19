@@ -8,6 +8,7 @@ export type Post = {
   date: Date;
   description: string;
   content: string;
+  ogImage?: string;
 };
 
 export function getAllPosts(): Post[] {
