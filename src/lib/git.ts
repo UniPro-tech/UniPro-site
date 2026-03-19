@@ -1,5 +1,4 @@
 import { execFileSync } from "node:child_process";
-import path from "node:path";
 
 /**
  * 指定したファイルの最終更新日時をGitのログから取得します
