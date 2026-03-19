@@ -153,7 +153,8 @@ export default function RootLayout({
             <div className="mt-12 sm:mt-16 pt-6 sm:pt-8 border-t border-slate-800">
               <div className="flex flex-col-reverse lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6">
                 <p className="text-slate-400 text-xs sm:text-sm font-sansen">
-                  Copyright © 2024 UniProject All Rights Reserved.
+                  Copyright © 2024-{new Date().getFullYear()} UniProject All
+                  Rights Reserved.
                 </p>
                 <div className="flex flex-wrap gap-4 sm:gap-6 text-xs sm:text-sm text-slate-300">
                   <Link
