@@ -66,5 +66,6 @@ export function getPostBySlug(slug: string): Post {
     date: new Date(data.date),
     description: data.description,
     content,
+    ogImage: data.ogImage,
   };
 }
