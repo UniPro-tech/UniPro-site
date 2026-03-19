@@ -8,14 +8,16 @@ import path from "node:path";
  */
 export function getLastModifiedDate(filePath: string): Date {
   try {
-    // プロジェクトルートからの相対パスに変換
-    const absolutePath = path.join(process.cwd(), filePath);
+    // リポジトリのルートを取得して、そこで git log を実行する
+    const gitRoot = execFileSync("git", ["rev-parse", "--show-toplevel"], {
+      encoding: "utf-8",
+    }).trim();
 
-    // git logから最終コミット日時を取得
+    // パスは pathspec として渡す（-- で区切る）
     const timestamp = execFileSync(
       "git",
-      ["log", "-1", "--format=%cd", "--date=iso", absolutePath],
-      { encoding: "utf-8" },
+      ["log", "-1", "--format=%cd", "--date=iso", "--", filePath],
+      { encoding: "utf-8", cwd: gitRoot },
     ).trim();
 
     return new Date(timestamp);
