@@ -44,6 +44,31 @@ export async function generateMetadata({
           }
         : {}),
     },
+    twitter: {
+      card: "summary_large_image",
+      site: "@UniPro_digital",
+      title: `${post.title}`,
+      description: post.description || "詳細はこの記事をご覧ください。",
+      ...(post.ogImage
+        ? {
+            images: [
+              {
+                url: `https://uniproject.jp${post.ogImage}`,
+                alt: post.title,
+              },
+            ],
+          }
+        : {}),
+    },
+    alternates: {
+      canonical: `https://uniproject.jp/announce/${slug}`,
+    },
+    authors: [
+      {
+        name: "UniProject運営",
+        url: "https://www.uniproject.jp",
+      },
+    ],
   };
 }
 
