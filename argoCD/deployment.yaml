@@ -18,6 +18,7 @@ spec:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/role: "boardmember"
         vault.hashicorp.com/agent-inject-secret-config.txt: "kv-system/data/unipro-site/config"
+        vault.hashicorp.com/auth-path: "auth/kubernetes-system"
         vault.hashicorp.com/agent-inject-template-config.txt: |
           {{- with secret "kv-system/data/unipro-site/config" -}}
           DISCORD_BOT_TOKEN={{ .Data.data.DISCORD_BOT_TOKEN }}
