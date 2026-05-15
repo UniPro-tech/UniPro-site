@@ -17,10 +17,10 @@ spec:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
         vault.hashicorp.com/role: "boardmember"
-        vault.hashicorp.com/agent-inject-secret-config.txt: "kv-system/data/unipro-site/data"
+        vault.hashicorp.com/agent-inject-secret-config.txt: "kv-system/data/unipro-site"
         vault.hashicorp.com/auth-path: "auth/kubernetes-system"
         vault.hashicorp.com/agent-inject-template-config.txt: |
-          {{- with secret "kv-system/data/unipro-site/data" -}}
+          {{- with secret "kv-system/data/unipro-site" -}}
           DISCORD_BOT_TOKEN={{ .Data.data.DISCORD_BOT_TOKEN }}
           DISCORD_GUILD_ID={{ .Data.data.DISCORD_GUILD_ID }}
           DISCORD_TARGET_ROLE_ID={{ .Data.data.DISCORD_TARGET_ROLE_ID }}
