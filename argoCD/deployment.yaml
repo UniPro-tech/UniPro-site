@@ -27,6 +27,7 @@ spec:
       labels:
         app: unipro-site
     spec:
+      serviceAccountName: unipro-site-sa
       containers:
         - name: app
           image: registry.uniproject.jp/official/unipro-site:4.1.8
@@ -53,6 +54,5 @@ spec:
           env:
             - name: TZ
               value: Asia/Tokyo
-      serviceAccountName: unipro-site-sa
       imagePullSecrets:
         - name: internal-harbor
