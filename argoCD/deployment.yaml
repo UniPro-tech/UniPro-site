@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: boardmember
+  name: unipro-site-sa
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -50,7 +50,7 @@ spec:
               httpHeaders:
                 - name: X-k8s-Header
                   value: readiness
-          serviceAccountName: boardmember
+          serviceAccountName: unipro-site-sa
           env:
             - name: TZ
               value: Asia/Tokyo
