@@ -50,9 +50,9 @@ spec:
               httpHeaders:
                 - name: X-k8s-Header
                   value: readiness
-          serviceAccountName: unipro-site-sa
           env:
             - name: TZ
               value: Asia/Tokyo
+      serviceAccountName: unipro-site-sa
       imagePullSecrets:
         - name: internal-harbor
