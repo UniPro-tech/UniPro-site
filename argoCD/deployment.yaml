@@ -45,7 +45,7 @@ spec:
               cpu: 1
               memory: 2Gi # 最大2GiBまで使用可能
           command: ["sh", "-c"]
-          args: ["source /vault/secrets/config && bun server.js"]
+          args: [". /vault/secrets/config && bun server.js"]
           readinessProbe:
             initialDelaySeconds: 30
             periodSeconds: 20
