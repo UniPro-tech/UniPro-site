@@ -136,16 +136,14 @@ export default function RootLayout({
                 <h3 className="text-base sm:text-lg font-bold font-sansjp mb-4 sm:mb-6">
                   サービス稼働状況
                 </h3>
-                <iframe
-                  title="BetterStack"
-                  src="https://betterstack.uniproject.jp/badge?theme=dark"
-                  width="250"
-                  height="30"
-                  className="dark:block block scheme-only-dark forced-color-adjust-none"
-                  style={{
-                    colorScheme: "none",
-                  }}
-                ></iframe>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="w-3 h-3 rounded-full bg-green-500"></span>
+                    <p className="text-sm sm:text-base text-slate-300">
+                      現在、ウィジェット準備中...
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
