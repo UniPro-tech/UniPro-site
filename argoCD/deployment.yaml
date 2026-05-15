@@ -12,6 +12,7 @@ spec:
     matchLabels:
       app: unipro-site
   replicas: 1
+  revisionHistoryLimit: 1
   template:
     metadata:
       annotations:
