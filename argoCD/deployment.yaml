@@ -20,11 +20,11 @@ spec:
         vault.hashicorp.com/role: "boardmember"
         vault.hashicorp.com/agent-inject-secret-config.txt: "kv-system/data/unipro-site"
         vault.hashicorp.com/auth-path: "auth/kubernetes-system"
-        vault.hashicorp.com/agent-inject-template-config.txt: |
+        vault.hashicorp.com/agent-inject-template-config: |
           {{- with secret "kv-system/data/unipro-site" -}}
-          DISCORD_BOT_TOKEN={{ .Data.data.DISCORD_BOT_TOKEN }}
-          DISCORD_GUILD_ID={{ .Data.data.DISCORD_GUILD_ID }}
-          DISCORD_TARGET_ROLE_ID={{ .Data.data.DISCORD_TARGET_ROLE_ID }}
+          export DISCORD_BOT_TOKEN={{ .Data.data.DISCORD_BOT_TOKEN }}
+          export DISCORD_GUILD_ID={{ .Data.data.DISCORD_GUILD_ID }}
+          export DISCORD_TARGET_ROLE_ID={{ .Data.data.DISCORD_TARGET_ROLE_ID }}
           {{- end }}
       labels:
         app: unipro-site
@@ -44,6 +44,8 @@ spec:
             limits:
               cpu: 1
               memory: 2Gi # 最大2GiBまで使用可能
+          command: ["sh", "-c"]
+          args: ["source /vault/secrets/config && bun server.js"]
           readinessProbe:
             initialDelaySeconds: 30
             periodSeconds: 20
