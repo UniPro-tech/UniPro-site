@@ -40,10 +40,10 @@ spec:
           resources:
             requests:
               cpu: 500m # 必要最低限の0.5CPUを確保
-              memory: 1Gi # 必要最低限の1GiBを確保
+              memory: 256Mi # 必要最低限の256MiBを確保
             limits:
               cpu: 1
-              memory: 2Gi # 最大2GiBまで使用可能
+              memory: 512Mi # 最大512MiBまで使用可能
           command: ["sh", "-c"]
           args: [". /vault/secrets/config && bun server.js"]
           readinessProbe:
