@@ -16,16 +16,16 @@ spec:
   template:
     metadata:
       annotations:
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/role: "boardmember"
-        vault.hashicorp.com/agent-inject-secret-config.txt: "kv-system/data/unipro-site"
-        vault.hashicorp.com/auth-path: "auth/kubernetes-system"
-        vault.hashicorp.com/agent-inject-template-config: |
-          {{- with secret "kv-system/data/unipro-site" -}}
-          export DISCORD_BOT_TOKEN={{ .Data.data.DISCORD_BOT_TOKEN }}
-          export DISCORD_GUILD_ID={{ .Data.data.DISCORD_GUILD_ID }}
-          export DISCORD_TARGET_ROLE_ID={{ .Data.data.DISCORD_TARGET_ROLE_ID }}
-          {{- end }}
+      #        vault.hashicorp.com/agent-inject: "true"
+      #        vault.hashicorp.com/role: "boardmember"
+      #        vault.hashicorp.com/agent-inject-secret-config.txt: "kv-system/data/unipro-site"
+      #        vault.hashicorp.com/auth-path: "auth/kubernetes-system"
+      #        vault.hashicorp.com/agent-inject-template-config: |
+      #          {{- with secret "kv-system/data/unipro-site" -}}
+      #          export DISCORD_BOT_TOKEN={{ .Data.data.DISCORD_BOT_TOKEN }}
+      #          export DISCORD_GUILD_ID={{ .Data.data.DISCORD_GUILD_ID }}
+      #          export DISCORD_TARGET_ROLE_ID={{ .Data.data.DISCORD_TARGET_ROLE_ID }}
+      #          {{- end }}
       labels:
         app: unipro-site
     spec:
@@ -44,8 +44,8 @@ spec:
             limits:
               cpu: 1
               memory: 512Mi # 最大512MiBまで使用可能
-          command: ["sh", "-c"]
-          args: [". /vault/secrets/config && bun server.js"]
+          #command: ["sh", "-c"]
+          #args: [". /vault/secrets/config && bun server.js"]
           readinessProbe:
             initialDelaySeconds: 30
             periodSeconds: 20
@@ -55,8 +55,8 @@ spec:
               httpHeaders:
                 - name: X-k8s-Header
                   value: readiness
-          env:
-            - name: TZ
-              value: Asia/Tokyo
+          envFrom:
+            - secretRef:
+                name: api-secret
       imagePullSecrets:
         - name: internal-harbor
