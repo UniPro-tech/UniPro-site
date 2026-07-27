@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - service.yaml
-  - ingress.yaml
+  - gateway.yaml
   - registry.yaml
   - env.yaml
   - imageUpdater.yaml
