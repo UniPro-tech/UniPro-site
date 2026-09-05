@@ -57,6 +57,7 @@ const ALLOW_BOTS = [
 const ALLOW_RULES = ALLOW_BOTS.map((bot) => ({
   userAgent: bot,
   allow: "/",
+  disallow: "/certificate/",
 }));
 
 export default function robots() {
