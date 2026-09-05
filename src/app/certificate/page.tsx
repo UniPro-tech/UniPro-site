@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import fs from "node:fs";
+import type { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
