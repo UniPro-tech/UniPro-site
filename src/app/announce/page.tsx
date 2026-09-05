@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "デジタル創作サークルUniProject",
-    url: "https://www.uniproject.jp",
+    url: "https://www.uniproject.jp/announce",
     title: "お知らせ一覧 - UniProject",
     description:
       "UniProjectのお知らせ一覧です。運営情報や各種イベントなどの情報も掲載しています。",
