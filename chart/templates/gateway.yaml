@@ -12,13 +12,11 @@ metadata:
   name: {{ include "unipro-site.fullname" . }}-redirect-to-www
   labels:
     {{- include "unipro-site.labels" . | nindent 4 }}
-  annotations:
-    external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
 
 spec:
   parentRefs:
-    - name: {{ .Values.gateway.name }}
-      namespace: {{ .Values.gateway.namespace }}
+    - name: {{ .Values.gateway.production.name }}
+      namespace: {{ .Values.gateway.production.namespace }}
 
   hostnames:
     - {{ .Values.gateway.production.apexHostname | quote }}
@@ -42,20 +40,31 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: {{ include "unipro-site.fullname" . }}
+
   labels:
     {{- include "unipro-site.labels" . | nindent 4 }}
 
+  {{- if .Values.preview.enabled }}
+  annotations:
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+  {{- end }}
+
 spec:
   parentRefs:
-  - name: {{ if .Values.preview.enabled }}{{ .Values.gateway.preview.name }}{{ else }}{{ .Values.gateway.production.name }}{{ end }}
-    namespace: {{ if .Values.preview.enabled }}{{ .Values.gateway.preview.namespace }}{{ else }}{{ .Values.gateway.production.namespace }}{{ end }}
+    {{- if .Values.preview.enabled }}
+    - name: {{ .Values.gateway.preview.name }}
+      namespace: {{ .Values.gateway.preview.namespace }}
+    {{- else }}
+    - name: {{ .Values.gateway.production.name }}
+      namespace: {{ .Values.gateway.production.namespace }}
+    {{- end }}
 
   hostnames:
-  - {{ if .Values.preview.enabled }}
-    {{ .Values.gateway.preview.hostname | quote }}
-    {{ else }}
-    {{ .Values.gateway.production.hostname | quote }}
-    {{ end }}
+    {{- if .Values.preview.enabled }}
+    - {{ .Values.gateway.preview.hostname | quote }}
+    {{- else }}
+    - {{ .Values.gateway.production.hostname | quote }}
+    {{- end }}
 
   rules:
     - matches:
@@ -71,7 +80,6 @@ spec:
       sessionPersistence:
         sessionName: {{ .Values.gateway.production.sessionPersistence.sessionName }}
         type: Cookie
-
         cookieConfig:
           lifetimeType: {{ .Values.gateway.production.sessionPersistence.lifetimeType }}
       {{- end }}
