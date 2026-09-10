@@ -16,7 +16,7 @@ jobs:
       github.event.issue.pull_request &&
       github.event.comment.body == '/preview'
 
-    uses: UniPro-tech/PreviewHelper/.github/workflows/approve-environment.yml@v0.1.0
+    uses: UniPro-tech/PreviewHelper/.github/workflows/approve-environment.yml@v0.1.1
 
     with:
       approve-environment: Preview
