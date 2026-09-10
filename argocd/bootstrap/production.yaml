@@ -10,7 +10,7 @@ spec:
 
   source:
     repoURL: https://github.com/UniPro-tech/UniPro-site.git
-    targetRevision: main
+    targetRevision: master
     path: chart
 
     helm:
