@@ -14,7 +14,7 @@ permissions:
   actions: read
 
 env:
-  APPROVER_TEAM_SLUG: BoardMember
+  APPROVER_TEAM_SLUG: boardmember
 
 jobs:
   approve:
