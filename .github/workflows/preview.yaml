@@ -1,4 +1,4 @@
-name: Docker Build and Push Preview
+name: Preview
 
 on:
   pull_request:
