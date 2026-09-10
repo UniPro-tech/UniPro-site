@@ -6,8 +6,6 @@ metadata:
   namespace: argocd
 
 spec:
-  namespace: argocd
-
   applicationRefs:
     - namePattern: "unipro-site"
 
