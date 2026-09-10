@@ -1,0 +1,63 @@
+name: Cleanup Preview Image
+
+on:
+  pull_request:
+    types:
+      - closed
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to Harbor
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4
+        with:
+          registry: registry.uniproject.jp
+          username: robot$github-publisher
+          password: ${{ secrets.HARBOR_TOKEN }}
+
+      - name: Delete preview images
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HARBOR_USERNAME: robot$github-publisher
+          HARBOR_PASSWORD: ${{ secrets.HARBOR_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          PROJECT="official"
+          REPOSITORY="unipro-site"
+          PREFIX="pr-${PR_NUMBER}-"
+
+          ARTIFACTS="$(
+            curl -fsS \
+              -u "${HARBOR_USERNAME}:${HARBOR_PASSWORD}" \
+              "https://registry.uniproject.jp/api/v2.0/projects/${PROJECT}/repositories/${REPOSITORY}/artifacts?page_size=100&with_tag=true"
+          )"
+
+          echo "$ARTIFACTS" |
+            jq -r \
+              --arg prefix "$PREFIX" '
+                .[]
+                | select(
+                    any(
+                      .tags[]?;
+                      .name | startswith($prefix)
+                    )
+                  )
+                | .digest
+              ' |
+            while read -r DIGEST; do
+              [ -z "$DIGEST" ] && continue
+
+              echo "Deleting artifact ${DIGEST}"
+
+              curl -fsS \
+                -u "${HARBOR_USERNAME}:${HARBOR_PASSWORD}" \
+                -X DELETE \
+                "https://registry.uniproject.jp/api/v2.0/projects/${PROJECT}/repositories/${REPOSITORY}/artifacts/${DIGEST}"
+            done
