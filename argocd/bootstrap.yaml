@@ -9,8 +9,8 @@ spec:
 
   source:
     repoURL: https://github.com/UniPro-tech/UniPro-site.git
-    targetRevision: main
-    path: argoCD/bootstrap
+    targetRevision: master
+    path: argocd/bootstrap
 
     directory:
       recurse: false
