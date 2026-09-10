@@ -138,7 +138,7 @@ jobs:
           ENV_ID="$(
             echo "$PENDING" |
             jq -r '
-              map(select(.environment.name == "preview"))
+              map(select(.environment.name == "Preview"))
               | .[0].environment.id
             '
           )"
