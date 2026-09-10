@@ -41,6 +41,7 @@ jobs:
           permission-deployments: write
           permission-issues: write
           permission-pull-requests: read
+          permission-members: read
 
       - name: Check preview approver
         env:
