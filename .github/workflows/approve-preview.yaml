@@ -8,13 +8,7 @@ on:
 permissions:
   contents: read
   pull-requests: read
-  deployments: write
   issues: write
-  id-token: write
-  actions: read
-
-env:
-  APPROVER_TEAM_SLUG: boardmember
 
 jobs:
   approve:
@@ -22,173 +16,11 @@ jobs:
       github.event.issue.pull_request &&
       github.event.comment.body == '/preview'
 
-    runs-on: ubuntu-latest
+    uses: UniPro-tech/PreviewHelper/.github/workflows/approve-environment.yml@v0.1.0
 
-    steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
-        with:
-          client-id: ${{ vars.PREVIEW_HELPER_CLIENT_ID }}
-          private-key: ${{ secrets.PREVIEW_HELPER_APP_PRIVATE_KEY }}
+    with:
+      approve-environment: Preview
 
-          owner: ${{ github.repository_owner }}
+      approvers: '["boardmember"]'
 
-          repositories: |
-            UniPro-site
-
-          permission-actions: read
-          permission-deployments: write
-          permission-issues: write
-          permission-pull-requests: read
-          permission-members: read
-
-      - name: Check preview approver
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          USERNAME: ${{ github.event.comment.user.login }}
-        shell: bash
-        run: |
-          STATUS="$(
-            curl -sS \
-              -o /tmp/membership.json \
-              -w "%{http_code}" \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/orgs/UniPro-tech/teams/${APPROVER_TEAM_SLUG}/memberships/${USERNAME}"
-          )"
-
-          if [ "$STATUS" != "200" ]; then
-            echo "User is not a preview approver"
-            exit 1
-          fi
-
-          STATE="$(jq -r '.state' /tmp/membership.json)"
-
-          if [ "$STATE" != "active" ]; then
-            echo "Membership is not active"
-            exit 1
-          fi
-
-      - name: Get PR info
-        id: pr
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        shell: bash
-        run: |
-          PR_NUMBER="${{ github.event.issue.number }}"
-
-          PR="$(
-            curl -fsS \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}"
-          )"
-
-          SHA="$(echo "$PR" | jq -r '.head.sha')"
-
-          echo "number=$PR_NUMBER" >> "$GITHUB_OUTPUT"
-          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
-
-      - name: Find preview workflow run
-        id: run
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          HEAD_SHA: ${{ steps.pr.outputs.sha }}
-        shell: bash
-        run: |
-          RUNS="$(
-            curl -fsS \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/runs?event=pull_request&head_sha=${HEAD_SHA}"
-          )"
-
-          RUN_ID="$(
-            echo "$RUNS" |
-            jq -r '
-              .workflow_runs
-              | map(select(.name == "Docker Build and Push Preview"))
-              | sort_by(.created_at)
-              | reverse
-              | .[0].id
-            '
-          )"
-
-          if [ "$RUN_ID" = "null" ] || [ -z "$RUN_ID" ]; then
-            echo "No workflow run found"
-            exit 1
-          fi
-
-          echo "id=$RUN_ID" >> "$GITHUB_OUTPUT"
-
-      - name: Approve preview environment
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-          RUN_ID: ${{ steps.run.outputs.id }}
-        shell: bash
-        run: |
-          PENDING="$(
-          curl -sS \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2026-03-10" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/runs/${RUN_ID}/pending_deployments"
-          )"
-
-          echo "$PENDING" | jq .
-
-          ENV_ID="$(
-            echo "$PENDING" |
-            jq -r '
-              map(select(.environment.name == "Preview"))
-              | .[0].environment.id
-            '
-          )"
-
-          CAN_APPROVE="$(
-            echo "$PENDING" |
-            jq -r '
-              map(select(.environment.name == "Preview"))
-              | .[0].current_user_can_approve
-            '
-          )"
-
-          echo "ENV_ID=${ENV_ID}"
-          echo "CURRENT_USER_CAN_APPROVE=${CAN_APPROVE}"
-
-          if [ "$ENV_ID" = "null" ] || [ -z "$ENV_ID" ]; then
-            echo "No pending preview environment"
-            exit 1
-          fi
-
-          RESPONSE="$(
-            curl -sS \
-              -X POST \
-              -w '\nHTTP_STATUS:%{http_code}\n' \
-              -H "Authorization: Bearer ${GH_TOKEN}" \
-              -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2026-03-10" \
-              -H "Content-Type: application/json" \
-              "https://api.github.com/repos/${{ github.repository }}/actions/runs/${RUN_ID}/pending_deployments" \
-              -d "{
-                \"environment_ids\": [${ENV_ID}],
-                \"state\": \"approved\",
-                \"comment\": \"Approved via /preview\"
-              }"
-          )"
-
-          echo "$RESPONSE"
-
-      - name: Add preview label
-        env:
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
-        shell: bash
-        run: |
-          curl -fsS \
-            -X POST \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            -H "Content-Type: application/json" \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/labels" \
-            -d '{"labels":["preview"]}'
+    secrets: inherit
