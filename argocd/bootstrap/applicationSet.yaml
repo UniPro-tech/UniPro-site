@@ -55,7 +55,7 @@ spec:
             - name: preview.prNumber
               value: "{{ .number }}"
 
-            - name: preview.hostname
+            - name: gateway.preview.hostname
               value: "pr-{{ .number }}-unipro-site.unpr.jp"
 
             # CI側でこのタグを生成する
