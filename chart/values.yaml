@@ -1,0 +1,64 @@
+nameOverride: ""
+fullnameOverride: ""
+
+replicaCount: 2
+
+image:
+  repository: registry.uniproject.jp/official/unipro-site
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+preview:
+  enabled: false
+  prNumber: ""
+  hostname: ""
+
+gateway:
+  enabled: true
+
+  production:
+    name: uniproject-jp-gateway
+    namespace: infra-gateway
+
+    apexHostname: uniproject.jp
+    hostname: www.uniproject.jp
+
+    redirectApex: true
+
+    sessionPersistence:
+      enabled: true
+      sessionName: cookie
+      lifetimeType: Session
+
+  preview:
+    name: unpr-jp-gateway
+    namespace: infra-gateway
+    hostname: ""
+
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 80
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+podAnnotations: {}
+podLabels: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

@@ -1,0 +1,57 @@
+{{/*
+Chart name.
+*/}}
+{{- define "unipro-site.name" -}}
+{{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Fully qualified application name.
+*/}}
+{{- define "unipro-site.fullname" -}}
+{{- if .Values.fullnameOverride }}
+{{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- $name := default .Chart.Name .Values.nameOverride }}
+{{- if contains $name .Release.Name }}
+{{- .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- else }}
+{{- printf "%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" }}
+{{- end }}
+{{- end }}
+{{- end }}
+
+{{/*
+Common labels.
+*/}}
+{{- define "unipro-site.labels" -}}
+helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+app.kubernetes.io/name: {{ include "unipro-site.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.preview.enabled }}
+uniproject.jp/environment: preview
+uniproject.jp/pr-number: {{ .Values.preview.prNumber | quote }}
+{{- else }}
+uniproject.jp/environment: production
+{{- end }}
+{{- end }}
+
+{{/*
+Selector labels.
+*/}}
+{{- define "unipro-site.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "unipro-site.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end }}
+
+{{/*
+Hostname.
+*/}}
+{{- define "unipro-site.hostname" -}}
+{{- if .Values.preview.enabled }}
+{{- required "preview.hostname must be set when preview.enabled=true" .Values.preview.hostname }}
+{{- else }}
+{{- required "gateway.hostname must be set" .Values.gateway.hostname }}
+{{- end }}
+{{- end }}

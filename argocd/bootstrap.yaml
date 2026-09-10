@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: unipro-site-argocd
+  namespace: argocd
+
+spec:
+  project: unipro-site
+
+  source:
+    repoURL: https://github.com/UniPro-tech/UniPro-site.git
+    targetRevision: main
+    path: argoCD/bootstrap
+
+    directory:
+      recurse: false
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

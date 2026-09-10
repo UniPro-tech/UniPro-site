@@ -1,0 +1,89 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: unipro-site-pr
+  namespace: argocd
+
+spec:
+  goTemplate: true
+
+  goTemplateOptions:
+    - missingkey=error
+
+  generators:
+    - pullRequest:
+        github:
+          owner: UniPro-tech
+          repo: UniPro-site
+
+          labels:
+            - preview
+
+        requeueAfterSeconds: 60
+
+  template:
+    metadata:
+      name: "unipro-site-pr-{{ .number }}"
+
+      labels:
+        app.kubernetes.io/name: unipro-site
+        uniproject.jp/environment: preview
+        uniproject.jp/pr-number: "{{ .number }}"
+
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+
+    spec:
+      project: default
+
+      source:
+        repoURL: https://github.com/UniPro-tech/UniPro-site.git
+
+        # PRのHEADそのものをデプロイ
+        targetRevision: "{{ .head_sha }}"
+
+        # Helm Chart
+        path: chart
+
+        helm:
+          releaseName: "unipro-site-pr-{{ .number }}"
+
+          parameters:
+            - name: preview.enabled
+              value: "true"
+
+            - name: preview.prNumber
+              value: "{{ .number }}"
+
+            - name: preview.hostname
+              value: "pr-{{ .number }}-unipro-site.unpr.jp"
+
+            # CI側でこのタグを生成する
+            #
+            # registry.uniproject.jp/official/unipro-site:
+            #   pr-123-acde1234
+            #
+            - name: image.tag
+              value: "pr-{{ .number }}-{{ .head_short_sha }}"
+
+            # Previewは通常1 Podで十分
+            - name: hpa.enabled
+              value: "false"
+
+            - name: replicaCount
+              value: "1"
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "preview-{{ .number }}"
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
+        syncOptions:
+          - CreateNamespace=true
+        managedNamespaceMetadata:
+          labels:
+            uniproject.jp/preview: "true"

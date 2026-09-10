@@ -1,0 +1,79 @@
+{{- if .Values.gateway.enabled }}
+
+{{/*
+Production only:
+uniproject.jp -> https://www.uniproject.jp
+*/}}
+{{- if and (not .Values.preview.enabled) .Values.gateway.production.redirectApex }}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "unipro-site.fullname" . }}-redirect-to-www
+  labels:
+    {{- include "unipro-site.labels" . | nindent 4 }}
+  annotations:
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+
+spec:
+  parentRefs:
+    - name: {{ .Values.gateway.name }}
+      namespace: {{ .Values.gateway.namespace }}
+
+  hostnames:
+    - {{ .Values.gateway.production.apexHostname | quote }}
+
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+
+      filters:
+        - type: RequestRedirect
+          requestRedirect:
+            scheme: https
+            hostname: {{ .Values.gateway.production.hostname | quote }}
+            statusCode: 301
+{{- end }}
+
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "unipro-site.fullname" . }}
+  labels:
+    {{- include "unipro-site.labels" . | nindent 4 }}
+
+spec:
+  parentRefs:
+  - name: {{ if .Values.preview.enabled }}{{ .Values.gateway.preview.name }}{{ else }}{{ .Values.gateway.production.name }}{{ end }}
+    namespace: {{ if .Values.preview.enabled }}{{ .Values.gateway.preview.namespace }}{{ else }}{{ .Values.gateway.production.namespace }}{{ end }}
+
+  hostnames:
+  - {{ if .Values.preview.enabled }}
+    {{ .Values.gateway.preview.hostname | quote }}
+    {{ else }}
+    {{ .Values.gateway.production.hostname | quote }}
+    {{ end }}
+
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+
+      backendRefs:
+        - name: {{ include "unipro-site.fullname" . }}
+          port: {{ .Values.service.port }}
+
+      {{- if and (not .Values.preview.enabled) .Values.gateway.production.sessionPersistence.enabled }}
+      sessionPersistence:
+        sessionName: {{ .Values.gateway.production.sessionPersistence.sessionName }}
+        type: Cookie
+
+        cookieConfig:
+          lifetimeType: {{ .Values.gateway.production.sessionPersistence.lifetimeType }}
+      {{- end }}
+
+{{- end }}
