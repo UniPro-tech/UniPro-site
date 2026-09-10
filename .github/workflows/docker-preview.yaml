@@ -41,7 +41,7 @@ jobs:
           echo "tag=pr-${PR_NUMBER}-${SHORT_SHA}" >> "$GITHUB_OUTPUT"
 
       - name: Login to Harbor
-        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f
+        uses: docker/login-action@0a596b2e7a325f0cedf8e9bd21ab002cbd3c9241
         with:
           registry: registry.uniproject.jp
           username: robot$github-publisher
