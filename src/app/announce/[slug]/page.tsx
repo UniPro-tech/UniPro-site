@@ -1,7 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import PostList from "@/components/RecentPostList";
-import { getLastModifiedDate } from "@/lib/git";
 import { getAllPosts, getPostBySlug, getRecentPosts } from "@/lib/posts";
 
 export const dynamic = "force-static";
@@ -88,8 +87,6 @@ export default async function PostPage({ params }: PostPageProps) {
     notFound();
   }
 
-  // 最終更新日を取得
-  const lastModified = getLastModifiedDate(`posts/${slug}.md`);
   // 最近の投稿を取得
   const posts = await getRecentPosts(8);
 
@@ -119,23 +116,6 @@ export default async function PostPage({ params }: PostPageProps) {
                   />
                 </svg>
                 投稿日: {new Date(post.date).toLocaleDateString("ja-JP")}
-              </p>
-              <p className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <title>最終更新日</title>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                最終更新: {lastModified.toLocaleDateString("ja-JP")}
               </p>
             </div>
           </div>
