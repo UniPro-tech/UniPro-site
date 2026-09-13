@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: bun install
       - name: Run reviewdog with biome
-        uses: mongolyy/reviewdog-action-biome@c49bee54c1f87e4be32446ae3deca3a186b88a3a # v2
+        uses: mongolyy/reviewdog-action-biome@6a70a14e22af921018dcf7c9f3f669cbdc83ca0c # v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
