@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { getLastModifiedDate } from "@/lib/git";
 import { getAllPosts } from "@/lib/posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -33,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 通常ページのサイトマップエントリーを生成
   const staticPages = pages.map((page) => ({
     url: `https://www.uniproject.jp${page.path}`,
-    lastModified: getLastModifiedDate(`src/app${page.path}/page.tsx`),
     priority: page.priority,
   }));
 
@@ -41,7 +39,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
   const postPages = posts.map((post) => ({
     url: `https://www.uniproject.jp/announce/${post.slug}`,
-    lastModified: getLastModifiedDate(`posts/${post.slug}.md`),
     priority: 0.6, // 記事ページの優先度
   }));
 
