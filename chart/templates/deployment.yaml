@@ -47,7 +47,7 @@ spec:
 
           {{- if .Values.env }}
           envFrom:
-            - configMapRef:
+            - secretRef:
                 name: {{ include "unipro-site.fullname" . }}-env
           {{- end }}
 
