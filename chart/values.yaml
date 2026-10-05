@@ -11,6 +11,8 @@ image:
 imagePullSecrets:
   - name: internal-harbor
 
+env: true
+
 service:
   type: ClusterIP
   port: 80
