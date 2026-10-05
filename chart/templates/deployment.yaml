@@ -45,11 +45,9 @@ spec:
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
 
-          {{- if .Values.env }}
           envFrom:
             - secretRef:
-                name: {{ include "unipro-site.fullname" . }}-env
-          {{- end }}
+                name: api-secret
 
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
